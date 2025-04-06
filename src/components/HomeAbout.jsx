@@ -15,11 +15,11 @@ const HomeAbout = () => {
                 <div className="bg-blue-600 dark:bg-blue-700 absolute -top-4 -left-4 w-24 h-24 rounded-tl-lg z-0"></div>
                 <div className="relative z-10 rounded-lg overflow-hidden shadow-xl">
                   <Image 
-                    src="/who-we-are.jpg" 
+                    src="https://picsum.photos/900/500" 
                     alt="Epimech Engineering Team" 
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
+                    width={800}
+                    height={90}
+                    className="w-full object-fit"
                   />
                 </div>
                 <div className="bg-blue-600 dark:bg-blue-700 absolute -bottom-4 -right-4 w-24 h-24 rounded-br-lg z-0"></div>
@@ -95,7 +95,7 @@ const HomeAbout = () => {
             <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
               <div className="relative h-60">
                 <Image 
-                  src="/project1.jpg" 
+                  src="https://picsum.photos/800/400"
                   alt="Emergency Propulsion System Replacement" 
                   fill
                   className="object-cover"
@@ -123,7 +123,7 @@ const HomeAbout = () => {
             <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
               <div className="relative h-60">
                 <Image 
-                  src="/project2.jpg" 
+                  src="https://picsum.photos/810/410" 
                   alt="Hydraulic System Modernization" 
                   fill
                   className="object-cover"
@@ -151,7 +151,7 @@ const HomeAbout = () => {
             <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
               <div className="relative h-60">
                 <Image 
-                  src="/project3.jpg" 
+                  src="https://picsum.photos/820/410"
                   alt="Cooling System Engineering" 
                   fill
                   className="object-cover"
@@ -195,7 +195,7 @@ const HomeAbout = () => {
               
               <div className="relative h-full max-h-64 md:max-h-full mt-6 md:mt-0">
                 <Image 
-                  src="/mission.jpg" 
+                  src="https://picsum.photos/1200/1200" 
                   alt="Epimech Mission" 
                   fill
                   className="object-cover rounded-lg"
