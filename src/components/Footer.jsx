@@ -1,4 +1,4 @@
-import { ExternalLink, Mail, Linkedin, Instagram, Facebook, Clock } from 'lucide-react';
+import { ExternalLink, Mail, Linkedin, Instagram, Facebook, Clock, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -101,6 +101,10 @@ function Footer() {
                                 <div className="flex items-start">
                                     <Mail className="text-gray-400 dark:text-gray-500 mt-1 mr-3" size={18} />
                                     <a href='mailto:info@epimech.com' className="text-gray-600 dark:text-gray-400">info@epimech.com</a>
+                                </div>
+                                <div className="flex items-start">
+                                    <Phone className="text-gray-400 dark:text-gray-500 mt-1 mr-3" size={18} />
+                                    <a href='tel:+16479754891' className="text-gray-600 dark:text-gray-400">+16479754891</a>
                                 </div>
                                 <div className="flex items-start">
                                     <Clock className="text-gray-400 dark:text-gray-500 mt-1 mr-3" size={18} />
