@@ -1,7 +1,7 @@
 {
-    "name": "Wikilytics",
-    "short_name": "Wikilytics",
-    "description": "A Wikipedia analytics tool",    
+    "name": "Epimech",
+    "short_name": "Epimech",
+    "description": "Our Website",    
     "start_url": "/",
     "display": "standalone",
     "background_color": "#4a4a4a",
