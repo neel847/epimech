@@ -9,6 +9,10 @@ body{
 .nav-header{
   font-family: 'Poppins', sans-serif !important;
 }
+
+.about-title,.mission-title,.title{
+  font-family: 'Barlow Condensed', sans-serif !important;
+}
 ::-webkit-scrollbar {
     width: 7px;
     height: 5px;

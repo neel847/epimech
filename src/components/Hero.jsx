@@ -4,20 +4,21 @@ import Link from 'next/link';
 
 const Hero = () => {
     return (
-        <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-screen max-h-screen mx-auto">
+        <div className=' dark:bg-gray-900'>
+        <div className="conatiner relative w-full max-w-[1900px] h-[60vh]  max-h-[1024px] mx-auto px-6 lg:px-8">
             <Image 
-                src="/hero_banner.png" 
+                src="/banner.png" 
                 alt="Epimech Engineering Solutions" 
                 fill
                 priority
                 className="object-cover" 
             />
-            <div className="absolute inset-0 mask-t-from-50% flex flex-col items-start justify-center bg-gradient-to-r from-black to-transparent px-4 sm:px-6 md:px-12 lg:px-24">
+            <div className="absolute inset-0 mask-t-from-50% flex flex-col items-start justify-center bg-gradient-to-r from-black  to-transparent bg-gradient-to-r px-4 sm:px-6 md:px-12 lg:px-24">
                 <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-left max-w-3xl leading-tight">
                     We are <span className="text-blue-400">Epimech</span>
                 </h1>
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mt-2 sm:mt-4 text-left max-w-2xl leading-tight text-white">
-                    Delivering <span className="text-blue-200">OEM-Quality Parts</span> Keep Ships Sailing & Engines Running
+                    Delivering <span className="text-blue-200">OEM-Quality Parts</span> <br></br>that Keep Ships Sailing & Engines Running
                 </h3>
                 <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl mt-2 sm:mt-4 text-left max-w-md sm:max-w-lg md:max-w-2xl">
                     Innovative solutions for modern engineering challenges, specializing in automation, precision manufacturing, and sustainable design.
@@ -49,6 +50,7 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };
