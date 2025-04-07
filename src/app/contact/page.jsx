@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import emailjs from '@emailjs/browser'; // ⬅️ Import EmailJS
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -31,77 +32,91 @@ const Contact = () => {
 
 
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  setFormStatus({
-    isSubmitting: true,
-    isSubmitted: false,
-    hasError: false,
-    message: ''
-  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormStatus({
+      isSubmitting: true,
+      isSubmitted: false,
+      hasError: false,
+      message: ''
+    });
 
-  const templateParams = {
-    name: `${formData.firstName} ${formData.lastName}`,
-    email: formData.email,
-    message: formData.message,
-    time: new Date().toLocaleString()
+    const templateParams = {
+      name: `${formData.firstName} ${formData.lastName}`,
+      email: formData.email,
+      message: formData.message,
+      time: new Date().toLocaleString()
+    };
+
+    emailjs.send(
+      'service_d3vepva',           // Your service ID
+      'template_xijdjkd',          // Your template ID
+      templateParams,
+      'tYzEgGmRbDQBlO5sF'            // ⬅️ Replace with your EmailJS public key (found in your EmailJS dashboard)
+    )
+      .then((response) => {
+        setFormStatus({
+          isSubmitting: false,
+          isSubmitted: true,
+          hasError: false,
+          message: 'Thank you! Your message has been sent.'
+        });
+
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      })
+      .catch((err) => {
+        console.error('EmailJS Error:', err);
+        setFormStatus({
+          isSubmitting: false,
+          isSubmitted: false,
+          hasError: true,
+          message: 'Oops! Something went wrong. Please try again.'
+        });
+      });
   };
 
-  emailjs.send(
-    'service_d3vepva',           // Your service ID
-    'template_xijdjkd',          // Your template ID
-    templateParams,
-    'tYzEgGmRbDQBlO5sF'            // ⬅️ Replace with your EmailJS public key (found in your EmailJS dashboard)
-  )
-    .then((response) => {
-      setFormStatus({
-        isSubmitting: false,
-        isSubmitted: true,
-        hasError: false,
-        message: 'Thank you! Your message has been sent.'
-      });
 
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
-      });
-    })
-    .catch((err) => {
-      console.error('EmailJS Error:', err);
-      setFormStatus({
-        isSubmitting: false,
-        isSubmitted: false,
-        hasError: true,
-        message: 'Oops! Something went wrong. Please try again.'
-      });
-    });
-};
-
-  
 
   return (
     <div className="bg-white transition-colors duration-300 dark:bg-gray-900">
-      
+
       {/* Hero Section with Black/Blue Gradient */}
       <div className="relative w-full h-[400px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-gray-600 via-blue-900 to-blue-700 dark:from-black dark:via-blue-900 dark:to-blue-800 animate-gradient-x duration-[1s,30s]"></div>
         <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
-          <h1 className="text-white text-5xl md:text-6xl font-bold text-center mb-6 tracking-tight">
-            Let's <span className="text-blue-400">Connect</span>
-          </h1>
-          <p className="text-gray-100 text-xl max-w-2xl text-center mb-8">
-            We're excited to hear from you and discuss how we can help with your engineering needs
-          </p>
-          <div className="flex items-center text-gray-300">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+
+          <motion.h1
+            className="text-white text-5xl md:text-7xl font-bold text-center mb-6 tracking-tight"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            Let's <span className="text-blue-300">Connect</span>
+          </motion.h1>
+          <motion.p
+            className="text-gray-100 text-xl max-w-3xl text-center mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >            We're excited to hear from you and discuss how we can help with your engineering needs
+          </motion.p>
+          <motion.div
+            className="flex items-center text-gray-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+          >            <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span className="mx-2">/</span>
             <span className="text-white">Contact</span>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -114,6 +129,7 @@ const handleSubmit = (e) => {
               <h2 className="title text-4xl font-bold text-blue-800 dark:text-white mb-6 border-b border-gray-200 dark:border-gray-800 pb-4">
                 Get In Touch
               </h2>
+
               {/* <p className="text-gray-600 dark:text-gray-400 mb-8">
                 Have questions or need assistance? Our team of experts is ready to help you find the perfect engineering solutions for your needs.
               </p> */}
@@ -345,7 +361,7 @@ const handleSubmit = (e) => {
       {/* Map Section */}
       {/* Map Section */}
       <div className="relative h-96 bg-gray-300 dark:bg-gray-700">
-       
+
         <div className="absolute inset-0 z-0">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5901.679069425008!2d-83.07885308781876!3d42.30328927107813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883b2d7f7bddcf37%3A0xb281617c310d599f!2s3165%20Russell%20St%2C%20Windsor%2C%20ON%20N9C%204E1!5e0!3m2!1sen!2sca!4v1743983357006!5m2!1sen!2sca"

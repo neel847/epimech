@@ -7,13 +7,13 @@ const HomeAbout = () => {
   // Animation variants
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.6 }
     }
   };
-  
+
   const staggerChildren = {
     hidden: { opacity: 0 },
     visible: {
@@ -23,25 +23,25 @@ const HomeAbout = () => {
       }
     }
   };
-  
+
   const imageAnimation = {
     hidden: { scale: 0.9, opacity: 0 },
-    visible: { 
-      scale: 1, 
+    visible: {
+      scale: 1,
       opacity: 1,
-      transition: { 
+      transition: {
         duration: 0.5,
         ease: "easeOut"
       }
     }
   };
-  
+
   const decorativeBlockAnimation = {
     hidden: { opacity: 0, scale: 0.7 },
-    visible: {  
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       scale: 1,
-      transition: { 
+      transition: {
         duration: 0.7,
         delay: 0.3
       }
@@ -53,7 +53,7 @@ const HomeAbout = () => {
       <div className="container mx-auto px-6 lg:px-8">
 
         {/* Why Choose Us - Edited Section */}
-        <motion.div 
+        <motion.div
           className="mb-24"
           initial="hidden"
           whileInView="visible"
@@ -61,16 +61,16 @@ const HomeAbout = () => {
           variants={fadeIn}
         >
           <div className="flex flex-col md:flex-row gap-12 items-center">
-            <motion.div 
+            <motion.div
               className="md:w-1/2"
               variants={imageAnimation}
             >
               <div className="relative">
-                <motion.div 
+                <motion.div
                   className="bg-blue-600 dark:bg-blue-700 absolute -top-4 -left-4 w-24 h-24 rounded-tl-lg z-0"
                   variants={decorativeBlockAnimation}
                 ></motion.div>
-                <motion.div 
+                <motion.div
                   className="relative z-10 rounded-lg overflow-hidden shadow-xl"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
@@ -85,18 +85,18 @@ const HomeAbout = () => {
                     />
                   </div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="bg-blue-600 dark:bg-blue-700 absolute -bottom-4 -right-4 w-24 h-24 rounded-br-lg z-0"
                   variants={decorativeBlockAnimation}
                 ></motion.div>
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="md:w-1/2"
               variants={fadeIn}
             >
-              <motion.h3 
+              <motion.h3
                 className="text-7xl font-semibold mb-12 text-gray-800 dark:text-white uppercase about-title"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -106,11 +106,11 @@ const HomeAbout = () => {
                 Why Choose <span className="text-blue-600 dark:text-blue-400">Epimech</span>
               </motion.h3>
 
-              <motion.div 
+              <motion.div
                 className="space-y-4 mb-6"
                 variants={staggerChildren}
               >
-                <motion.div 
+                <motion.div
                   className="flex items-start"
                   variants={fadeIn}
                   whileHover={{ x: 5 }}
@@ -127,7 +127,7 @@ const HomeAbout = () => {
                   </div>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   className="flex items-start"
                   variants={fadeIn}
                   whileHover={{ x: 5 }}
@@ -144,7 +144,7 @@ const HomeAbout = () => {
                   </div>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   className="flex items-start"
                   variants={fadeIn}
                   whileHover={{ x: 5 }}
@@ -162,7 +162,7 @@ const HomeAbout = () => {
                 </motion.div>
               </motion.div>
 
-              <motion.p 
+              <motion.p
                 className="text-gray-700 dark:text-gray-300 mb-6 italic border-l-4 border-blue-600 dark:border-blue-500 pl-4"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -190,7 +190,7 @@ const HomeAbout = () => {
         </motion.div>
 
         {/* Our Mission */}
-        <motion.div 
+        <motion.div
           className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 md:p-12"
           initial="hidden"
           whileInView="visible"
@@ -198,11 +198,11 @@ const HomeAbout = () => {
           variants={fadeIn}
         >
           <div className="flex flex-col md:flex-row gap-12">
-            <motion.div 
+            <motion.div
               className="md:w-1/3"
               variants={fadeIn}
             >
-              <motion.h6 
+              <motion.h6
                 className="text-5xl font-semibold mb-6 mission-title dark:text-white"
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -214,8 +214,8 @@ const HomeAbout = () => {
                   MISSION
                 </span>
               </motion.h6>
-              
-              <motion.h3 
+
+              <motion.h3
                 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -225,32 +225,32 @@ const HomeAbout = () => {
                 Engineering Reliability That Keeps the World Moving
               </motion.h3>
 
-              <motion.div 
-  className="relative h-[390px] w-full md:max-h-full mt-6 md:mt-0"
-  animate={{ scale: [1, 1.03, 1] }}
-  transition={{
-    duration: 4,
-    repeat: Infinity,
-    repeatType: 'loop',
-    ease: 'easeInOut',
-  }}
->
-  <Image
-    src="/mission.webp"
-    alt="Epimech Mission"
-    fill
-    className="object-cover rounded-lg mt-4"
-  />
-</motion.div>
+              <motion.div
+                className="relative h-[390px] w-full md:max-h-full mt-6 md:mt-0"
+                animate={{ scale: [1, 1.03, 1] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  repeatType: 'loop',
+                  ease: 'easeInOut',
+                }}
+              >
+                <Image
+                  src="/mission.webp"
+                  alt="Epimech Mission"
+                  fill
+                  className="object-cover rounded-lg mt-4"
+                />
+              </motion.div>
 
             </motion.div>
 
             <div className="md:w-2/3">
-              <motion.div 
+              <motion.div
                 className="grid grid-cols-1 md:grid-cols-2 gap-8"
                 variants={staggerChildren}
               >
-                <motion.div 
+                <motion.div
                   className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm"
                   variants={fadeIn}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
@@ -267,7 +267,7 @@ const HomeAbout = () => {
                   </p>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm"
                   variants={fadeIn}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
@@ -284,7 +284,7 @@ const HomeAbout = () => {
                   </p>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm"
                   variants={fadeIn}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
@@ -301,7 +301,7 @@ const HomeAbout = () => {
                   </p>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm"
                   variants={fadeIn}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
