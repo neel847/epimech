@@ -226,16 +226,23 @@ const HomeAbout = () => {
               </motion.h3>
 
               <motion.div 
-                className="relative h-[390px] w-full md:max-h-full mt-6 md:mt-0"
-                variants={imageAnimation}
-              >
-                <Image
-                  src="/mission.webp"
-                  alt="Epimech Mission"
-                  fill
-                  className="object-cover rounded-lg mt-4 "
-                />
-              </motion.div>
+  className="relative h-[390px] w-full md:max-h-full mt-6 md:mt-0"
+  animate={{ scale: [1, 1.03, 1] }}
+  transition={{
+    duration: 4,
+    repeat: Infinity,
+    repeatType: 'loop',
+    ease: 'easeInOut',
+  }}
+>
+  <Image
+    src="/mission.webp"
+    alt="Epimech Mission"
+    fill
+    className="object-cover rounded-lg mt-4"
+  />
+</motion.div>
+
             </motion.div>
 
             <div className="md:w-2/3">
