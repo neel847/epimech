@@ -19,7 +19,7 @@ function Footer() {
                                     height={28}
                                     className="mr-2"
                                 />
-                                <span className="text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-tight">
+                                <span className="nav-header text-4xl font-bold text-gray-900 dark:text-white uppercase tracking-tight">
                                     Epimech
                                 </span>
                             </Link>

@@ -79,7 +79,7 @@ function Navbar() {
                                 height={20}
                                 className="mr-2"
                             />
-                            <span className="text-xl pr-16 nav-header font-semibold text-gray-900 dark:text-white uppercase">
+                            <span className="text-2xl pr-16 nav-header font-semibold text-gray-900 dark:text-white uppercase">
                                 Epimech
                             </span>
                             
