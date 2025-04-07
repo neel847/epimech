@@ -13,6 +13,9 @@ body{
 .about-title,.mission-title,.title{
   font-family: 'Barlow Condensed', sans-serif !important;
 }
+.contact-headers h3,.contact-headers label{
+  font-weight: 700;
+}
 ::-webkit-scrollbar {
     width: 7px;
     height: 5px;

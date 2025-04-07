@@ -58,7 +58,7 @@ const CompanyStats = () => {
     return (
         <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
 
-            <div className='pt-32 container mx-auto px-6 lg:px-8'>
+            <div className='container mx-auto px-6 lg:px-8'>
                 <h3 className='px-6 pb-8 title font-bold dark:text-white text-black text-4xl'><span className='text-blue-600 dark:text-blue-400'>EPIMECH</span> AT A GLANCE</h3>
 
                 <section className="w-full bg-gray-100 dark:bg-gray-800 py-16 mx-auto rounded-lg">
@@ -159,7 +159,7 @@ const CompanyStats = () => {
                             viewport={{ once: true }}
                         >
                             <Link href="/contact">
-                                <motion.a
+                                <motion.p
                                     className="inline-flex items-center bg-blue-600 text-xl hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white font-medium py-4 px-8 rounded-md transition-colors duration-300 text-center shadow-md"
                                     whileHover={{ y: -3, boxShadow: "0 4px 12px rgba(0,0,0,0.15)" }}
                                     whileTap={{ y: 0 }}
@@ -168,7 +168,7 @@ const CompanyStats = () => {
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
-                                </motion.a>
+                                </motion.p>
                             </Link>
                         </motion.div>
                     </motion.div>

@@ -109,8 +109,7 @@ function Footer() {
                                 <div className="flex items-start">
                                     <Clock className="text-gray-400 dark:text-gray-500 mt-1 mr-3" size={18} />
                                     <div>
-                                        <p className="text-gray-600 dark:text-gray-400">Monday - Friday: 9 AM - 6 PM</p>
-                                        <p className="text-gray-600 dark:text-gray-400">Saturday: 10 AM - 4 PM</p>
+                                        <p className="text-gray-600 dark:text-gray-400">Monday - Saturday: 9 AM - 6 PM</p>
                                         <p className="text-gray-600 dark:text-gray-400">Sunday: Closed</p>
                                     </div>
                                 </div>

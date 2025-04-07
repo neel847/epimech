@@ -226,14 +226,14 @@ const HomeAbout = () => {
               </motion.h3>
 
               <motion.div 
-                className="relative h-full max-h-64 md:max-h-full mt-6 md:mt-0"
+                className="relative h-[390px] w-full md:max-h-full mt-6 md:mt-0"
                 variants={imageAnimation}
               >
                 <Image
-                  src="https://picsum.photos/1200/1200"
+                  src="/mission.webp"
                   alt="Epimech Mission"
                   fill
-                  className="object-cover rounded-lg"
+                  className="object-cover rounded-lg mt-4 "
                 />
               </motion.div>
             </motion.div>
@@ -253,7 +253,7 @@ const HomeAbout = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
-                  <h4 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Quality Assurance</h4>
+                  <h4 className="text-3xl font-semibold mb-3 text-gray-800 dark:text-white title">Quality Assurance</h4>
                   <p className="text-gray-600 dark:text-gray-300">
                     We maintain the highest standards of manufacturing and testing, ensuring every part
                     meets or exceeds OEM specifications for reliability in critical applications.
@@ -270,7 +270,7 @@ const HomeAbout = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                     </svg>
                   </div>
-                  <h4 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Engineering Innovation</h4>
+                  <h4 className="text-3xl font-semibold mb-3 text-gray-800 dark:text-white title">Engineering Innovation</h4>
                   <p className="text-gray-600 dark:text-gray-300">
                     Our R&D team continually develops improvements to standard components,
                     incorporating advanced materials and design techniques to extend service life.
@@ -287,7 +287,7 @@ const HomeAbout = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h4 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Rapid Response</h4>
+                  <h4 className="text-3xl font-semibold mb-3 text-gray-800 dark:text-white title">Rapid Response</h4>
                   <p className="text-gray-600 dark:text-gray-300">
                     We understand that downtime is costly. Our global support network and
                     strategic inventory positioning ensures fast delivery when and where it's needed.
@@ -304,7 +304,7 @@ const HomeAbout = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
                   </div>
-                  <h4 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Expert Support</h4>
+                  <h4 className="text-3xl font-semibold mb-3 text-gray-800 dark:text-white title">Expert Support</h4>
                   <p className="text-gray-600 dark:text-gray-300">
                     Our engineering team provides comprehensive technical support, from
                     installation guidance to troubleshooting and optimization recommendations.
