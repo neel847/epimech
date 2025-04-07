@@ -7,7 +7,9 @@ body{
 }
 
 .nav-header{
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 1.5rem;
+  letter-spacing: 2.9px;
 }
 
 .about-title,.mission-title,.title{

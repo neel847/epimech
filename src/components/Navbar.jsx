@@ -9,7 +9,7 @@ function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('');
     const [scrolled, setScrolled] = useState(false);
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState('dark');
 
     const handleToggle = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -18,7 +18,7 @@ function Navbar() {
         localStorage.setItem('theme', newTheme);
     };
     useEffect(() => {
-        const savedTheme = localStorage.getItem('theme') || 'light';
+        const savedTheme = localStorage.getItem('theme') || 'dark';
         setTheme(savedTheme);
         document.documentElement.classList.toggle('dark', savedTheme === 'dark');
     }, []);
