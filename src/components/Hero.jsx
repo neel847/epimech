@@ -7,7 +7,7 @@ const Hero = () => {
         <div className=' dark:bg-gray-900'>
         <div className="conatiner relative w-full max-w-[1900px] h-[60vh]  max-h-[1024px] mx-auto px-6 lg:px-8">
             <Image 
-                src="/banner.png" 
+                src="/banner.jpg" 
                 alt="Epimech Engineering Solutions" 
                 fill
                 priority
