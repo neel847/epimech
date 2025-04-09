@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import WatermarkedImage from './WatermarkedImage';
+import WatermarkedImage from '@/components/WaterMarkedImage';
 import { motion } from 'framer-motion';
 
 const PartCard = ({ part, onClick }) => {
