@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import emailjs from '@emailjs/browser'; // ⬅️ Import EmailJS
@@ -21,6 +21,15 @@ const Contact = () => {
     hasError: false,
     message: ''
   });
+
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -121,13 +130,13 @@ const Contact = () => {
       </div>
 
       {/* Contact Section */}
-      <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 -mt-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 -mt-20 mt-0 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Info */}
           <div className="lg:col-span-1">
             <div className="bg-white dark:bg-gray-900 rounded-xl shadow-xl p-8 h-full transform transition-all duration-300 hover:translate-y-[-4px] hover:shadow-2xl border border-gray-100 dark:border-gray-800">
-              <h2 className="title text-4xl font-bold text-blue-800 dark:text-white mb-6 border-b border-gray-200 dark:border-gray-800 pb-4">
-                Get In Touch
+              <h2 className="title text-4xl font-bold text-black dark:text-white mb-6 border-b border-gray-200 dark:border-gray-800 pb-4 uppercase">
+                Get In <span className='text-blue-600 dark:text-blue-400'>Touch</span>
               </h2>
 
               {/* <p className="text-gray-600 dark:text-gray-400 mb-8">
@@ -192,7 +201,7 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <div className="bg-white dark:bg-gray-900 rounded-xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl border border-gray-100 dark:border-gray-800">
-              <h2 className="text-4xl font-bold dark:text-white mb-2 text-blue-800 title">Send Us a Message</h2>
+              <h2 className="text-4xl font-bold dark:text-white mb-2 text-black title uppercase ">Send Us a <span className='text-blue-600 dark:text-blue-400'>Message</span></h2>
               <p className="text-gray-600 dark:text-gray-400 mb-6">Fill out the form below and we'll get back to you as soon as possible.</p>
 
               {formStatus.isSubmitted && !formStatus.hasError && (
@@ -328,7 +337,7 @@ const Contact = () => {
                 </div>
               </form>
               <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
-                <h3 className="text-3xl font-bold text-blue-800 dark:text-white mb-8 title">Connect With Us</h3>
+                <h3 className="text-3xl font-bold text-black dark:text-white mb-8 title uppercase">Connect With <span className='text-blue-600 dark:text-blue-400'>Us</span></h3>
                 <div className="flex space-x-4">
                   <a href="#" className="bg-gray-100 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-blue-900/20 p-3 rounded-full transition-colors border border-gray-200 dark:border-gray-700">
                     <svg className="h-5 w-5 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">

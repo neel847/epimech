@@ -59,7 +59,7 @@ const CompanyStats = () => {
         <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
 
             <div className='container mx-auto px-6 lg:px-8'>
-                <h3 className='px-6 pb-8 title font-bold dark:text-white text-black text-4xl'><span className='text-blue-600 dark:text-blue-400'>EPIMECH</span> AT A GLANCE</h3>
+                <h3 className='px-6 pb-8 title font-bold dark:text-white text-black text-7xl'><span className='text-blue-600 dark:text-blue-400'>EPIMECH</span> AT A GLANCE</h3>
 
                 <section className="w-full bg-gray-100 dark:bg-gray-800 py-16 mx-auto rounded-lg">
                     <div className="container mx-auto px-6 lg:px-8">
@@ -76,8 +76,8 @@ const CompanyStats = () => {
                                     className="relative border-l-2 dark:border-blue-500 border-blue-200 pl-6 pr-4 p-6"
                                     variants={itemVariants}
                                 >
-                                    <div className='lg:min-h-[170px]'>
-                                        <h4 className="text-2xl flex items-center lg:text-[20px] gap-x-2 font-bold tracking-wider text-black dark:text-white mb-2 title uppercase">
+                                    <div className='lg:min-h-[130px]'>
+                                        <h4 className="text-2xl flex items-center lg:text-[20px] gap-x-2 font-bold text-black dark:text-white mb-2 ">
                                             {stat.icon}       {stat.title}
                                         </h4>
                                         <p className="dark:text-blue-200 text-blue-400 text-md mb-4 min-h-20">
@@ -89,7 +89,6 @@ const CompanyStats = () => {
                                         whileInView={{ scale: 1, opacity: 1 }}
                                         transition={{ delay: 0.3 + (index * 0.1), duration: 0.7 }}
                                         viewport={{ once: true }}
-                                        className="mt-2"
                                     >
                                         <h2 className="dark:text-white text-black text-5xl md:text-6xl lg:text-7xl font-bold title">
                                             {stat.value}
