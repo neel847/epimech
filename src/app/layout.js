@@ -5,6 +5,8 @@ import { Toaster } from 'react-hot-toast';
 import NextTopLoader from 'nextjs-toploader';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import GlobalRightClickBlocker from '@/components/GlobalRightClickBlocker'; // ✅ import
+
 
 export const metadata = {
   title: 'Epimech',
@@ -31,14 +33,16 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/fav.png" />
       </head>
       <body className="antialiased custom-cursor outline-none">
+        <NextTopLoader showSpinner={true} crawlSpeed={200} height={3} />
+        <GlobalRightClickBlocker> {/* ✅ Wrap your app with this component */}
         <Toaster />
-        <NextTopLoader showSpinner={false} />
         <Navbar />
         <div className='pt-16'>
           {/* <CustomCursor /> ⬅ Add this here */}
           {children}
         </div>
         <Footer />
+        </GlobalRightClickBlocker>
       </body>
     </html>
   );

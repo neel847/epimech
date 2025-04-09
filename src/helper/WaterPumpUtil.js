@@ -1,7 +1,8 @@
 export const WaterPumpParts = [
   {
 
-    "image": "/waterpump/WATER PUMP ASSEMBLY LEFT BANK.jpg",
+    "image": "/waterpump/1.png",
+    // "image": "/waterpump/WATER PUMP ASSEMBLY LEFT BANK.jpg",
     "part_name": "WATER PUMP ASSEMBLY LEFT BANK",
     "subimages": {
       "image1": "/waterpump/WATER PUMP ASSEMBLY LEFT BANK_1.jpg",

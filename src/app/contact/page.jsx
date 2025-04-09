@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import emailjs from '@emailjs/browser'; // ⬅️ Import EmailJS
@@ -21,6 +21,15 @@ const Contact = () => {
     hasError: false,
     message: ''
   });
+
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   const handleChange = (e) => {
     const { name, value } = e.target;

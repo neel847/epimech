@@ -1,19 +1,19 @@
 'use client';
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ChevronLeft, Search } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { WaterPumpParts } from '@/helper/WaterPumpUtil';
 import Tabs from '@/components/Tabs';
-import PartDetails from '@/components/PartDetails';
-
+import { motion } from 'framer-motion';
+import { slugify } from '@/utils/slugify';
+import { Search } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ProductsPage() {
-
-  // reset framer-motion animation on page load
-  const [selectedPart, setSelectedPart] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [tab, setTab] = useState('All');
+
+
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -21,18 +21,12 @@ export default function ProductsPage() {
   }, []);
 
   if (!mounted) return null;
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: 'easeOut' }
-    }
+  const handlePartClick = (part) => {
+    router.push(`/products/${slugify(part.part_name)}`);
   };
 
   return (
     <div className="w-full bg-white dark:bg-gray-900 transition-colors duration-300">
-      {/* 🔹 Hero Section */}
       <div className="relative w-full h-[400px] overflow-hidden bg-gradient-to-r from-gray-700 via-blue-900 to-blue-600 dark:from-black dark:via-blue-900 dark:to-blue-700">
         <motion.div
           className="absolute top-20 left-20 w-16 h-16 bg-white/10 rounded-full blur-md"
@@ -74,88 +68,62 @@ export default function ProductsPage() {
           </motion.div>
         </div>
       </div>
-
-      {/* 🔧 Main Section */}
-      <section className="py-20 -mt-20 relative z-10 mt-0">
+      <section className="py-20">
         <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 md:p-12"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={fadeIn}
-          >
-            {/* 🔍 Search */}
+          <div className='md:flex mb-8 justify-between items-center '>
 
+            <motion.h2
+              className="text-7xl font-bold mb-8 text-gray-800  title uppercase dark:text-white"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+            >
+              Explore <span className="text-blue-600 dark:text-blue-400">Our Catalog</span>
+            </motion.h2>
 
-            {/* 🔁 Tabs OR Details */}
-            {selectedPart ? (
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <button
-                  onClick={() => setSelectedPart(null)}
-                  className="flex items-center text-blue-600 dark:text-blue-400 font-medium hover:underline mb-8"
-                >
-                  <ChevronLeft className="h-5 w-5 mr-1" />
-                  Back to Parts
-                </button>
-                <PartDetails part={selectedPart} onBack={() => setSelectedPart(null)} />
-              </motion.div>
-            ) : (
-              <>
-                <div className='md:flex mb-8 justify-between items-center '>
-
-                  <motion.h2
-                    className="text-7xl font-bold mb-8 text-gray-800  title uppercase dark:text-white"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7 }}
-                  >
-                    Explore <span className="text-blue-600 dark:text-blue-400">Our Catalog</span>
-                  </motion.h2>
-
-                  {!selectedPart && (
-                    <motion.div
-                      className="md:w-[50%] mb-10"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <div className="relative w-full">
-                        <input
-                          type="text"
-                          placeholder="Search parts by name, number, or keyword..."
-                          value={searchQuery}
-                          onChange={(e) => setSearchQuery(e.target.value)}
-                          className="w-full text-lg md:text-xl px-6 py-5 pl-16 rounded-2xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md"
-                        />
-                        <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6 text-gray-400" />
-                      </div>
-                    </motion.div>
-
-                  )}
-                </div>
-
-                {/* ✅ Tabs Component */}
-                <Tabs
-                  currentTab={tab}
-                  setTab={setTab}
-                  tabs={[
-                    { name: 'Water Pumps', items: WaterPumpParts },
-                    // { name: 'Bearings', items: BearingParts }, <- in future
-                  ]}
-                  searchQuery={searchQuery}
-                  onSelectPart={setSelectedPart}
+            <motion.div
+              className="md:w-[50%] mb-10"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="relative w-full">
+                <input
+                  type="text"
+                  placeholder="Search parts by name, number, or keyword..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full text-lg md:text-xl px-6 py-5 pl-16 rounded-2xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md"
                 />
+                <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6 text-gray-400" />
+              </div>
+            </motion.div>
 
-              </>
-            )}
-          </motion.div>
+          </div>
+          {/* <motion.div className="mb-12">
+            <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+              Our <span className="text-blue-600">Catalog</span>
+            </h2>
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search by name or number..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full px-6 py-4 pl-14 rounded-xl border dark:border-gray-700 dark:bg-gray-800 dark:text-white shadow-sm mt-4"
+              />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            </div>
+          </motion.div> */}
 
-          {/* 📢 CTA */}
+          <Tabs
+            currentTab={tab}
+            setTab={setTab}
+            tabs={[{ name: 'Water Pumps', items: WaterPumpParts }]}
+            searchQuery={searchQuery}
+            onSelectPart={handlePartClick}
+          />
+
           <motion.div
             className="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-900 dark:to-blue-700 rounded-2xl p-8 md:p-12 overflow-hidden relative mt-12"
             initial={{ opacity: 0, y: 30 }}

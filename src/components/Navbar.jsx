@@ -4,13 +4,17 @@ import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import Image from 'next/image';
+import Loader from './Loader';
 
 function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
+  console.log('Current Path:', pathname);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [theme, setTheme] = useState('dark');
 
   const navItems = [
@@ -22,6 +26,8 @@ function Navbar() {
   ];
 
   const handleNavigation = (path) => {
+    if (pathname === path) return; // Prevent navigation if already on the same page
+    setLoading(true);
     setIsMobileMenuOpen(false);
     router.push(path);
   };
@@ -45,12 +51,18 @@ function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    setLoading(false); // stop when path changes
+  }, [pathname]);
+  
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled ? 'bg-white shadow-md dark:bg-gray-900' : 'bg-transparent dark:bg-gray-900'
       }`}
     >
+      {loading && <Loader />}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
@@ -113,7 +125,7 @@ function Navbar() {
                 key={item.path}
                 onClick={() => handleNavigation(item.path)}
                 className={`w-full text-left block px-3 py-2 rounded-md text-base font-medium ${
-                  pathname === item.path
+                  pathname === item.path || pathname.startsWith(item.path)
                     ? 'bg-blue-50 text-blue-700 dark:bg-gray-800 dark:text-gray-200'
                     : 'text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800'
                 }`}
