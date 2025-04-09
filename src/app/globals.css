@@ -14,6 +14,101 @@ body{
 .about-title,.mission-title,.title{
   font-family: 'Barlow Condensed', sans-serif !important;
 }
+
+
+
+
+.custom-pagination {
+  --pg-item-size: 2.5rem;
+  --pg-active-color: #3b82f6;
+  --pg-active-text: white;
+  --pg-bg-light: #f3f4f6;
+  --pg-bg-dark: #1f2937;
+  --pg-text-light: #374151;
+  --pg-text-dark: #e5e7eb;
+}
+
+.custom-pagination .ant-pagination-item,
+.custom-pagination .ant-pagination-prev,
+.custom-pagination .ant-pagination-next,
+.custom-pagination .ant-pagination-jump-prev,
+.custom-pagination .ant-pagination-jump-next {
+  height: var(--pg-item-size);
+  width: var(--pg-item-size);
+  line-height: var(--pg-item-size);
+  border-radius: 9999px;
+  margin-right: 0.5rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-pagination .ant-pagination-item {
+  border: none;
+  background-color: var(--pg-bg-light);
+}
+
+.custom-pagination .ant-pagination-item a {
+  color: var(--pg-text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-pagination .ant-pagination-item-active {
+  background-color: var(--pg-active-color);
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+}
+
+.custom-pagination .ant-pagination-item-active a {
+  color: var(--pg-active-text) !important;
+}
+
+.custom-pagination .ant-pagination-prev button,
+.custom-pagination .ant-pagination-next button {
+  color: var(--pg-text-light);
+  background-color: var(--pg-bg-light);
+  border: none;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.custom-pagination .ant-pagination-disabled button {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+}
+
+/* Dark mode styles */
+.dark .custom-pagination .ant-pagination-item {
+  background-color: var(--pg-bg-dark);
+}
+
+.dark .custom-pagination .ant-pagination-item a {
+  color: var(--pg-text-dark);
+}
+
+.dark .custom-pagination .ant-pagination-item-active {
+  background-color: var(--pg-active-color);
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
+}
+
+.dark .custom-pagination .ant-pagination-prev button,
+.dark .custom-pagination .ant-pagination-next button {
+  color: var(--pg-text-dark);
+  background-color: var(--pg-bg-dark);
+}
+
+.dark .custom-pagination .ant-pagination-disabled button {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+*
+
 .contact-headers h3,.contact-headers label{
   font-weight: 700;
 }

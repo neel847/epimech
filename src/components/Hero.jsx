@@ -1,8 +1,16 @@
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const Hero = () => {
+      const [mounted, setMounted] = useState(false);
+    
+      useEffect(() => {
+        setMounted(true);
+      }, []);
+    
+      if (!mounted) return null;
     return (
         <div className=' dark:bg-gray-900'>
         <div className="conatiner relative w-full max-w-[1900px] h-[60vh]  max-h-[1024px] mx-auto px-6 lg:px-8">

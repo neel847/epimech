@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -11,6 +11,13 @@ import {
 const TeamMember = ({ name, title, imageSrc, bio, credentials, contact, delay = 0 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+    const [mounted, setMounted] = useState(false);
+  
+    useEffect(() => {
+      setMounted(true);
+    }, []);
+  
+    if (!mounted) return null;
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -252,13 +259,13 @@ const About = () => {
                 </motion.div>
 
                 <motion.h2
-                  className="text-4xl md:text-5xl lg:text-6xl title font-bold mb-8 text-blue-600 dark:text-blue-400"
+                  className="text-4xl md:text-5xl lg:text-7xl title font-bold mb-8 text-black dark:text-blue-400 uppercase"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.7 }}
                   viewport={{ once: true }}
                 >
-                  Who We Are
+                  Who We <span className='text-blue-600 dark:text-blue-400'>Are</span>
                 </motion.h2>
 
                 <motion.div
@@ -373,7 +380,7 @@ const About = () => {
             </motion.div>
 
             <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 text-center title text-gray-800 dark:text-white"
+              className="text-4xl md:text-5xl lg:text-7xl font-bold mb-16 text-center title text-gray-800 dark:text-white uppercase"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
@@ -474,7 +481,7 @@ const About = () => {
             </motion.div>
 
             <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center title text-gray-800 dark:text-white"
+              className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-center title text-gray-800 dark:text-white uppercase"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
