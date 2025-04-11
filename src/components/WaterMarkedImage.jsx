@@ -29,17 +29,17 @@ const WatermarkedImage = ({ src, alt = '', watermark = '© Epimech', className =
       )}
 
       {/* Image */}
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-full w-[100%] h-[100%] overflow-hidden rounded-md">
         <Image
           src={image}
           alt={alt}
           fill
           onError={handleError}
           onLoadingComplete={handleLoad}
-          className={`rounded-md object-contain transition-opacity duration-300 ${
+          className={`rounded-md object-cover transition-opacity duration-300 w-[100%] h-[100%] ${
             isLoading ? 'opacity-0' : 'opacity-100'
           }`}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority={false}
         />
       </div>

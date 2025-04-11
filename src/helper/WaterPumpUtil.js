@@ -1,8 +1,8 @@
 export const WaterPumpParts = [
   {
 
-    "image": "/waterpump/1.png",
-    // "image": "/waterpump/WATER PUMP ASSEMBLY LEFT BANK.jpg",
+    // "image": "/waterpump/1.png",
+    "image": "/waterpump/WATER PUMP ASSEMBLY LEFT BANK.jpg",
     "part_name": "WATER PUMP ASSEMBLY LEFT BANK",
     "subimages": {
       "image1": "/waterpump/WATER PUMP ASSEMBLY LEFT BANK_1.jpg",
@@ -269,6 +269,9 @@ export const WaterPumpParts = [
   {
     "image": "/waterpump/SUPPORT Water pump housing.jpg",
     "part_name": "SUPPORT Water pump housing",
+    "subimages": {
+      "image1": "/waterpump/SUPPORT Water pump housing_1.jpg"
+    },
     "part_number": {
       "EMD 710": "8329900 / 40089904",
       "EMD 645": "8329900",
