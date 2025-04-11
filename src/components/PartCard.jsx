@@ -23,7 +23,7 @@ const PartCard = ({ part, onClick }) => {
           src={part.image || '/fallback.png'}
           alt={displayName || 'Part image'}
           watermark="© Epimech"
-          className="!object-contain !w-full !h-full"
+          className="!object-cover"
         />
       </div>
       
