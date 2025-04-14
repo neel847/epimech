@@ -17,9 +17,9 @@ const Tabs = ({ currentTab, setTab, tabs, searchQuery, onSelectPart }) => {
   const filteredItems = selectedItems.filter((part) => {
     const query = searchQuery.toLowerCase();
   
-    const nameMatch = part.part_name.toLowerCase().includes(query);
+    const nameMatch = part?.part_name.toLowerCase().includes(query);
   
-    const numberMatch = Object.values(part.part_number || {}).some((val) =>
+    const numberMatch = Object.values(part?.part_number || {}).some((val) =>
       val.toLowerCase().includes(query)
     );
   

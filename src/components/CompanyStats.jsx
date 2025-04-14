@@ -28,7 +28,7 @@ const CompanyStats = () => {
         {
             title: "Countries Served",
             description: "Delivering high-quality parts to clients across the globe",
-            value: "10+",
+            value: "15+",
             icon: <Globe className='h-5 w-5' />,
             color: "bg-blue-600 dark:bg-blue-700"
         },

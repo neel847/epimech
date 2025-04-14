@@ -5,7 +5,9 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
   Linkedin, Mail, Phone, Award, Users, 
-  Briefcase, Clock, ExternalLink, ChevronRight 
+  Briefcase, Clock, ExternalLink, ChevronRight, 
+  Globe,
+  Globe2
 } from 'lucide-react';
 
 const TeamMember = ({ name, title, imageSrc, bio, credentials, contact, delay = 0 }) => {
@@ -272,17 +274,19 @@ const About = () => {
                   className="space-y-6 text-gray-700 dark:text-gray-300"
                   variants={staggerChildren}
                 >
-                  <motion.p variants={fadeIn} className="text-lg">
-                    Founded in 1998, Epimech Engineering has grown from a small local workshop to a leading manufacturer of precision mechanical components for the transportation, industrial, and energy sectors. Our journey began with a simple vision: to create mechanical solutions that exceed expectations in quality, durability, and performance.
+                  <motion.p variants={fadeIn} className="text-lg text-justify">
+                  At Epimech, we are a dedicated manufacturer of high-quality replacement parts for EMD 567, EMD 645, and EMD 710 engines, proudly serving both the locomotive and marine sectors. With a strong focus on precision engineering and dependable performance, we provide OEM-quality components that are competitively priced and backed by reliability.
                   </motion.p>
 
-                  <motion.p variants={fadeIn} className="text-lg">
-                    Today, we employ over 120 skilled professionals across our facilities in Windsor, Ontario, serving clients throughout North America and beyond. Our team combines decades of traditional engineering expertise with cutting-edge manufacturing technologies, allowing us to tackle complex challenges with innovative solutions.
+                  <motion.p variants={fadeIn} className="text-lg text-justify">
+                  As manufacturers, we combine technical know-how with modern manufacturing practices to deliver consistent, durable, and performance-driven parts. Our in-house capabilities also allow us to offer customized solutions tailored to meet specific customer needs and operational requirements.
                   </motion.p>
 
-                  <motion.p variants={fadeIn} className="text-lg">
-                    At Epimech, we take pride in our commitment to excellence at every stage of production. From initial design to final quality control, we maintain rigorous standards that have earned us a reputation for reliability among some of the most demanding industries. Our ISO 9001:2015 certification reflects our dedication to consistent quality management and continuous improvement.
+                  <motion.p variants={fadeIn} className="text-lg text-justify">
+                  Flexibility and quality are at the heart of our approach. Whether it's standard parts or specialized components, Epimech ensures every product meets exacting standards—because we understand how critical your equipment is to your business.
                   </motion.p>
+                  <motion.p variants={fadeIn} className="text-lg text-justify">
+                  At Epimech, we don’t just supply parts—we build lasting partnerships based on trust, quality, and commitment to your success.                  </motion.p>
                 </motion.div>
 
                 <motion.div
@@ -297,20 +301,8 @@ const About = () => {
                     <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                       <Award className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-xl">25+</h4>
+                    <h4 className="font-bold text-gray-900 dark:text-white text-xl">20+</h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Years Experience</p>
-                  </motion.div>
-
-                  <motion.div
-                    className="text-center"
-                    variants={fadeIn}
-                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  >
-                    <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
-                      <Users className="h-8 w-8 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-xl">120+</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Team Members</p>
                   </motion.div>
 
                   <motion.div
@@ -321,8 +313,20 @@ const About = () => {
                     <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                       <Briefcase className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-xl">500+</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Projects Completed</p>
+                    <h4 className="font-bold text-gray-900 dark:text-white text-xl">100+</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Custom Solutions</p>
+                  </motion.div>
+
+                  <motion.div
+                    className="text-center"
+                    variants={fadeIn}
+                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  >
+                    <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
+                      <Globe2 className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 dark:text-white text-xl">15+</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Countries</p>
                   </motion.div>
 
                   <motion.div
@@ -461,7 +465,7 @@ const About = () => {
           </motion.div>
 
           {/* Leadership Section - Integrated */}
-          <motion.div
+          {/* <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
@@ -512,7 +516,7 @@ const About = () => {
                 />
               ))}
             </motion.div>
-          </motion.div>
+          </motion.div> */}
           
           {/* CTA Section */}
           <motion.div

@@ -67,11 +67,7 @@ function Footer() {
                                         Products
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link href="/customers" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center">
-                                        Customers
-                                    </Link>
-                                </li>
+                               
                                 <li>
                                     <Link href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center">
                                         Contact Us

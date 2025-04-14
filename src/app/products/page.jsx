@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { WaterPumpParts } from '@/helper/WaterPumpUtil';
+import { OtherParts } from '@/helper/OtherParts';
 import Tabs from '@/components/Tabs';
 import { motion } from 'framer-motion';
 import { slugify } from '@/utils/slugify';
@@ -119,7 +120,7 @@ export default function ProductsPage() {
           <Tabs
             currentTab={tab}
             setTab={setTab}
-            tabs={[{ name: 'Water Pumps', items: WaterPumpParts }]}
+            tabs={[{ name: 'Water Pumps', items: WaterPumpParts }, { name: 'Other Parts', items: OtherParts }]}
             searchQuery={searchQuery}
             onSelectPart={handlePartClick}
           />

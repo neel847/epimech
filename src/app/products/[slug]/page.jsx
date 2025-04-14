@@ -3,6 +3,7 @@ import { use, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { WaterPumpParts } from '@/helper/WaterPumpUtil';
 import PartDetails from '@/components/PartDetails';
+import { OtherParts } from '@/helper/OtherParts';
 import { slugify } from '@/utils/slugify';
 
 export default function PartSlugPage(props) {
@@ -12,7 +13,7 @@ export default function PartSlugPage(props) {
   const { slug } = use(props.params); // ✅ use React.use()
 
   useEffect(() => {
-    const allParts = [...WaterPumpParts];
+    const allParts = [...WaterPumpParts, ...OtherParts];
     const match = allParts.find(
       (p) => slugify(p.part_name) === slug.toLowerCase()
     );

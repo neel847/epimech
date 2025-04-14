@@ -2,13 +2,16 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel, Image } from 'antd';
 import { motion } from 'framer-motion';
-import { Package } from 'lucide-react';
+import { CircleCheck, Clipboard, Copy, Package } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const PartDetails = ({ part, onBack }) => {
   const [carouselRef, setCarouselRef] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isValidImage, setIsValidImage] = useState(true);
   const fallbackImage = '/fallback.png';
+  const [copied, setCopied] = useState(false);
+  const [copiedText, setCopiedText] = useState('');
 
   const subImages = part.subimages ? Object.values(part.subimages) : [];
   const allImages = [part.image, ...subImages];
@@ -31,6 +34,15 @@ const PartDetails = ({ part, onBack }) => {
   const handleCarouselChange = (current) => {
     setActiveIndex(current);
   };
+
+  const handleCopy = (text) => {
+    setCopied(true);
+    setCopiedText(text);
+    navigator.clipboard.writeText(text).then(() => {
+      toast.success('Copied to clipboard!');
+    });
+
+  }
 
   return (
     <div className="w-full bg-white dark:bg-gray-900 transition-colors duration-300">
@@ -136,8 +148,8 @@ const PartDetails = ({ part, onBack }) => {
                       key={idx}
                       onClick={() => handleThumbnailClick(idx)}
                       className={`h-16 w-16 flex-shrink-0 rounded overflow-hidden border transition-all ${activeIndex === idx
-                          ? 'ring-2 ring-blue-500 dark:ring-blue-400 opacity-100'
-                          : 'opacity-70 hover:opacity-100 border-gray-200 dark:border-gray-700'
+                        ? 'ring-2 ring-blue-500 dark:ring-blue-400 opacity-100'
+                        : 'opacity-70 hover:opacity-100 border-gray-200 dark:border-gray-700'
                         }`}
                     >
                       <Image
@@ -170,6 +182,9 @@ const PartDetails = ({ part, onBack }) => {
                         <th className="px-6 py-3 text-left text-base font-medium text-gray-700 dark:text-gray-300 uppercase">
                           Part Number
                         </th>
+                        <th className="px-6 py-3 text-left text-base font-medium text-gray-700 dark:text-gray-300 uppercase">
+                          
+                        </th>
                       </tr>
                     </thead>
                     <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
@@ -180,6 +195,21 @@ const PartDetails = ({ part, onBack }) => {
                           </td>
                           <td className="px-6 py-4 font-mono text-gray-600 dark:text-gray-300">
                             {number !== '-' ? number : <span className="text-gray-400">Not Available</span>}
+                          </td>
+                          <td className='px-6 py-4'>
+                            {/* ADD COPY NUMBER BUTTON */}
+                            <button
+                              onClick={() => handleCopy(number)}
+                              className="text-blue-500 hover:text-blue-700 transition"
+                            >
+                              {
+                                copiedText === number && copied ? (
+                                  <CircleCheck className='w-5 h-5 text-green-500' />
+                                ) : (
+                                  <Copy className='w-5 h-5' />
+                                )
+                              }
+                            </button>
                           </td>
                         </tr>
                       ))}

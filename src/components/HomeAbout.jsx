@@ -123,7 +123,7 @@ const HomeAbout = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-lg text-gray-800 dark:text-white">Trusted Industry Experience</h4>
-                    <p className="text-gray-600 dark:text-gray-400">With over 25 years of hands-on manufacturing experience, we've built a strong reputation for delivering dependable mechanical parts backed by deep industry knowledge.</p>
+                    <p className="text-gray-600 dark:text-gray-400">With over 20 years of hands-on manufacturing experience, we've built a strong reputation for delivering dependable mechanical parts backed by deep industry knowledge.</p>
                   </div>
                 </motion.div>
 
