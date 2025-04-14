@@ -36,7 +36,7 @@ const WatermarkedImage = ({ src, alt = '', watermark = '© Epimech', className =
           fill
           onError={handleError}
           onLoadingComplete={handleLoad}
-          className={`rounded-md object-cover transition-opacity duration-300 w-[100%] h-[100%] ${
+          className={`rounded-md object-contain transition-opacity duration-300 w-[100%] h-[100%] ${
             isLoading ? 'opacity-0' : 'opacity-100'
           }`}
           // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
