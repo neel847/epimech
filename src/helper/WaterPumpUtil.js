@@ -15,7 +15,7 @@ export const WaterPumpParts = [
     }
   },
   {
-    "image": "/waterpump/WATER PUMP ASSEMBLY RIGHT BANK.jpg",
+    "image": "/waterpump/WATER PUMP ASSEMBLY LEFT BANK.jpg",
     "part_name": "WATER PUMP ASSEMBLY RIGHT BANK",
     "part_number": {
       "EMD 710": "40004235",
@@ -24,11 +24,9 @@ export const WaterPumpParts = [
     }
   },
   {
-    "image": "/waterpump/mission.jpg",
+    "image": "/waterpump/HOUSING ASSEMBLY Water pump impeller.jpg",
     "part_name": "HOUSING ASSEMBLY Water pump impeller",
-    "subimages": {
-      "image1": "/banner.jpg"
-    },
+   
     "part_number": {
       "EMD 710": "40004233",
       "EMD 645": "-",

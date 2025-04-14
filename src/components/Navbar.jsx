@@ -10,7 +10,6 @@ function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
-  console.log('Current Path:', pathname);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -21,7 +20,6 @@ function Navbar() {
     { label: 'Home', path: '/' },
     { label: 'About Us', path: '/about' },
     { label: 'Products', path: '/products' },
-    { label: 'Customers', path: '/customers' },
     { label: 'Contact Us', path: '/contact' }
   ];
 
