@@ -220,7 +220,7 @@ const About = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            Engineering excellence and innovation for over 25 years
+            Engineering excellence and innovation for over 20 years
           </motion.p>
           <motion.div
             className="flex items-center text-gray-300"
