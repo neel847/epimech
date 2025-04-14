@@ -434,28 +434,28 @@ export const OtherParts = [
     }
   },
   {
-    "image": "/other/New water pump/Housing Assembly Aux. Gen. Drive Support NO-8261201.jpg",
+    "image": "/other/Housing Assembly Aux. Gen. Drive Support NO-8261201.jpg",
     "part_name": "HOUSING ASSEMBLY AUX. GEN. DRIVE SUPPORT",
     "part_number": {
       "DLW": "8261201"
     }
   },
   {
-    "image": "/other/New water pump/HOUSING ASSEMBLY WATER PUMP IMPELLER.jpg",
+    "image": "/other/HOUSING ASSEMBLY WATER PUMP IMPELLER.jpg",
     "part_name": "HOUSING ASSEMBLY WATER PUMP IMPELLER",
     "part_number": {
       "DLW": "-"
     }
   },
   {
-    "image": "/other/New water pump/PIN TYPE B GROOVED DRG NO - 442919.jpg",
+    "image": "/other/PIN TYPE B GROOVED DRG NO - 442919.jpg",
     "part_name": "PIN TYPE B GROOVED",
     "part_number": {
       "DLW": "442919"
     }
   },
   {
-    "image": "/other/New water pump/Ring Locking NO-8028136.jpg",
+    "image": "/other/RING LOCKING.jpg",
     "part_name": "RING LOCKING",
     "part_number": {
       "DLW": "8028136"

@@ -9,6 +9,7 @@ const PartCard = ({ part, onClick }) => {
     ? Object.keys(part.part_name).join(', ') 
     : part.part_name;
     
+    const partNumber = part.part_number['EMD 710'] || part.part_number['EMD 645'] || part.part_number['DLW'];
   return (
     <motion.div
       onClick={() => onClick(part)}
@@ -18,12 +19,12 @@ const PartCard = ({ part, onClick }) => {
       className="bg-white dark:bg-gray-900 rounded-2xl shadow-sm hover:shadow-md cursor-pointer overflow-hidden border border-gray-100 dark:border-gray-800"
     >
       {/* Image Container */}
-      <div className="relative w-full aspect-square bg-gray-50 dark:bg-gray-900 p-6">
+      <div className="relative w-full aspect-square bg-white dark:bg-white p-6">
         <WatermarkedImage
           src={part.image || '/fallback.png'}
           alt={displayName || 'Part image'}
           watermark="© Epimech"
-          className="!object-cover"
+          className="!object-contain"
         />
       </div>
       
@@ -34,6 +35,11 @@ const PartCard = ({ part, onClick }) => {
       <div className="p-4">
         <h3 className="text-base font-medium text-gray-900 dark:text-white text-center">
           {displayName}
+        </h3>
+        <div className="h-px my-2 w-full bg-gray-300 dark:bg-gray-600"></div>
+
+        <h3 className="text-sm font-normal text-gray-500 dark:text-gray-400 text-center mt-1">
+          {partNumber ? `Part Number: ${partNumber}` : 'No Part Number Available'}
         </h3>
       </div>
     </motion.div>

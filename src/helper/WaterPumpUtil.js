@@ -94,8 +94,8 @@ export const WaterPumpParts = [
     }
   },
   {
-    "image": "/waterpump/BUSHING Water pump stationary.jpg",
-    "part_name": "BUSHING Water pump stationary",
+    "image": "/waterpump/BUSHING Water pump.jpg",
+    "part_name": "BUSHING Water pump",
     "part_number": {
       "EMD 710": "8052224",
       "EMD 645": "8052224",
@@ -130,8 +130,8 @@ export const WaterPumpParts = [
     }
   },
   {
-    "image": "/waterpump/SPRING Water pump seal retainer.jpg",
-    "part_name": "SPRING Water pump seal retainer",
+    "image": "/waterpump/SPRING Water pump.jpg",
+    "part_name": "SPRING Water pump",
     "part_number": {
       "EMD 710": "8055346",
       "EMD 645": "8055346",
