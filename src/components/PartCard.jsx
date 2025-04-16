@@ -9,7 +9,7 @@ const PartCard = ({ part, onClick }) => {
     ? Object.keys(part.part_name).join(', ') 
     : part.part_name;
     
-    const partNumber = part.part_number['EMD 710'] || part.part_number['EMD 645'] || part.part_number['DLW'];
+    const partNumber = part.part_number['EMD 710 / EMD 645'] || part.part_number['EMD 645'] || part.part_number['DLW'];
   return (
     <motion.div
       onClick={() => onClick(part)}

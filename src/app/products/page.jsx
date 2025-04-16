@@ -79,7 +79,7 @@ export default function ProductsPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
-              Explore <span className="text-blue-600 dark:text-blue-400">Our Catalog</span>
+              Explore <span className="text-blue-600 dark:text-blue-400">Our Products</span>
             </motion.h2>
 
             <motion.div

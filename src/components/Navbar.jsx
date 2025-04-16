@@ -20,7 +20,9 @@ function Navbar() {
     { label: 'Home', path: '/' },
     { label: 'About Us', path: '/about' },
     { label: 'Products', path: '/products' },
+    { label: 'Catalog', path: '/product-list' },
     { label: 'Contact Us', path: '/contact' }
+
   ];
 
   const handleNavigation = (path) => {

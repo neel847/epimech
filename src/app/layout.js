@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/fav.png" />
       </head>
       <body className="antialiased custom-cursor outline-none">
-        <NextTopLoader showSpinner={true} crawlSpeed={200} height={3} />
+        <NextTopLoader showSpinner={false} crawlSpeed={200} height={3} />
         <GlobalRightClickBlocker> {/* ✅ Wrap your app with this component */}
         <Toaster />
         <Navbar />
