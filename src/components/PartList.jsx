@@ -6,7 +6,7 @@ import { SearchOutlined } from "@ant-design/icons";
 
 const PartList = ({ parts, onPartClick }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 12;
+  const pageSize = 36;
 
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
