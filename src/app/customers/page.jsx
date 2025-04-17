@@ -116,35 +116,35 @@ const CustomerTestimonials = () => {
   const sectors = [
     {
       name: "Railway Transportation",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-color-blue-600 dark:text-color-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M8 7H6a2 2 0 00-2 2v9a1 1 0 001 1h1m8-10l-2-2m0 0l-2 2m2-2v10" />
       </svg>,
       count: 42
     },
     {
       name: "Renewable Energy",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-color-blue-600 dark:text-color-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>,
       count: 35
     },
     {
       name: "Industrial Manufacturing",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-color-blue-600 dark:text-color-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>,
       count: 28
     },
     {
       name: "Automotive",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-color-blue-600 dark:text-color-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 17H4a2 2 0 01-2-2v-4a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2h-1m-6 0v1a3 3 0 01-6 0v-1m6 0H9" />
       </svg>,
       count: 23
     },
     {
       name: "Maritime & Shipping",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-color-blue-600 dark:text-color-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
       </svg>,
       count: 17
@@ -161,10 +161,10 @@ const CustomerTestimonials = () => {
   };
 
   return (
-    <div className="w-full bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div className="w-full bg-white dark:bg-color-gray-900 transition-colors duration-300">
       {/* Hero Section with Black/Blue Gradient */}
       <div className="relative w-full h-[400px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-700 via-blue-900 to-blue-600 dark:from-black dark:via-blue-900 dark:to-blue-700 animate-gradient-x"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-700 via-blue-900 to-color-blue-600 dark:from-black dark:via-blue-900 dark:to-blue-700 animate-gradient-x"></div>
         <div className="absolute inset-0 bg-grid-pattern opacity-25"></div>
         
         {/* Floating elements for visual interest */}
@@ -177,7 +177,7 @@ const CustomerTestimonials = () => {
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         ></motion.div>
         <motion.div 
-          className="absolute bottom-40 right-40 w-24 h-24 bg-blue-400/10 rounded-full blur-md"
+          className="absolute bottom-40 right-40 w-24 h-24 bg-color-blue-400/10 rounded-full blur-md"
           animate={{ 
             y: [0, 30, 0], 
             opacity: [0.6, 0.9, 0.6] 
@@ -192,10 +192,10 @@ const CustomerTestimonials = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Our <span className="text-blue-300">Customers</span>
+            Our <span className="text-color-blue-300">Customers</span>
           </motion.h1>
           <motion.p 
-            className="text-gray-100 text-xl max-w-3xl text-center mb-8"
+            className="text-color-gray-100 text-xl max-w-3xl text-center mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -219,7 +219,7 @@ const CustomerTestimonials = () => {
       <section className="py-20 -mt-20 relative z-10 mt-0">
         <section className="container mx-auto px-4 lg:px-8">
           <motion.div
-            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12 mb-24"
+            className="bg-white dark:bg-color-gray-800 rounded-2xl shadow-xl p-8 md:p-12 mb-24"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
@@ -231,10 +231,10 @@ const CustomerTestimonials = () => {
                 variants={fadeIn}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
               >
-                <div className="h-20 w-20 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
-                  <Building className="h-10 w-10 text-blue-600 dark:text-blue-400" />
+                <div className="h-20 w-20 bg-color-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+                  <Building className="h-10 w-10 text-color-blue-600 dark:text-color-blue-400" />
                 </div>
-                <h3 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">145+</h3>
+                <h3 className="text-4xl font-bold text-color-gray-900 dark:text-white mb-2">145+</h3>
                 <p className="text-lg text-gray-600 dark:text-gray-400">Active Clients</p>
               </motion.div>
 
@@ -243,12 +243,12 @@ const CustomerTestimonials = () => {
                 variants={fadeIn}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
               >
-                <div className="h-20 w-20 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="h-20 w-20 bg-color-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-color-blue-600 dark:text-color-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">98%</h3>
+                <h3 className="text-4xl font-bold text-color-gray-900 dark:text-white mb-2">98%</h3>
                 <p className="text-lg text-gray-600 dark:text-gray-400">Customer Satisfaction</p>
               </motion.div>
 
@@ -257,12 +257,12 @@ const CustomerTestimonials = () => {
                 variants={fadeIn}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
               >
-                <div className="h-20 w-20 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="h-20 w-20 bg-color-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-color-blue-600 dark:text-color-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">12</h3>
+                <h3 className="text-4xl font-bold text-color-gray-900 dark:text-white mb-2">12</h3>
                 <p className="text-lg text-gray-600 dark:text-gray-400">Countries Served</p>
               </motion.div>
 
@@ -271,12 +271,12 @@ const CustomerTestimonials = () => {
                 variants={fadeIn}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
               >
-                <div className="h-20 w-20 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="h-20 w-20 bg-color-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-color-blue-600 dark:text-color-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">8.2 yrs</h3>
+                <h3 className="text-4xl font-bold text-color-gray-900 dark:text-white mb-2">8.2 yrs</h3>
                 <p className="text-lg text-gray-600 dark:text-gray-400">Average Partnership Length</p>
               </motion.div>
             </div>
@@ -298,22 +298,22 @@ const CustomerTestimonials = () => {
               viewport={{ once: true }}
             >
               <span className="inline-block bg-blue-50 dark:bg-blue-900/20 px-6 py-2 rounded-full mb-4">
-                <span className="text-blue-600 dark:text-blue-400 font-medium">What Our Clients Say</span>
+                <span className="text-color-blue-600 dark:text-color-blue-400 font-medium">What Our Clients Say</span>
               </span>
             </motion.div>
             
             <motion.h2
-              className="text-7xl font-bold mb-16 text-center text-gray-800 dark:text-white title"
+              className="text-7xl font-bold mb-16 text-center text-color-gray-800 dark:text-white title"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
             >
-              Customer <span className="text-blue-600 dark:text-blue-400">Testimonials</span>
+              Customer <span className="text-color-blue-600 dark:text-color-blue-400">Testimonials</span>
             </motion.h2>
 
             <div className="relative">
-              <div className="overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-gray-800">
+              <div className="overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-color-gray-800">
                 <div className="flex flex-col md:flex-row">
                   <div className="w-full md:w-2/5 relative h-64 md:h-auto">
                     <Image
@@ -324,7 +324,7 @@ const CustomerTestimonials = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent md:bg-gradient-to-r md:from-black/60 md:to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-8 md:p-10">
-                      <p className="text-blue-300 mb-2">{testimonials[currentTestimonial].industry}</p>
+                      <p className="text-color-blue-300 mb-2">{testimonials[currentTestimonial].industry}</p>
                       <h3 className="text-white text-2xl font-bold mb-1">{testimonials[currentTestimonial].name}</h3>
                       <p className="text-gray-300 text-sm">{testimonials[currentTestimonial].position}</p>
                       <p className="text-gray-300 text-sm">{testimonials[currentTestimonial].company}</p>
@@ -352,19 +352,19 @@ const CustomerTestimonials = () => {
               <div className="flex justify-center mt-8 gap-4">
                 <motion.button
                   onClick={prevTestimonial}
-                  className="bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
+                  className="bg-white dark:bg-color-gray-800 p-3 rounded-full shadow-lg border border-color-gray-200 dark:border-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <ChevronLeft className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  <ChevronLeft className="h-6 w-6 text-color-blue-600 dark:text-color-blue-400" />
                 </motion.button>
                 <motion.button
                   onClick={nextTestimonial}
-                  className="bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
+                  className="bg-white dark:bg-color-gray-800 p-3 rounded-full shadow-lg border border-color-gray-200 dark:border-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <ChevronRight className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  <ChevronRight className="h-6 w-6 text-color-blue-600 dark:text-color-blue-400" />
                 </motion.button>
               </div>
               
@@ -376,7 +376,7 @@ const CustomerTestimonials = () => {
                     onClick={() => setCurrentTestimonial(index)}
                     className={`h-3 w-3 rounded-full transition-colors ${
                       index === currentTestimonial
-                        ? "bg-blue-600 dark:bg-blue-400"
+                        ? "bg-color-blue-600 dark:bg-color-blue-400"
                         : "bg-gray-300 dark:bg-gray-700"
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
@@ -402,32 +402,32 @@ const CustomerTestimonials = () => {
               viewport={{ once: true }}
             >
               <span className="inline-block bg-blue-50 dark:bg-blue-900/20 px-6 py-2 rounded-full mb-4">
-                <span className="text-blue-600 dark:text-blue-400 font-medium">Our Reach</span>
+                <span className="text-color-blue-600 dark:text-color-blue-400 font-medium">Our Reach</span>
               </span>
             </motion.div>
             
             <motion.h2
-              className="text-7xl font-bold mb-16 text-center text-gray-800 dark:text-white title"
+              className="text-7xl font-bold mb-16 text-center text-color-gray-800 dark:text-white title"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
             >
-              Industries <span className="text-blue-600 dark:text-blue-400">We Serve</span>
+              Industries <span className="text-color-blue-600 dark:text-color-blue-400">We Serve</span>
             </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
               {sectors.map((sector, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 text-center"
+                  className="bg-white dark:bg-color-gray-800 p-6 rounded-xl shadow-lg border border-color-gray-100 dark:border-gray-700 text-center"
                   variants={fadeIn}
                   whileHover={{ y: -10, transition: { duration: 0.3 } }}
                 >
-                  <div className="h-16 w-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <div className="h-16 w-16 bg-color-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
                     {sector.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">{sector.name}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-color-gray-800 dark:text-white">{sector.name}</h3>
                   <p className="text-gray-600 dark:text-gray-400">{sector.count} clients</p>
                 </motion.div>
               ))}

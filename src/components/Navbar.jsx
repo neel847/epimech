@@ -58,7 +58,7 @@ function Navbar() {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md dark:bg-gray-900' : 'bg-transparent dark:bg-gray-900'
+        scrolled ? 'bg-white shadow-md dark:bg-color-gray-900' : 'bg-transparent dark:bg-color-gray-900'
       }`}
     >
       {loading && <Loader />}
@@ -68,7 +68,7 @@ function Navbar() {
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => handleNavigation('/')}>
             <Image src="/fav.png" alt="Logo" width={20} height={20} className="mr-2" />
-            <span className="text-2xl pr-16 nav-header font-semibold text-gray-900 dark:text-white uppercase">
+            <span className="text-2xl pr-16 nav-header font-semibold text-color-gray-900 dark:text-white uppercase">
               Epimech
             </span>
           </div>
@@ -81,8 +81,8 @@ function Navbar() {
                 onClick={() => handleNavigation(item.path)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   pathname === item.path
-                    ? 'bg-blue-50 text-blue-700 dark:bg-gray-800 dark:text-gray-200'
-                    : 'text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800'
+                    ? 'bg-blue-50 text-blue-700 dark:bg-color-gray-800 dark:text-color-gray-200'
+                    : 'text-gray-700 hover:bg-color-gray-100 dark:text-color-gray-200 dark:hover:bg-color-gray-800'
                 }`}
               >
                 {item.label}
@@ -118,7 +118,7 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg dark:bg-gray-900">
+        <div className="md:hidden bg-white shadow-lg dark:bg-color-gray-900">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <button
@@ -126,8 +126,8 @@ function Navbar() {
                 onClick={() => handleNavigation(item.path)}
                 className={`w-full text-left block px-3 py-2 rounded-md text-base font-medium ${
                   pathname === item.path || pathname.startsWith(item.path)
-                    ? 'bg-blue-50 text-blue-700 dark:bg-gray-800 dark:text-gray-200'
-                    : 'text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800'
+                    ? 'bg-blue-50 text-blue-700 dark:bg-color-gray-800 dark:text-color-gray-200'
+                    : 'text-gray-700 hover:bg-color-gray-100 dark:text-color-gray-200 dark:hover:bg-color-gray-800'
                 }`}
               >
                 {item.label}

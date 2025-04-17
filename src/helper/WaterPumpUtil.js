@@ -523,7 +523,7 @@ export const WaterPumpParts = [
     }
   },
   {
-    "image": "/waterpump/BEARING Ball - Water pump drive gear end.jpg",
+    "image": "/waterpump/2.jpg",
     "part_name": "BEARING Ball - Water pump drive gear end",
     "part_number": {
       "EMD 710 / EMD 645": "908410"

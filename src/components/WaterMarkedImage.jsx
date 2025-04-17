@@ -45,7 +45,7 @@ const WatermarkedImage = ({ src, alt = '', watermark = '© Epimech', className =
       </div>
 
       {/* Watermark */}
-      {image !== '/fallback.png' && (
+      {/* {image !== '/fallback.png' && (
         <div className="absolute inset-0 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300">
           <span className="text-white text-sm md:text-base bg-black/30 px-2 py-1 rounded-md backdrop-blur-sm 
                           pointer-events-none select-none font-medium tracking-wide shadow-md
@@ -53,7 +53,7 @@ const WatermarkedImage = ({ src, alt = '', watermark = '© Epimech', className =
             {watermark}
           </span>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

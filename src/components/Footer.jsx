@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 function Footer() {
     return (
-        <footer className="bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-sm transition-colors duration-300">
+        <footer className="bg-white dark:bg-color-gray-900 border-t border-color-gray-100 dark:border-color-gray-800 shadow-sm transition-colors duration-300">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 {/* Main Footer Content */}
                 <div className="py-12">
@@ -19,7 +19,7 @@ function Footer() {
                                     height={28}
                                     className="mr-2"
                                 />
-                                <span className="nav-header text-4xl font-bold text-gray-900 dark:text-white uppercase tracking-tight">
+                                <span className="nav-header text-4xl font-bold text-color-gray-900 dark:text-white uppercase tracking-tight">
                                     Epimech
                                 </span>
                             </Link>
@@ -30,19 +30,19 @@ function Footer() {
                                 <a href="https://www.linkedin.com/company/epimech"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-gray-100 dark:bg-gray-800 p-2 rounded-full text-gray-600 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                                    className="bg-color-gray-100 dark:bg-color-gray-800 p-2 rounded-full text-gray-600 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-all">
                                     <Linkedin size={20} />
                                 </a>
                                 <a href="https://www.instagram.com/epimech_"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-gray-100 dark:bg-gray-800 p-2 rounded-full text-gray-600 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                                    className="bg-color-gray-100 dark:bg-color-gray-800 p-2 rounded-full text-gray-600 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-all">
                                     <Instagram size={20} />
                                 </a>
                                 <a href="https://www.facebook.com/epimech"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-gray-100 dark:bg-gray-800 p-2 rounded-full text-gray-600 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                                    className="bg-color-gray-100 dark:bg-color-gray-800 p-2 rounded-full text-gray-600 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-all">
                                     <Facebook size={20} />
                                 </a>
                             </div>
@@ -50,31 +50,31 @@ function Footer() {
 
                         {/* Quick Links */}
                         <div className="lg:ml-8">
-                            <h3 className="text-gray-900 dark:text-white font-bold text-lg mb-6">Quick Links</h3>
+                            <h3 className="text-color-gray-900 dark:text-white font-bold text-lg mb-6">Quick Links</h3>
                             <ul className="space-y-4 list-none">
                                 <li>
-                                    <Link href="/" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center">
+                                    <Link href="/" className="text-gray-600 dark:text-gray-400 hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-colors flex items-center">
                                         Home
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/about" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center">
+                                    <Link href="/about" className="text-gray-600 dark:text-gray-400 hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-colors flex items-center">
                                         About Us
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/products" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center">
+                                    <Link href="/products" className="text-gray-600 dark:text-gray-400 hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-colors flex items-center">
                                         Products
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/product-list" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center">
+                                    <Link href="/product-list" className="text-gray-600 dark:text-gray-400 hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-colors flex items-center">
                                         Catalog
                                     </Link>
                                 </li>
                                
                                 <li>
-                                    <Link href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center">
+                                    <Link href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-colors flex items-center">
                                         Contact Us
                                     </Link>
                                 </li>
@@ -82,11 +82,11 @@ function Footer() {
                         </div>
 
                         <div>
-                            <h3 className="text-gray-900 dark:text-white font-bold text-lg mb-6">Products</h3>
+                            <h3 className="text-color-gray-900 dark:text-white font-bold text-lg mb-6">Products</h3>
                             <ul className="space-y-4 list-none">
                                 {products.map((product) => {
                                     return (
-                                        <Link href={product.href} key={product.name} className='text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center cursor-pointer'>
+                                        <Link href={product.href} key={product.name} className='text-gray-600 dark:text-gray-400 hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-colors flex items-center cursor-pointer'>
                                             {product.name}
                                         </Link>
                                     );
@@ -97,7 +97,7 @@ function Footer() {
                         </div>
                         {/* Contact Information */}
                         <div>
-                            <h3 className="text-gray-900 dark:text-white font-bold text-lg mb-6">Get In Touch</h3>
+                            <h3 className="text-color-gray-900 dark:text-white font-bold text-lg mb-6">Get In Touch</h3>
                             <div className="space-y-4">
                                 <div className="flex items-start">
                                     <Mail className="text-gray-400 dark:text-gray-500 mt-1 mr-3" size={18} />
@@ -123,19 +123,19 @@ function Footer() {
                 </div>
 
                 {/* Copyright Bar */}
-                <div className="border-t border-gray-100 dark:border-gray-800 py-6">
+                <div className="border-t border-color-gray-100 dark:border-color-gray-800 py-6">
                     <div className="flex flex-col md:flex-row justify-between items-center">
                         <p className="text-gray-500 dark:text-gray-400 text-sm">
                             © {new Date().getFullYear()} Epimech. All rights reserved.
                         </p>
                         <div className="flex space-x-6 mt-4 md:mt-0">
-                            <Link href="/privacy" className="text-gray-500 dark:text-gray-400 text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            <Link href="/privacy" className="text-gray-500 dark:text-gray-400 text-sm hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-colors">
                                 Privacy Policy
                             </Link>
-                            <Link href="/terms" className="text-gray-500 dark:text-gray-400 text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            <Link href="/terms" className="text-gray-500 dark:text-gray-400 text-sm hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-colors">
                                 Terms of Service
                             </Link>
-                            <Link href="/cookies" className="text-gray-500 dark:text-gray-400 text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            <Link href="/cookies" className="text-gray-500 dark:text-gray-400 text-sm hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-colors">
                                 Cookie Policy
                             </Link>
                         </div>
