@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Carousel, Image, Modal, Form, Input, Select, Button, InputNumber } from 'antd';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { CircleCheck, Clipboard, Copy, Package, Mail } from 'lucide-react';
 import toast from 'react-hot-toast';
 const { PreviewGroup } = Image;
@@ -18,10 +18,12 @@ const PartDetails = ({ part, onBack }) => {
   const [copied, setCopied] = useState(false);
   const [copiedText, setCopiedText] = useState('');
 
+  const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
+
   // Quotation modal states
   const [isQuoteModalVisible, setIsQuoteModalVisible] = useState(false);
   const [form] = Form.useForm();
-  const [submitting, setSubmitting] = useState(false);
 
   const subImages = part.subimages ? Object.values(part.subimages) : [];
   const allImages = [part.image, ...subImages];
@@ -59,7 +61,13 @@ const PartDetails = ({ part, onBack }) => {
     const validPartNumber = partNumbers.find(num => num !== '-') || 'this product';
     return validPartNumber;
   };
-
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    country: '',
+    quantity: 1,
+    comment: `Quote for ${getDefaultPartNumber()}`
+  });
   // Handle quotation modal
   const showQuoteModal = () => {
     // Pre-fill the comment field with the part number
@@ -72,8 +80,67 @@ const PartDetails = ({ part, onBack }) => {
   const handleQuoteCancel = () => {
     setIsQuoteModalVisible(false);
   };
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Please enter your name';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Please enter your email';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email';
+    }
+    
+    if (!formData.country.trim()) {
+      newErrors.country = 'Please select your country';
+    }
+    
+    if (!formData.quantity || formData.quantity < 1) {
+      newErrors.quantity = 'Please enter required quantity';
+    }
+    
+    return newErrors;
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Clear error when field is edited
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: null
+      }));
+    }
+  };
 
-  const handleQuoteSubmit = async (values) => {
+  const handleQuantityChange = (e) => {
+    const value = parseInt(e.target.value) || '';
+    setFormData(prev => ({
+      ...prev,
+      quantity: value
+    }));
+    
+    if (errors.quantity) {
+      setErrors(prev => ({
+        ...prev,
+        quantity: null
+      }));
+    }
+  };
+  const handleSubmit = async (values) => {
+    values.preventDefault();
+    const newErrors = validateForm();
+    
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
     setSubmitting(true);
     try {
       const response = await fetch('/api/send-quotation', {
@@ -82,11 +149,12 @@ const PartDetails = ({ part, onBack }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          ...values,
+          ...formData,
           productName: part.part_name,
           partNumber: getDefaultPartNumber()
         }),
       });
+      
 
       const data = await response.json();
 
@@ -364,134 +432,115 @@ const PartDetails = ({ part, onBack }) => {
       </motion.div>
 
       {/* Quotation Modal */}
-      <Modal
-        title={
-          <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400">
-            <Mail className="w-5 h-5" />
-            <span>Request Quotation</span>
-          </div>
-        }
-        open={isQuoteModalVisible}
-        onCancel={handleQuoteCancel}
-        footer={null}
-        width={600}
-        className="quotation-modal"
-        // Add dark mode support for the modal overlay and content
-        wrapClassName="dark:ant-modal-wrap-dark"
-        modalRender={(modal) => (
-          <div className="dark:bg-gray-800 dark:border dark:border-gray-700 dark:text-white rounded-lg overflow-hidden">
-            {modal}
-          </div>
-        )}
-      >
-        <Form
-          form={form}
-          layout="vertical"
-          onFinish={handleQuoteSubmit}
-          initialValues={{
-            comment: `Quote for ${getDefaultPartNumber()}`
-          }}
-          className="dark:text-gray-100"
-        >
-          {/* Product Info Banner - Dark mode compatible */}
-          <div className="my-6 p-4 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 
-                   dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800">
-            <h3 className="font-medium flex items-center gap-2">
-              <Package className="w-4 h-4" />
-              <span>Requesting quote for: <span className="font-semibold">{part.part_name}</span></span>
-            </h3>
-          </div>
-
-          {/* Responsive grid for form fields */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Form.Item
-              name="name"
-              label={<span className="dark:text-gray-100">Name</span>}
-              rules={[{ required: true, message: 'Please enter your name' }]}
-              className="mb-3"
-            >
-              <Input
-                placeholder="Enter your full name"
-                className="dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
+      <AnimatePresence>
+          {isQuoteModalVisible && (
+            <>
+              <motion.div
+                className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsQuoteModalVisible(false)}
               />
-            </Form.Item>
 
-            <Form.Item
-              name="email"
-              label={<span className="dark:text-gray-100">Email</span>}
-              rules={[
-                { required: true, message: 'Please enter your email' },
-                { type: 'email', message: 'Please enter a valid email' }
-              ]}
-              className="mb-3"
-            >
-              <Input
-                placeholder="Enter your email address"
-                className="dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
-              />
-            </Form.Item>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Form.Item
-              name="country"
-              label={<span className="dark:text-gray-100">Country</span>}
-              rules={[{ required: true, message: 'Please select your country' }]}
-              className="mb-3"
-            >
-              <Input
-                min={1}
-                placeholder="Enter your country"
-                className="dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
-              />
-            </Form.Item>
-
-            <Form.Item
-              name="quantity"
-              label={<span className="dark:text-gray-100">Quantity</span>}
-              rules={[{ required: true, message: 'Please enter required quantity' }]}
-              className="mb-3"
-            >
-              <InputNumber
-                min={1}
-                placeholder="Enter quantity"
-                className="w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-              />
-            </Form.Item>
-          </div>
-
-          <Form.Item
-            name="comment"
-            label={<span className="dark:text-gray-100">Comment</span>}
-            className="mb-6"
-          >
-            <TextArea
-              rows={4}
-              placeholder="Enter any additional information"
-              className="dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
-            />
-          </Form.Item>
-
-          <Form.Item className="mb-0 mt-6">
-            <div className="flex flex-col-reverse xs:flex-row justify-end gap-3">
-              <Button
-                onClick={handleQuoteCancel}
-                className="dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-600"
+              <motion.div
+                className="fixed inset-0 z-50 flex items-center justify-center p-4"
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
               >
-                Cancel
-              </Button>
-              <Button
-                type="primary"
-                htmlType="submit"
-                loading={submitting}
-                className="bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700"
-              >
-                Submit Request
-              </Button>
-            </div>
-          </Form.Item>
-        </Form>
-      </Modal>
+                <div
+                  className="relative w-full max-w-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-6 max-h-[90vh] overflow-y-auto"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    onClick={() => setIsQuoteModalVisible(false)}
+                    className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                  >✕</button>
+
+                  <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-blue-600 dark:text-blue-400">
+                    <Mail className="w-5 h-5" /> Request Quotation
+                  </h2>
+
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label className="block mb-1 dark:text-white">Name</label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className={`w-full px-3 py-2 border dark:text-white rounded-md dark:bg-gray-700 dark:border-gray-600 ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
+                      />
+                      {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                    </div>
+
+                    <div>
+                      <label className="block mb-1 dark:text-white">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className={`w-full px-3 py-2 border rounded-md dark:text-white dark:bg-gray-700 dark:border-gray-600 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                      />
+                      {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                    </div>
+
+                    <div>
+                      <label className="block mb-1 dark:text-white">Country</label>
+                      <input
+                        type="text"
+                        name="country"
+                        value={formData.country}
+                        onChange={handleChange}
+                        className={`w-full px-3 py-2 border rounded-md dark:text-white dark:bg-gray-700 dark:border-gray-600 ${errors.country ? 'border-red-500' : 'border-gray-300'}`}
+                      />
+                      {errors.country && <p className="text-red-500 text-sm mt-1">{errors.country}</p>}
+                    </div>
+
+                    <div>
+                      <label className="block mb-1 dark:text-white">Quantity</label>
+                      <input
+                        type="number"
+                        name="quantity"
+                        min="1"
+                        value={formData.quantity}
+                        onChange={handleQuantityChange}
+                        className={`w-full px-3 py-2 border rounded-md dark:text-white dark:bg-gray-700 dark:border-gray-600 ${errors.quantity ? 'border-red-500' : 'border-gray-300'}`}
+                      />
+                      {errors.quantity && <p className="text-red-500 text-sm mt-1">{errors.quantity}</p>}
+                    </div>
+
+                    <div>
+                      <label className="block mb-1 dark:text-white">Comment</label>
+                      <textarea
+                        name="comment"
+                        rows="4"
+                        value={formData.comment}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 dark:text-white border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-md"
+                      />
+                    </div>
+
+                    <div className="flex justify-end gap-3 pt-4">
+                      <button
+                        type="button"
+                        onClick={() => setIsQuoteModalVisible(false)}
+                        className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-md hover:bg-gray-300 dark:text-white dark:hover:bg-gray-600"
+                      >Cancel</button>
+                      <button
+                        type="submit"
+                        disabled={submitting}
+                        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50"
+                      >{submitting ? 'Loading...' : 'Submit Request'}</button>
+                    </div>
+                  </form>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
     </div>
   );
 };
