@@ -15,7 +15,7 @@ const SearchBar = ({ query, setQuery }) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search parts..."
-        className="w-full px-5 py-3 text-md rounded-xl shadow-sm border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition"
+        className="w-full px-5 py-3 text-md rounded-xl shadow-sm border border-gray-300 dark:border-gray-700 dark:bg-color-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition"
       />
     </motion.div>
   );

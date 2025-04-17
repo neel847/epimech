@@ -30,38 +30,38 @@ const CompanyStats = () => {
             description: "Delivering high-quality parts to clients across the globe",
             value: "15+",
             icon: <Globe className='h-5 w-5' />,
-            color: "bg-blue-600 dark:bg-blue-700"
+            color: "bg-color-blue-600 dark:bg-blue-700"
         },
         {
             title: "Range of Products",
             description: "Precision-engineered components for diverse industries.",
             value: "70+",
             icon: <Box className='h-5 w-5' />,
-            color: "bg-blue-600 dark:bg-blue-700"
+            color: "bg-color-blue-600 dark:bg-blue-700"
         },
         {
             title: "Satisfied Clients",
             description: "Built lasting partnerships across marine and rail sectors.",
             value: "200+",
             icon: <Users className='h-5 w-5' />,
-            color: "bg-blue-600 dark:bg-blue-700"
+            color: "bg-color-blue-600 dark:bg-blue-700"
         },
         {
             title: "Industry Experience",
             description: "Over two decades of expertise in engineering solutions.",
             value: "20+ Years",
             icon: <Rocket className='h-5 w-5' />,
-            color: "bg-blue-600 dark:bg-blue-700"
+            color: "bg-color-blue-600 dark:bg-blue-700"
         }
     ];
 
     return (
-        <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <section className="py-20 bg-white dark:bg-color-gray-900 transition-colors duration-300">
 
             <div className='container mx-auto px-6 lg:px-8'>
-                <h3 className='px-6 pb-8 title font-bold dark:text-white text-black text-7xl'><span className='text-blue-600 dark:text-blue-400'>EPIMECH</span> AT A GLANCE</h3>
+                <h3 className='px-6 pb-8 title font-bold dark:text-white text-black text-7xl'><span className='text-color-blue-600 dark:text-color-blue-400'>EPIMECH</span> AT A GLANCE</h3>
 
-                <section className="w-full bg-gray-100 dark:bg-gray-800 py-16 mx-auto rounded-lg">
+                <section className="w-full bg-color-gray-100 dark:bg-color-gray-800 py-16 mx-auto rounded-lg">
                     <div className="container mx-auto px-6 lg:px-8">
                         <motion.div
                             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
@@ -80,7 +80,7 @@ const CompanyStats = () => {
                                         <h4 className="text-2xl flex items-center lg:text-[20px] gap-x-2 font-bold text-black dark:text-white mb-2 ">
                                             {stat.icon}       {stat.title}
                                         </h4>
-                                        <p className="dark:text-blue-200 text-blue-400 text-md mb-4 min-h-20">
+                                        <p className="dark:text-blue-200 text-color-blue-400 text-md mb-4 min-h-20">
                                             {stat.description}
                                         </p>
                                     </div>
@@ -102,10 +102,10 @@ const CompanyStats = () => {
             </div>
    
 
-            <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
+            <div className="bg-white dark:bg-color-gray-900 transition-colors duration-300">
                 <div className='py-32 container mx-auto px-6 lg:px-8'>
                     <motion.div
-                        className='bg-[#eee] p-8 md:p-12 rounded-xl dark:bg-gray-800 flex justify-between items-center flex-col md:flex-row gap-8 shadow-lg relative overflow-hidden'
+                        className='bg-[#eee] p-8 md:p-12 rounded-xl dark:bg-color-gray-800 flex justify-between items-center flex-col md:flex-row gap-8 shadow-lg relative overflow-hidden'
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
@@ -113,7 +113,7 @@ const CompanyStats = () => {
                     >
                         {/* Decorative element */}
                         <motion.div
-                            className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 dark:bg-blue-400/10 rounded-full -mr-10 -mt-10"
+                            className="absolute top-0 right-0 w-32 h-32 bg-color-blue-600/10 dark:bg-color-blue-400/10 rounded-full -mr-10 -mt-10"
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             transition={{ duration: 0.7, delay: 0.3 }}
@@ -121,7 +121,7 @@ const CompanyStats = () => {
                         />
 
                         <motion.div
-                            className="absolute bottom-0 left-0 w-24 h-24 bg-blue-600/10 dark:bg-blue-400/10 rounded-full -ml-8 -mb-8"
+                            className="absolute bottom-0 left-0 w-24 h-24 bg-color-blue-600/10 dark:bg-color-blue-400/10 rounded-full -ml-8 -mb-8"
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             transition={{ duration: 0.7, delay: 0.4 }}
@@ -136,7 +136,7 @@ const CompanyStats = () => {
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                ANY <span className='text-blue-600 dark:text-blue-400'> INQUIRIES?</span>
+                                ANY <span className='text-color-blue-600 dark:text-color-blue-400'> INQUIRIES?</span>
                             </motion.h3>
 
                             <motion.p
@@ -159,7 +159,7 @@ const CompanyStats = () => {
                         >
                             <Link href="/contact">
                                 <motion.p
-                                    className="inline-flex items-center bg-blue-600 text-xl hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white font-medium py-4 px-8 rounded-md transition-colors duration-300 text-center shadow-md"
+                                    className="inline-flex items-center bg-color-blue-600 text-xl hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white font-medium py-4 px-8 rounded-md transition-colors duration-300 text-center shadow-md"
                                     whileHover={{ y: -3, boxShadow: "0 4px 12px rgba(0,0,0,0.15)" }}
                                     whileTap={{ y: 0 }}
                                 >

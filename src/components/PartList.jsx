@@ -86,15 +86,15 @@ const PartList = ({ parts, onPartClick }) => {
           className="flex flex-col items-center justify-center py-16 px-4"
         >
           <div className="bg-blue-50 dark:bg-blue-900/20 rounded-full h-16 w-16 flex items-center justify-center mb-4">
-            <SearchOutlined className="text-blue-500 dark:text-blue-400 text-2xl" />
+            <SearchOutlined className="text-blue-500 dark:text-color-blue-400 text-2xl" />
           </div>
-          <h3 className="text-xl font-medium text-gray-800 dark:text-white mb-2">No parts found</h3>
+          <h3 className="text-xl font-medium text-color-gray-800 dark:text-white mb-2">No parts found</h3>
           <p className="text-gray-500 dark:text-gray-400 text-center max-w-md">
             Try adjusting your search or filter criteria to find what you're looking for.
           </p>
           <button
             onClick={() => window.location.reload()}
-            className="mt-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors duration-200"
+            className="mt-6 px-4 py-2 bg-color-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors duration-200"
           >
             Reset Filters
           </button>

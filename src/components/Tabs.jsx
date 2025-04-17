@@ -35,8 +35,8 @@ const Tabs = ({ currentTab, setTab, tabs, searchQuery, onSelectPart }) => {
           onClick={() => setTab('All')}
           className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
             currentTab === 'All'
-              ? 'bg-blue-600 text-white shadow-md'
-              : 'bg-gray-100 dark:bg-gray-700 dark:text-gray-300 text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
+              ? 'bg-color-blue-600 text-white shadow-md'
+              : 'bg-color-gray-100 dark:bg-gray-700 dark:text-gray-300 text-gray-700 hover:bg-color-gray-200 dark:hover:bg-gray-600'
           }`}
         >
           All
@@ -51,8 +51,8 @@ const Tabs = ({ currentTab, setTab, tabs, searchQuery, onSelectPart }) => {
               onClick={() => setTab(tab.name)}
               className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
                 isActive
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-gray-100 dark:bg-gray-700 dark:text-gray-300 text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  ? 'bg-color-blue-600 text-white shadow-md'
+                  : 'bg-color-gray-100 dark:bg-gray-700 dark:text-gray-300 text-gray-700 hover:bg-color-gray-200 dark:hover:bg-gray-600'
               }`}
             >
               {tab.name}

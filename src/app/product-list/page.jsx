@@ -15,7 +15,7 @@ const ProductListView = () => {
   const [search, setSearch] = useState('');
   const [filteredParts, setFilteredParts] = useState([]);
   const [viewMode, setViewMode] = useState('table'); // 'grid' or 'table'
-  const [sortConfig, setSortConfig] = useState({ key: 'main_product', direction: 'asc' });
+  const [sortConfig, setSortConfig] = useState('');
   const [copyValue, setCopyValue] = useState('');
   const [copied, setCopied] = useState(false);
   const [filters, setFilters] = useState({
@@ -148,7 +148,7 @@ const ProductListView = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 dark:bg-color-gray-900 transition-colors duration-300">
       <div className="relative w-full h-[400px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-gray-600 via-blue-900 to-blue-700 dark:from-black dark:via-blue-900 dark:to-blue-800 animate-gradient-x duration-[1s,30s]"></div>
         <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
@@ -160,10 +160,10 @@ const ProductListView = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Our <span className="text-blue-300">Catalog</span>
+            Our <span className="text-color-blue-300">Catalog</span>
           </motion.h1>
           <motion.p
-            className="text-gray-100 text-xl max-w-3xl text-center mb-8"
+            className="text-color-gray-100 text-xl max-w-3xl text-center mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -184,7 +184,7 @@ const ProductListView = () => {
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <h2 className="title text-6xl font-bold text-black dark:text-white mb-6 pb-4 uppercase">
-                Our <span className='text-blue-600 dark:text-blue-400'>Catalog</span>
+                Our <span className='text-color-blue-600 dark:text-color-blue-400'>Catalog</span>
               </h2>
 
           <div className="flex items-center space-x-3">
@@ -192,18 +192,18 @@ const ProductListView = () => {
 
             <button
               onClick={exportToCSV}
-              className="flex items-center space-x-1 px-3 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-sm font-medium text-gray-700 dark:text-gray-300"
+              className="flex items-center space-x-1 px-3 py-2 bg-white dark:bg-color-gray-800 rounded-lg shadow-sm hover:bg-color-gray-100 dark:hover:bg-gray-700 transition-colors text-sm font-medium text-gray-700 dark:text-gray-300"
             >
               <Download size={16} />
               <span>Export</span>
             </button>
 
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-1 flex">
+            <div className="bg-white dark:bg-color-gray-800 rounded-lg shadow-sm p-1 flex">
             <button
                 onClick={() => setViewMode('table')}
                 className={`p-2 rounded ${viewMode === 'table'
-                  ? 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300'
-                  : 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                  ? 'bg-color-blue-100 dark:bg-blue-900 text-color-blue-600 dark:text-color-blue-300'
+                  : 'text-gray-500 dark:text-gray-400 hover:bg-color-gray-100 dark:hover:bg-gray-700'}`}
                 aria-label="Table view"
               >
                 <List size={18} />
@@ -211,8 +211,8 @@ const ProductListView = () => {
               <button
                 onClick={() => setViewMode('grid')}
                 className={`p-2 rounded ${viewMode === 'grid'
-                  ? 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300'
-                  : 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                  ? 'bg-color-blue-100 dark:bg-blue-900 text-color-blue-600 dark:text-color-blue-300'
+                  : 'text-gray-500 dark:text-gray-400 hover:bg-color-gray-100 dark:hover:bg-gray-700'}`}
                 aria-label="Grid view"
               >
                 <Grid size={18} />
@@ -223,7 +223,7 @@ const ProductListView = () => {
         </div>
 
         {/* Search and filter bar */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm mb-6 p-4">
+        <div className="bg-white dark:bg-color-gray-800 rounded-xl shadow-sm mb-6 p-4">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="relative flex-grow">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -234,7 +234,7 @@ const ProductListView = () => {
                 placeholder="Search by product name or part number..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-10 pr-10 py-2 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-10 py-2 border border-color-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-color-gray-900 text-color-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               {search && (
                 <button
@@ -249,8 +249,8 @@ const ProductListView = () => {
             <button
               onClick={() => setFilters(prev => ({ ...prev, showFilters: !prev.showFilters }))}
               className={`flex items-center justify-center space-x-2 px-4 py-2 rounded-lg border ${filters.categories.length > 0
-                ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300'
-                : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300'
+                ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-200 dark:border-blue-800 text-blue-700 dark:text-color-blue-300'
+                : 'bg-white dark:bg-color-gray-800 border-color-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300'
                 } hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors`}
             >
               <Filter size={18} />
@@ -269,7 +269,7 @@ const ProductListView = () => {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="pt-4 border-t border-gray-200 dark:border-gray-700 mt-4">
+                <div className="pt-4 border-t border-color-gray-200 dark:border-gray-700 mt-4">
                   <div className="flex justify-between items-center mb-3">
                     <h3 className="font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
                       <Layers size={16} />
@@ -278,7 +278,7 @@ const ProductListView = () => {
                     {filters.categories.length > 0 && (
                       <button
                         onClick={clearFilters}
-                        className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+                        className="text-sm text-color-blue-600 dark:text-color-blue-400 hover:underline flex items-center gap-1"
                       >
                         <RefreshCw size={14} />
                         Clear filters
@@ -292,8 +292,8 @@ const ProductListView = () => {
                         key={category}
                         onClick={() => toggleCategoryFilter(category)}
                         className={`px-3 py-1 text-sm rounded-full ${filters.categories.includes(category)
-                          ? 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 border-blue-200 dark:border-blue-800'
-                          : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600'
+                          ? 'bg-color-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 border-blue-200 dark:border-blue-800'
+                          : 'bg-color-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-color-gray-200 dark:border-gray-600'
                           } border hover:shadow-sm transition-all`}
                       >
                         {category}
@@ -307,9 +307,9 @@ const ProductListView = () => {
         </div>
 
         {/* Results section */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden">
+        <div className="bg-white dark:bg-color-gray-800 rounded-xl shadow-sm overflow-hidden">
           {/* Results header */}
-          <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+          <div className="px-6 py-4 border-b border-color-gray-200 dark:border-gray-700 flex justify-between items-center">
             <div className="text-sm text-gray-500 dark:text-gray-400">
               {isLoading
                 ? 'Loading results...'
@@ -342,7 +342,7 @@ const ProductListView = () => {
               {(search || filters.categories.length > 0) && (
                 <button
                   onClick={clearFilters}
-                  className="mt-4 px-4 py-2 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-800/40 transition-colors text-sm"
+                  className="mt-4 px-4 py-2 bg-blue-50 dark:bg-blue-900/30 text-color-blue-600 dark:text-color-blue-300 rounded-lg hover:bg-color-blue-100 dark:hover:bg-blue-800/40 transition-colors text-sm"
                 >
                   Clear all filters
                 </button>
@@ -371,8 +371,8 @@ const ProductListView = () => {
                   className="mb-8"
                 >
                   {/* Category header */}
-                  <div className="bg-gray-100 dark:bg-gray-800 rounded-lg pr-6 pl-2 py-3 mb-4 shadow-sm">
-                    <h2 className="text-lg font-medium text-gray-900 dark:text-white">{category}</h2>
+                  <div className="bg-color-gray-100 dark:bg-color-gray-800 rounded-lg pr-6 pl-2 py-3 mb-4 shadow-sm">
+                    <h2 className="text-lg font-medium text-color-gray-900 dark:text-white">{category}</h2>
                   </div>
 
                   {/* Products grid for this category */}
@@ -386,19 +386,19 @@ const ProductListView = () => {
                       <motion.div
                       key={`${part.part_number}-${index}`}
                       variants={itemVariants}
-                      className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-md transition-shadow flex justify-between"
+                      className="bg-white dark:bg-color-gray-900 border border-color-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-md transition-shadow flex justify-between"
                     >
                       <div className="p-4 flex-grow">
-                        <h3 className="font-medium text-gray-900 dark:text-white mb-2">{part.product}</h3>
+                        <h3 className="font-medium text-color-gray-900 dark:text-white mb-2">{part.product}</h3>
                         <div className="flex items-center text-sm">
                           <span className="text-gray-500 dark:text-gray-400 mr-2">Part #:</span>
-                          <span className="font-mono text-gray-800 dark:text-gray-200">{part.part_number}</span>
+                          <span className="font-mono text-color-gray-800 dark:text-color-gray-200">{part.part_number}</span>
                         </div>
                       </div>
                       <div className="flex items-center pr-4">
                         <button
                           onClick={() => copyThisValue(part.part_number)}
-                          className="flex flex-col items-center justify-center p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                          className="flex flex-col items-center justify-center p-2 rounded-md hover:bg-color-gray-100 dark:hover:bg-color-gray-800 transition-colors"
                           aria-label="Copy part number"
                         >
                           {copied && copyValue === part.part_number ? (
@@ -421,8 +421,8 @@ const ProductListView = () => {
           {/* Table View */}
           {!isLoading && filteredParts.length > 0 && viewMode === 'table' && (
             <div className="overflow-x-auto max-h-[60vh]">
-              <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                <thead className="bg-gray-50 dark:bg-gray-900">
+              <table className="min-w-full divide-y divide-color-gray-200 dark:divide-gray-700">
+                <thead className="bg-gray-50 dark:bg-color-gray-900">
                   <tr>
                     {/* <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                       Main Product
@@ -435,7 +435,7 @@ const ProductListView = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                <tbody className="bg-white dark:bg-color-gray-800 divide-y divide-color-gray-200 dark:divide-gray-700">
                   {/* Group parts by main_product and render each group with headers */}
                   {Object.entries(
                     // Group the filtered parts by main_product
@@ -453,11 +453,11 @@ const ProductListView = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.3 }}
-                        className="bg-gray-200 dark:bg-gray-700"
+                        className="bg-color-gray-200 dark:bg-gray-700"
                       >
                         <td
                           colSpan="2"
-                          className="px-6 py-3 text-sm font-bold text-gray-900 dark:text-white"
+                          className="px-6 py-3 text-sm font-bold text-color-gray-900 dark:text-white"
                         >
                           {category}
                         </td>
@@ -472,7 +472,7 @@ const ProductListView = () => {
                           transition={{ duration: 0.2, delay: index * 0.03 }}
                           className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                         >
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white pl-10">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-color-gray-900 dark:text-white pl-10">
                             {part.product}
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm flex items-center font-mono text-gray-700 dark:text-gray-300">
