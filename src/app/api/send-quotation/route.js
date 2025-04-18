@@ -28,7 +28,7 @@ export async function POST(request) {
     });
 
     // Company Logo URL - replace with your actual logo URL
-    const companyLogo = 'https://yourcompany.com/logo.png';
+    // const companyLogo = 'https://yourcompany.com/logo.png';
     
     // Format the email content for company notification
     const mailOptions = {
@@ -405,3 +405,13 @@ export async function POST(request) {
     );
   }
 }
+
+export async function GET() {
+    return new Response(JSON.stringify({ message: 'Send a POST request to this endpoint.' }), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  }
+  
