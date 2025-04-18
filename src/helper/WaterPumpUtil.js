@@ -22,9 +22,7 @@ export const WaterPumpParts = [
     "image": "/waterpump/BUSHING Water pump.jpg",
     "part_name": "BUSHING Water pump",
     "part_number": {
-      "EMD 710": "8052224",
-      "EMD 645": "8052224",
-      "DLW": "16150429"
+      "EMD 710 / EMD 645": "8052224"
     }
   },
   {
@@ -55,18 +53,14 @@ export const WaterPumpParts = [
     "image": "/waterpump/GEAR Water pump drive.jpg",
     "part_name": "GEAR Water pump drive",
     "part_number": {
-      "EMD 710": "8042976",
-      "EMD 645": "8042976",
-      "DLW": "16141740"
+      "EMD 710 / EMD 645": "8042976"
     }
   },
   {
     "image": "/waterpump/SHAFT Water pump drive.jpg",
     "part_name": "SHAFT Water pump drive",
     "part_number": {
-      "EMD 710": "8052246 / 40089902",
-      "EMD 645": "8052246",
-      "DLW": "16240388"
+      "EMD 710 / EMD 645": "8052246"
     }
   },
   {
@@ -80,9 +74,7 @@ export const WaterPumpParts = [
     "image": "/waterpump/SPRING Water pump.jpg",
     "part_name": "SPRING Water pump",
     "part_number": {
-      "EMD 710": "8055346",
-      "EMD 645": "8055346",
-      "DLW": "16160344"
+      "EMD 710 / EMD 645": "8055346"
     }
   },
   {
@@ -92,9 +84,7 @@ export const WaterPumpParts = [
       "image1": "/waterpump/RETAINER Water pump_1.jpg"
     },
     "part_number": {
-      "EMD 710": "9529473",
-      "EMD 645": "-",
-      "DLW": "16070161"
+      "EMD 710 / EMD 645": "9529473"
     }
   },
   {
@@ -133,9 +123,7 @@ export const WaterPumpParts = [
     "image": "/waterpump/SPACER Bearing.jpg",
     "part_name": "SPACER Bearing",
     "part_number": {
-      "EMD 710": "9532762 / 40089903",
-      "EMD 645": "-",
-      "DLW": "16230292"
+      "EMD 710 / EMD 645": "9532762"
     }
   },
 
@@ -144,27 +132,21 @@ export const WaterPumpParts = [
     "image": "/waterpump/GASKET Water pump housing to support.jpg",
     "part_name": "GASKET Water pump housing to support",
     "part_number": {
-      "EMD 710": "8209776",
-      "EMD 645": "8209776",
-      "DLW": "16170635"
+      "EMD 710 / EMD 645": "8209776"
     }
   },
   {
     "image": "/waterpump/GASKET Water pump support to bushing.jpg",
     "part_name": "GASKET Water pump support to bushing",
     "part_number": {
-      "EMD 710": "9570647",
-      "EMD 645": "-",
-      "DLW": "16170570"
+      "EMD 710 / EMD 645": "9570647"
     }
   },
   {
     "image": "/waterpump/KEY Woodruff - Shaft to impeller.jpg",
     "part_name": "KEY Woodruff - Shaft to impeller",
     "part_number": {
-      "EMD 710": "103909",
-      "EMD 645": "103909",
-      "DLW": "20310092"
+      "EMD 710 / EMD 645": "103909"
     }
   },
   {
@@ -178,9 +160,7 @@ export const WaterPumpParts = [
     "image": "/waterpump/SLINGER Water pump.jpg",
     "part_name": "SLINGER Water pump",
     "part_number": {
-      "EMD 710": "8042969 / 40089901",
-      "EMD 645": "8042969",
-      "DLW": "16241447"
+      "EMD 710 / EMD 645": "8042969"
     }
   },
 
@@ -188,9 +168,7 @@ export const WaterPumpParts = [
     "image": "/waterpump/RING Retaining.jpg",
     "part_name": "RING Retaining",
     "part_number": {
-      "EMD 710": "8042973",
-      "EMD 645": "8042973",
-      "DLW": "20340199"
+      "EMD 710 / EMD 645": "8042973"
     }
   },
   {
@@ -205,9 +183,7 @@ export const WaterPumpParts = [
     "image": "/waterpump/WASHER Special.jpg",
     "part_name": "WASHER Special",
     "part_number": {
-      "EMD 710": "8042977",
-      "EMD 645": "8042977",
-      "DLW": "20394044"
+      "EMD 710 / EMD 645": "8042977"
     }
   },
   {
@@ -222,9 +198,7 @@ export const WaterPumpParts = [
     "image": "/waterpump/SPRING Coil.jpg",
     "part_name": "SPRING Coil",
     "part_number": {
-      "EMD 710": "9312705",
-      "EMD 645": "-",
-      "DLW": "16160241"
+      "EMD 710 / EMD 645": "9312705"
     }
   },
 
@@ -246,9 +220,7 @@ export const WaterPumpParts = [
     "image": "/waterpump/BOLT Hex head 5_16-18 x 7_8 - Nylock.jpg",
     "part_name": "BOLT Hex head 5/16-18 x 7/8 - Nylock",
     "part_number": {
-      "EMD 710": "9543448",
-      "EMD 645": "-",
-      "DLW": "20011180"
+      "EMD 710 / EMD 645": "9543448"
     }
   },
   {
@@ -262,9 +234,7 @@ export const WaterPumpParts = [
     "image": "/waterpump/WASHER Lock 1_2.jpg",
     "part_name": "WASHER Lock 1/2",
     "part_number": {
-      "EMD 710": "103323",
-      "EMD 645": "103323",
-      "DLW": "20390040"
+      "EMD 710 / EMD 645": "103323"
     }
   },
   {
