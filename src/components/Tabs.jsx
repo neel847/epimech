@@ -1,48 +1,56 @@
-// components/Tabs.jsx
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import PartList from './PartList';
 import { motion } from 'framer-motion';
 
 const Tabs = ({ currentTab, setTab, tabs, searchQuery, onSelectPart }) => {
-  // 🧠 Build a combined list of all items for "All" tab
-  const allItems = tabs.reduce((acc, tab) => acc.concat(tab.items), []);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  // 🔁 Pick items to show based on tab
-  const selectedItems =
-    currentTab === 'All'
-      ? allItems
-      : tabs.find((tab) => tab.name === currentTab)?.items || [];
+  useEffect(() => {
+    setItems([]); // Clear items on tab change
+    const controller = new AbortController();
+    const signal = controller.signal;
+  
+    const fetchParts = async () => {
+      setLoading(true);
+      let endpoint = '';
+  
+      if (currentTab === 'All') {
+        endpoint = '/api/all';
+      } else {
+        const activeTab = tabs.find((tab) => tab.name === currentTab);
+        endpoint = activeTab?.endpoint || '';
+      }
+  
+      if (!endpoint) return setItems([]);
+  
+      try {
+        const res = await fetch(`${endpoint}?search=${encodeURIComponent(searchQuery)}`, { signal });
+        const data = await res.json();
+        setItems(data);
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          console.error('Error fetching parts:', err);
+          setItems([]);
+        }
+      }
+      setLoading(false);
+    };
+  
+    const debounce = setTimeout(fetchParts, 400); // ⏱ 400ms delay
+  
+    return () => {
+      clearTimeout(debounce);
+      controller.abort(); // cancel previous fetch
+    };
+  }, [currentTab, searchQuery, tabs]);
+  
 
-  // 🔎 Apply search filter
-  const filteredItems = selectedItems.filter((part) => {
-    const query = searchQuery.toLowerCase();
-  
-    const nameMatch = part?.part_name.toLowerCase().includes(query);
-  
-    const numberMatch = Object.values(part?.part_number || {}).some((val) =>
-      val.toLowerCase().includes(query)
-    );
-  
-    return nameMatch || numberMatch;
-  });
-  
   return (
     <div className="space-y-8">
       {/* 💠 Tab Buttons */}
       <div className="flex flex-wrap gap-3 mb-6">
-        {/* Static "All" Tab */}
-        <button
-          onClick={() => setTab('All')}
-          className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-            currentTab === 'All'
-              ? 'bg-color-blue-600 text-white shadow-md'
-              : 'bg-color-gray-100 dark:bg-gray-700 dark:text-gray-300 text-gray-700 hover:bg-color-gray-200 dark:hover:bg-gray-600'
-          }`}
-        >
-          All
-        </button>
-
-        {/* Dynamic Tabs */}
         {tabs.map((tab) => {
           const isActive = tab.name === currentTab;
           return (
@@ -55,20 +63,15 @@ const Tabs = ({ currentTab, setTab, tabs, searchQuery, onSelectPart }) => {
                   : 'bg-color-gray-100 dark:bg-gray-700 dark:text-gray-300 text-gray-700 hover:bg-color-gray-200 dark:hover:bg-gray-600'
               }`}
             >
-              {tab.name}
+              {tab.label}
             </button>
           );
         })}
       </div>
 
       {/* 🧩 Filtered List */}
-      <motion.div
-        key={currentTab}
-        // initial={{ opacity: 0, y: 10 }}
-        // animate={{ opacity: 1, y: 0 }}
-        // transition={{ duration: 0.4 }}
-      >
-        <PartList parts={filteredItems} onPartClick={onSelectPart} />
+      <motion.div key={currentTab}>
+        <PartList parts={items} onPartClick={onSelectPart} loading={loading} />
       </motion.div>
     </div>
   );

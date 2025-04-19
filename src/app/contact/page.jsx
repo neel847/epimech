@@ -41,55 +41,44 @@ const Contact = () => {
 
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormStatus({
-      isSubmitting: true,
-      isSubmitted: false,
-      hasError: false,
-      message: ''
-    });
-
-    const templateParams = {
-      name: `${formData.firstName} ${formData.lastName}`,
-      email: formData.email,
-      message: formData.message,
-      time: new Date().toLocaleString()
-    };
-
-    emailjs.send(
-      'service_d3vepva',           // Your service ID
-      'template_xijdjkd',          // Your template ID
-      templateParams,
-      'tYzEgGmRbDQBlO5sF'            // ⬅️ Replace with your EmailJS public key (found in your EmailJS dashboard)
-    )
-      .then((response) => {
-        setFormStatus({
-          isSubmitting: false,
-          isSubmitted: true,
-          hasError: false,
-          message: 'Thank you! Your message has been sent.'
-        });
-
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: ''
-        });
-      })
-      .catch((err) => {
-        console.error('EmailJS Error:', err);
-        setFormStatus({
-          isSubmitting: false,
-          isSubmitted: false,
-          hasError: true,
-          message: 'Oops! Something went wrong. Please try again.'
-        });
+    setFormStatus({ isSubmitting: true, isSubmitted: false, hasError: false });
+  
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
+        })
       });
+  
+      const data = await res.json();
+  
+      if (!res.ok) throw new Error(data.message || 'Unknown error');
+  
+      setFormStatus({
+        isSubmitting: false,
+        isSubmitted: true,
+        hasError: false,
+        message: data.message
+      });
+  
+      setFormData({ firstName: '', lastName: '', email: '', phone: '', subject: '', message: '' });
+    } catch (err) {
+      setFormStatus({
+        isSubmitting: false,
+        isSubmitted: false,
+        hasError: true,
+        message: err.message
+      });
+    }
   };
+  
 
 
 

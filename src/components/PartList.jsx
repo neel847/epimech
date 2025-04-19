@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import PartCard from "./PartCard";
 import { motion } from "framer-motion";
-import { Pagination } from "antd";
+import { Pagination, Spin } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 
-const PartList = ({ parts, onPartClick }) => {
+const PartList = ({ parts, onPartClick,loading }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 36;
 
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
-  const paginatedParts = parts.slice(startIndex, endIndex);
+  const paginatedParts = parts?.slice(startIndex, endIndex);
 
   // Animation variants
   const containerVariants = {
@@ -34,6 +34,15 @@ const PartList = ({ parts, onPartClick }) => {
 
   return (
     <div className="w-full">
+      {
+        loading ? (
+          <div className="flex items-center justify-center h-64">
+            <div className="loader">
+              <Spin size={40} color="#4f46e5" />
+            </div>
+          </div>
+        ) : null
+      }
       {parts.length > 0 ? (
         <>
           <motion.div
@@ -78,7 +87,7 @@ const PartList = ({ parts, onPartClick }) => {
             />
           </div>
         </>
-      ) : (
+      ) : !loading && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

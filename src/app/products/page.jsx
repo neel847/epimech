@@ -1,19 +1,24 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { WaterPumpParts } from '@/helper/WaterPumpUtil';
-import { OtherParts } from '@/helper/OtherParts';
 import Tabs from '@/components/Tabs';
 import { motion } from 'framer-motion';
 import { slugify } from '@/utils/slugify';
 import { Search } from 'lucide-react';
 import Link from 'next/link';
+import { useDebounce } from '@/hooks/useDebounce'; // 👈 import the hook
 
 export default function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState('');
+  const debouncedSearch = useDebounce(searchQuery, 500); // 👈 500ms debounce
   const [tab, setTab] = useState('All');
 
-
+  const tabs = [
+    { name: 'All', label: 'All', endpoint: '/api/all' },
+    { name: 'WaterPump', label: 'Water Pumps', endpoint: '/api/waterpump' },
+    { name: 'OtherParts', label: 'Other Parts', endpoint: '/api/otherparts' }
+  ];
+  
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
 
@@ -120,10 +125,11 @@ export default function ProductsPage() {
           <Tabs
             currentTab={tab}
             setTab={setTab}
-            tabs={[{ name: 'Water Pumps', items: WaterPumpParts }, { name: 'Other Parts', items: OtherParts }]}
-            searchQuery={searchQuery}
+            tabs={tabs}
+            searchQuery={debouncedSearch} // 👈 using debounced value here
             onSelectPart={handlePartClick}
           />
+
 
           <motion.div
             className="bg-gradient-to-r from-color-blue-600 to-blue-800 dark:from-blue-900 dark:to-blue-700 rounded-2xl p-8 md:p-12 overflow-hidden relative mt-12"
