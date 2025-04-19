@@ -505,3 +505,18 @@ const ProductListView = () => {
 };
 
 export default ProductListView;
+
+export const metadata = {
+  title: "Complete Product Catalog | Epimech",
+  description: "Explore our full range of locomotive components including water pumps, bushings, seals and more.",
+  keywords: ["EMD parts catalog", "Epimech water pumps", "railway components", "EMD 710", "EMD 645"],
+  openGraph: {
+    title: "Epimech Product Catalog",
+    description: "Browse all locomotive products from Epimech, trusted worldwide.",
+    url: "https://www.epimech.com/product-list",
+    siteName: "Epimech",
+    images: [{ url: "https://www.epimech.com/og-image.jpg", width: 800, height: 600 }],
+    locale: "en_US",
+    type: "website"
+  }
+};

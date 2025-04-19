@@ -30,18 +30,25 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/manifest.json" type="application/manifest+json" />
         <link rel="apple-touch-icon" href="/fav.png" />
         <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#1e3a8a" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:title" content="Epimech - Precision Locomotive Parts" />
+        <meta property="og:description" content="Explore water pumps, bushings, seals and more for EMD 645 / 710 engines." />
+        <meta property="og:image" content="/og-image.jpg" />
+        <meta property="og:type" content="website" />
+
         <link rel="icon" href="/fav.png" />
       </head>
       <body className="antialiased custom-cursor outline-none">
         <NextTopLoader showSpinner={false} crawlSpeed={200} height={3} />
         <GlobalRightClickBlocker> {/* ✅ Wrap your app with this component */}
-        <Toaster />
-        <Navbar />
-        <div className='pt-16'>
-          {/* <CustomCursor /> ⬅ Add this here */}
-          {children}
-        </div>
-        <Footer />
+          <Toaster />
+          <Navbar />
+          <div className='pt-16'>
+            {/* <CustomCursor /> ⬅ Add this here */}
+            {children}
+          </div>
+          <Footer />
         </GlobalRightClickBlocker>
       </body>
     </html>

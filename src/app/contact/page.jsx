@@ -396,3 +396,18 @@ const Contact = () => {
 }
 
 export default Contact;
+
+export const metadata = {
+  title: "Contact Us | Epimech",
+  description: "Reach out to Epimech for product inquiries, support or partnership discussions.",
+  keywords: ["contact Epimech", "railway parts support", "engineering sales"],
+  openGraph: {
+    title: "Contact Epimech",
+    description: "Get in touch for any questions related to our precision-engineered locomotive components.",
+    url: "https://www.epimech.com/contact",
+    siteName: "Epimech",
+    images: [{ url: "https://www.epimech.com/og-image.jpg", width: 800, height: 600 }],
+    locale: "en_US",
+    type: "website"
+  }
+};

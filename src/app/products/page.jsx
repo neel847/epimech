@@ -161,3 +161,19 @@ export default function ProductsPage() {
     </div>
   );
 }
+
+
+export const metadata = {
+  title: "Products | Epimech",
+  description: "High-quality water pumps and other parts for EMD 645/710 engines by Epimech.",
+  keywords: ["locomotive parts", "water pump EMD", "engine components", "Epimech"],
+  openGraph: {
+    title: "Epimech Products",
+    description: "Explore water pumps, bushings, gears and more precision components from Epimech.",
+    url: "https://www.epimech.com/products",
+    siteName: "Epimech",
+    images: [{ url: "https://www.epimech.com/og-image.jpg", width: 800, height: 600 }],
+    locale: "en_US",
+    type: "website"
+  }
+};

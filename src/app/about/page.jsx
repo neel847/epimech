@@ -548,3 +548,18 @@ const About = () => {
 }
 
 export default About;
+
+export const metadata = {
+  title: "About Us | Epimech",
+  description: "Learn about Epimech's mission to deliver precision-engineered locomotive parts worldwide.",
+  keywords: ["Epimech", "about Epimech", "locomotive parts company", "industrial engineering firm"],
+  openGraph: {
+    title: "About Epimech",
+    description: "Trusted name in locomotive components and engineering innovation.",
+    url: "https://www.epimech.com/about",
+    siteName: "Epimech",
+    images: [{ url: "https://www.epimech.com/og-image.jpg", width: 800, height: 600 }],
+    locale: "en_US",
+    type: "website"
+  }
+};
