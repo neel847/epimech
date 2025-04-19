@@ -6,11 +6,11 @@ import { motion } from 'framer-motion';
 import { slugify } from '@/utils/slugify';
 import { Search } from 'lucide-react';
 import Link from 'next/link';
-import { useDebounce } from '@/hooks/useDebounce'; // 👈 import the hook
+import { useDebounce } from '@/hooks/useDebounce';
 
 export default function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const debouncedSearch = useDebounce(searchQuery, 500); // 👈 500ms debounce
+  const debouncedSearch = useDebounce(searchQuery, 500); 
   const [tab, setTab] = useState('All');
 
   const tabs = [
