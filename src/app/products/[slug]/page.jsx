@@ -1,30 +1,37 @@
 'use client';
-import { use, useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
-import { WaterPumpParts } from '@/helper/WaterPumpUtil';
 import PartDetails from '@/components/PartDetails';
-import { OtherParts } from '@/helper/OtherParts';
-import { slugify } from '@/utils/slugify';
 
 export default function PartSlugPage(props) {
   const router = useRouter();
   const [selectedPart, setSelectedPart] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const { slug } = use(props.params); // ✅ use React.use()
+  const { slug } = use(props.params); // ✅ unwrap promise safely
 
   useEffect(() => {
-    const allParts = [...WaterPumpParts, ...OtherParts];
-    const match = allParts.find(
-      (p) => slugify(p.part_name) === slug.toLowerCase()
-    );
-    if (match) {
-      setSelectedPart(match);
-    } else {
-      router.push('/products');
-    }
+    const fetchPart = async () => {
+      try {
+        const res = await fetch(`/api/part/${slug}`);
+        if (!res.ok) {
+          router.push('/products');
+          return;
+        }
+        const data = await res.json();
+        setSelectedPart(data);
+      } catch (error) {
+        console.error('Failed to fetch part', error);
+        router.push('/products');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPart();
   }, [slug]);
 
-  if (!selectedPart) return null;
+  if (loading || !selectedPart) return null;
 
   return (
     <div>

@@ -1,6 +1,9 @@
 // app/api/send-quotation/route.js
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import dbConnect from '@/lib/dbConnect';
+import Inquiry from '@/models/Inquiry';
+
 
 export async function POST(request) {
   try {
@@ -15,6 +18,18 @@ export async function POST(request) {
         { status: 400 }
       );
     }
+
+    await dbConnect();
+    await Inquiry.create({
+      type: 'PRODUCT',
+      name,
+      email,
+      country,
+      quantity,
+      comment,
+      product_name: productName,
+      part_number: partNumber
+    });
 
     // Configure the SMTP transporter
     const transporter = nodemailer.createTransport({
@@ -407,11 +422,12 @@ export async function POST(request) {
 }
 
 export async function GET() {
-    return new Response(JSON.stringify({ message: 'Send a POST request to this endpoint.' }), {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
+  try {
+    await dbConnect();
+    const inquiries = await Inquiry.find({ type: 'PRODUCT' }).sort({ createdAt: -1 });
+    return NextResponse.json(inquiries);
+  } catch (error) {
+    console.error('Error fetching quotation inquiries:', error);
+    return NextResponse.json({ message: 'Failed to fetch quotation inquiries' }, { status: 500 });
   }
-  
+}
