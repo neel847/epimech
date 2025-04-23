@@ -414,7 +414,7 @@ const PartDetails = ({ part, onBack }) => {
                   <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Intreseted in this Product?</h3>
                   <button
                     onClick={showQuoteModal}
-                    className="flex items-center border border-color-gray-800 hover:text-white text-color-gray-800 gap-2 bg-none hover:bg-gray-600 dark:bg-blue-600 dark:hover:bg-blue-700 py-2 px-4 rounded-lg transition-colors duration-200"
+                    className="flex items-center border dark:border-none dark:text-white border-color-gray-800 hover:text-white text-color-gray-800 gap-2 bg-none hover:bg-gray-600 dark:bg-blue-600 dark:hover:bg-blue-700 py-2 px-4 rounded-lg transition-colors duration-200"
                   >
                     <Mail className="w-5 h-5" />
                     Request Quotation
