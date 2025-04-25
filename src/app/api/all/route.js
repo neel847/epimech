@@ -14,16 +14,16 @@ export async function GET(req) {
         { part_name: { $regex: search, $options: 'i' } },
         { 'part_number.EMD 710 / EMD 645': { $regex: search, $options: 'i' } },
       ]
-    }),
+    }).sort({ rank: 1 }), // Sort WaterPump parts by rank
     OtherParts.find({
       is_hide: false,
       $or: [
         { part_name: { $regex: search, $options: 'i' } },
         { 'part_number.EMD 710 / EMD 645': { $regex: search, $options: 'i' } },
       ]
-    })
+    }).sort({ rank: 1 }) // Sort OtherParts by rank
   ]);
 
-  const merged = [...waterPumpParts, ...otherParts].sort((a, b) => a.rank - b.rank);
+  const merged = [...waterPumpParts, ...otherParts]; // WaterPump first, then OtherParts
   return Response.json(merged);
 }

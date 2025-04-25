@@ -246,26 +246,7 @@ const PartDetails = ({ part, onBack }) => {
 
             {/* Image */}
             <div className="lg:w-[40%]">
-              <PreviewGroup preview={{
-                visible: previewVisible,
-                current: previewIndex,
-                onVisibleChange: (vis) => setPreviewVisible(vis),
-                onChange: (current) => setPreviewIndex(current),
-                imageRender: (originalNode) => {
-                  return (
-                    <div className="relative">
-                      {originalNode}
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <span className="text-white text-2xl bg-black/30 px-4 py-2 rounded-md backdrop-blur-sm 
-                select-none font-medium tracking-wide shadow-md">
-                          © Epimech
-                        </span>
-                      </div>
-                    </div>
-                  );
-                }
-              }}
-              >
+             
                 <div className="bg-gray-50 dark:bg-color-gray-900 rounded-lg overflow-hidden mb-4">
                   <Carousel
                     autoplay
@@ -299,7 +280,6 @@ const PartDetails = ({ part, onBack }) => {
                     ))}
                   </Carousel>
                 </div>
-              </PreviewGroup>
 
 
               {/* Thumbnails */}

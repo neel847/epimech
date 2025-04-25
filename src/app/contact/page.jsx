@@ -160,8 +160,9 @@ const Contact = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium text-color-gray-900 dark:text-white">Visit Us</h3>
-                    <p className="mt-1 text-gray-600 dark:text-gray-400">3165 Russell St. , Windsor, ON - N9C 4E1</p>
-                    <a href="https://www.google.com/maps/place/3165+Russell+St,+Windsor,+ON+N9C+4E1/@42.3032893,-83.0788531,16z/data=!3m1!4b1!4m6!3m5!1s0x883b2d7f7bddcf37:0xb281617c310d599f!8m2!3d42.3032893!4d-83.0762728!16s%2Fg%2F11bw49r1xm?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="mt-2 text-color-blue-600 dark:text-color-blue-400 text-sm font-medium hover:underline inline-flex items-center">
+                    <p className="mt-1 text-gray-600 dark:text-gray-400">11, GLOBAL BUSINESS PARK,
+                    RING ROAD CIRCLE,ODHAV, Ahmedabad, Gujarat, 38241</p>
+                    <a href="https://www.google.com/maps/place/GLOBAL+BUSINESS+PARK/@23.0220339,72.6699279,17z/data=!3m1!4b1!4m6!3m5!1s0x395e87af34b9e13f:0xe50e04c32955262!8m2!3d23.0220339!4d72.6725082!16s%2Fg%2F11c6z0rxxg?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="mt-2 text-color-blue-600 dark:text-color-blue-400 text-sm font-medium hover:underline inline-flex items-center">
                       View on map
                       <svg className="ml-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -362,7 +363,7 @@ const Contact = () => {
 
         <div className="absolute inset-0 z-0">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5901.679069425008!2d-83.07885308781876!3d42.30328927107813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883b2d7f7bddcf37%3A0xb281617c310d599f!2s3165%20Russell%20St%2C%20Windsor%2C%20ON%20N9C%204E1!5e0!3m2!1sen!2sca!4v1743983357006!5m2!1sen!2sca"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.0473425293367!2d72.669927911509!3d23.022033879087274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e87af34b9e13f%3A0xe50e04c32955262!2sGLOBAL%20BUSINESS%20PARK!5e0!3m2!1sen!2sca!4v1745608134285!5m2!1sen!2sca"
             width="100%"
             height="100%"
             style={{ border: 0 }}

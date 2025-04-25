@@ -2,6 +2,7 @@
 import React, { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import PartDetails from '@/components/PartDetails';
+import { Spin } from 'antd';
 
 export default function PartSlugPage(props) {
   const router = useRouter();
@@ -31,7 +32,14 @@ export default function PartSlugPage(props) {
     fetchPart();
   }, [slug]);
 
-  if (loading || !selectedPart) return null;
+  if (loading || !selectedPart) return (
+    <div className="flex items-center justify-center h-screen bg-white dark:bg-color-gray-900">
+      <div className="flex flex-col items-center justify-center space-y-4">
+        <Spin size="large" className="text-color-blue-500" />
+        <p className="text-gray-500 dark:text-gray-300">Loading...</p>
+      </div>      
+    </div>
+  );
 
   return (
     <div>

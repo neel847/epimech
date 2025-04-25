@@ -33,14 +33,14 @@ export async function POST(req) {
     });
 
     const mailOptions = {
-      from: 'notification.sunbooster@gmail.com',
+      from: 'epimech.works@gmail.com',
       to: 'info@epimech.com',
       subject: `New Contact Us Message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nMessage: ${message}`
     };
 
     const customerMailOptions = {
-      from: 'notification.sunbooster@gmail.com',
+      from: 'epimech.works@gmail.com',
       to: email,
       subject: `Thank you for contacting Epimech`,
       text: `Dear ${name},\n\nThank you for reaching out to Epimech. We've received your message and will get back to you shortly.`

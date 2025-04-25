@@ -28,6 +28,7 @@ export default function ProductsPage() {
 
   if (!mounted) return null;
   const handlePartClick = (part) => {
+    localStorage.setItem('selectedPart', JSON.stringify(part.part_name));
     router.push(`/products/${slugify(part.part_name)}`);
   };
 

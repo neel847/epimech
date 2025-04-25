@@ -33,12 +33,12 @@ const PartCard = ({ part, onClick }) => {
       
       {/* Content */}
       <div className="p-4">
-        <h3 className="text-base font-medium text-color-gray-900 dark:text-white text-center">
+        <h3 className="text-base font-semibold text-color-gray-900 dark:text-white text-center uppercase">
           {displayName}
         </h3>
         <div className="h-px my-2 w-full bg-gray-300 dark:bg-gray-600"></div>
 
-        <h3 className="text-sm font-normal text-gray-500 dark:text-gray-400 text-center mt-1">
+        <h3 className="text-md font-semibold text-gray-500 dark:text-white text-center mt-1">
           {partNumber ? `Part Number: ${partNumber}` : 'No Part Number Available'}
         </h3>
       </div>

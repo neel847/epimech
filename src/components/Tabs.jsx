@@ -7,6 +7,9 @@ const Tabs = ({ currentTab, setTab, tabs, searchQuery, onSelectPart }) => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
 
+
+  
+
   useEffect(() => {
     setItems([]); // Clear items on tab change
     const controller = new AbortController();
