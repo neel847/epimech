@@ -13,6 +13,24 @@ export default function ProductsPage() {
   const debouncedSearch = useDebounce(searchQuery, 500); 
   const [tab, setTab] = useState('All');
 
+  useEffect(() => {
+    const fromProductPage = localStorage.getItem('fromProductPage');
+    if (fromProductPage) {
+      const savedTab = localStorage.getItem('productTab');
+      const savedScrollY = localStorage.getItem('productScrollY');
+      const savedSearch = localStorage.getItem('productSearch');
+  
+      if (savedTab) setTab(savedTab);
+      if (savedSearch) setSearchQuery(savedSearch);
+  
+      // localStorage.removeItem('fromProductPage');
+      // localStorage.removeItem('productTab');
+      // localStorage.removeItem('productScrollY');
+      // localStorage.removeItem('productSearch');
+    }
+  }, []);
+  
+
   const tabs = [
     { name: 'All', label: 'All', endpoint: '/api/all' },
     { name: 'WaterPump', label: 'Water Pumps', endpoint: '/api/waterpump' },
@@ -28,10 +46,13 @@ export default function ProductsPage() {
 
   if (!mounted) return null;
   const handlePartClick = (part) => {
-    localStorage.setItem('selectedPart', JSON.stringify(part.part_name));
+    localStorage.setItem('productScrollY', window.scrollY.toString());
+    localStorage.setItem('productTab', tab);
+    localStorage.setItem('productSearch', searchQuery);
+    localStorage.setItem('fromProductPage', 'true'); // set a flag
     router.push(`/products/${slugify(part.part_name)}`);
   };
-
+  
   return (
     <div className="w-full bg-white dark:bg-color-gray-900 transition-colors duration-300">
       <div className="relative w-full h-[400px] overflow-hidden bg-gradient-to-r from-gray-700 via-blue-900 to-color-blue-600 dark:from-black dark:via-blue-900 dark:to-blue-700">

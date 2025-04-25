@@ -7,7 +7,15 @@ const Tabs = ({ currentTab, setTab, tabs, searchQuery, onSelectPart }) => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
 
-
+  useEffect(() => {
+    if (items.length > 0) {
+      const savedScrollY = localStorage.getItem('productScrollY');
+      if (savedScrollY) {
+        window.scrollTo(0, parseInt(savedScrollY, 10));
+      }
+    }
+  }, [items]);
+  
   
 
   useEffect(() => {
