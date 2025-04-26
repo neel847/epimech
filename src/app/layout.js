@@ -101,13 +101,16 @@ export default function RootLayout({ children }) {
           }}
         />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-PMG00CJ2ZV"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-
-          gtag('config', 'G-PMG00CJ2ZV');
-        </script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PMG00CJ2ZV');
+      `
+          }}
+        />
         <meta name="robots" content="index, follow" />
         <meta name="generator" content="Next.js" />
         <meta charSet="UTF-8" />
