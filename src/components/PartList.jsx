@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PartCard from "./PartCard";
 import { motion } from "framer-motion";
 import { Pagination, Spin } from "antd";
@@ -32,6 +32,19 @@ const PartList = ({ parts, onPartClick,loading }) => {
     }
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 400); // Scroll to top on page change
+    localStorage.setItem('currentPage', page);
+  };
+  
+  useEffect(() => {
+    const savedPage = localStorage.getItem('currentPage');
+    if (savedPage) {
+      setCurrentPage(Number(savedPage));
+    }
+  }, []);
+
   return (
     <div className="w-full">
       {
@@ -64,13 +77,13 @@ const PartList = ({ parts, onPartClick,loading }) => {
               current={currentPage}
               pageSize={pageSize}
               total={parts.length}
-              onChange={(page) => setCurrentPage(page)}
+              onChange={(page)=>handlePageChange(page)}
               showSizeChanger={false}
               className="custom-pagination"
               itemRender={(page, type, originalElement) => {
                 if (type === 'page') {
                   return (
-                    <a className="h-10 w-10 rounded-full flex items-center justify-center font-medium transition-all duration-200">
+                    <a className="h-10 w-10 rounded-full dark:hover:text-white flex items-center justify-center font-medium transition-all duration-200">
                       {page}
                     </a>
                   );
