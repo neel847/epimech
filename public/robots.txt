@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://epimech.com
+
+# Sitemaps
+Sitemap: https://epimech.com/sitemap.xml

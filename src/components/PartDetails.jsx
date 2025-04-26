@@ -4,6 +4,7 @@ import { Carousel, Image, Modal, Form, Input, Select, Button, InputNumber } from
 import { AnimatePresence, motion } from 'framer-motion';
 import { CircleCheck, Clipboard, Copy, Package, Mail } from 'lucide-react';
 import toast from 'react-hot-toast';
+import Head from 'next/head';
 const { PreviewGroup } = Image;
 const { TextArea } = Input;
 const { Option } = Select;
@@ -71,31 +72,31 @@ const PartDetails = ({ part, onBack }) => {
   // Handle quotation modal
   const showQuoteModal = () => {
     // Pre-fill the comment field with the part number
-   
+
     setIsQuoteModalVisible(true);
   };
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.name.trim()) {
       newErrors.name = 'Please enter your name';
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = 'Please enter your email';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email';
     }
-    
+
     if (!formData.country.trim()) {
       newErrors.country = 'Please select your country';
     }
-    
+
     if (!formData.quantity || formData.quantity < 1) {
       newErrors.quantity = 'Please enter required quantity';
     }
-    
+
     return newErrors;
   };
   const handleChange = (e) => {
@@ -104,7 +105,7 @@ const PartDetails = ({ part, onBack }) => {
       ...prev,
       [name]: value
     }));
-    
+
     // Clear error when field is edited
     if (errors[name]) {
       setErrors(prev => ({
@@ -120,7 +121,7 @@ const PartDetails = ({ part, onBack }) => {
       ...prev,
       quantity: value
     }));
-    
+
     if (errors.quantity) {
       setErrors(prev => ({
         ...prev,
@@ -131,7 +132,7 @@ const PartDetails = ({ part, onBack }) => {
   const handleSubmit = async (values) => {
     values.preventDefault();
     const newErrors = validateForm();
-    
+
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
@@ -149,7 +150,7 @@ const PartDetails = ({ part, onBack }) => {
           partNumber: getDefaultPartNumber()
         }),
       });
-      
+
 
       const data = await response.json();
 
@@ -169,84 +170,97 @@ const PartDetails = ({ part, onBack }) => {
   };
 
   return (
-    <div className="w-full bg-white dark:bg-color-gray-900 transition-colors duration-300">
-      {/* Hero */}
-      <div className="relative w-full h-[400px] overflow-hidden bg-gradient-to-r from-gray-700 via-blue-900 to-color-blue-600 dark:from-black dark:via-blue-900 dark:to-blue-700">
-        <motion.div
-          className="absolute top-20 left-20 w-16 h-16 bg-white/10 rounded-full blur-md"
-          animate={{ y: [0, -20, 0], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+    <>
+      <Head>
+        <title>{part?.part_name} | EPIMECH</title>
+        <meta
+          name="description"
+          content={`Buy ${part?.part_name} with part number ${Object.values(part?.part_number).join(', ')}. High quality locomotive parts available.`}
         />
-        <motion.div
-          className="absolute bottom-20 right-40 w-24 h-24 bg-color-blue-400/10 rounded-full blur-md"
-          animate={{ y: [0, 30, 0], opacity: [0.6, 0.9, 0.6] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        <meta
+          property="og:image"
+          content={`https://your-bucket-url/${part?.image?.replace(' ', '%20')}`}
         />
+      </Head>
+      <div className="w-full bg-white dark:bg-color-gray-900 transition-colors duration-300">
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
-          <motion.h1
-            className="text-white text-5xl md:text-6xl font-bold mb-4 tracking-tight"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <span className="text-color-blue-300">Product</span>
-          </motion.h1>
-          <motion.p
-            className="text-color-gray-100 text-lg md:text-xl max-w-3xl mb-8"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            {part.part_name}
-          </motion.p>
-        </div>
-      </div>
+        {/* Hero */}
+        <div className="relative w-full h-[400px] overflow-hidden bg-gradient-to-r from-gray-700 via-blue-900 to-color-blue-600 dark:from-black dark:via-blue-900 dark:to-blue-700">
+          <motion.div
+            className="absolute top-20 left-20 w-16 h-16 bg-white/10 rounded-full blur-md"
+            animate={{ y: [0, -20, 0], opacity: [0.5, 0.8, 0.5] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.div
+            className="absolute bottom-20 right-40 w-24 h-24 bg-color-blue-400/10 rounded-full blur-md"
+            animate={{ y: [0, 30, 0], opacity: [0.6, 0.9, 0.6] }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          />
 
-      {/* Main Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="max-w-7xl mx-auto px-6 lg:px-8 py-16"
-      >
-        {/* Back to Products */}
-        <div className="mb-6">
-          <button
-            onClick={onBack}
-            className="flex items-center gap-2 text-lg font-medium text-color-blue-600 dark:text-color-blue-400 hover:underline transition"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
+            <motion.h1
+              className="text-white text-5xl md:text-6xl font-bold mb-4 tracking-tight"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Products
-          </button>
+              <span className="text-color-blue-300">Product</span>
+            </motion.h1>
+            <motion.p
+              className="text-color-gray-100 text-lg md:text-xl max-w-3xl mb-8"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              {part.part_name}
+            </motion.p>
+          </div>
         </div>
 
-        <div className="bg-white dark:bg-color-gray-800 rounded-xl border border-color-gray-100 dark:border-gray-700 overflow-hidden">
-          <div className="border-b border-color-gray-100 dark:border-gray-700 px-6 py-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <Package className="text-blue-500 mr-3" />
-                <h2 className="text-2xl font-bold text-color-gray-800 dark:text-white">{part.part_name}</h2>
-              </div>
-
-              {/* Request Quotation Button */}
-
-            </div>
+        {/* Main Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="max-w-7xl mx-auto px-6 lg:px-8 py-16"
+        >
+          {/* Back to Products */}
+          <div className="mb-6">
+            <button
+              onClick={onBack}
+              className="flex items-center gap-2 text-lg font-medium text-color-blue-600 dark:text-color-blue-400 hover:underline transition"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              Back to Products
+            </button>
           </div>
 
-          <div className="p-6 lg:flex lg:gap-8">
+          <div className="bg-white dark:bg-color-gray-800 rounded-xl border border-color-gray-100 dark:border-gray-700 overflow-hidden">
+            <div className="border-b border-color-gray-100 dark:border-gray-700 px-6 py-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Package className="text-blue-500 mr-3" />
+                  <h2 className="text-2xl font-bold text-color-gray-800 dark:text-white">{part.part_name}</h2>
+                </div>
 
-            {/* Image */}
-            <div className="lg:w-[40%]">
-             
+                {/* Request Quotation Button */}
+
+              </div>
+            </div>
+
+            <div className="p-6 lg:flex lg:gap-8">
+
+              {/* Image */}
+              <div className="lg:w-[40%]">
+
                 <div className="bg-gray-50 dark:bg-color-gray-900 rounded-lg overflow-hidden mb-4">
                   <Carousel
                     autoplay
@@ -282,132 +296,132 @@ const PartDetails = ({ part, onBack }) => {
                 </div>
 
 
-              {/* Thumbnails */}
-              {allImages.length > 1 && (
-                <div className="flex gap-2 overflow-x-auto py-2 scrollbar-hide">
-                  {allImages.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => handleThumbnailClick(idx)}
-                      className={`h-16 w-16 flex-shrink-0 rounded overflow-hidden border transition-all ${activeIndex === idx
-                        ? 'ring-2 ring-blue-500 dark:ring-color-blue-400 opacity-100'
-                        : 'opacity-70 hover:opacity-100 border-color-gray-200 dark:border-gray-700'
-                        }`}
-                    >
-                      <Image
-                        src={isValidImage ? img : fallbackImage}
-                        alt={`Thumbnail ${idx + 1}`}
-                        preview={false}
-                        className="w-full h-full object-cover"
-                        onError={handleImageError}
-                      />
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Info */}
-            <div className="lg:w-[60%] mt-8 lg:mt-0 lg:ml-6">
-              {/* Part Numbers */}
-              <div>
-                <h3 className="text-2xl font-semibold mb-4 text-color-gray-800 dark:text-white">
-                  Part Numbers
-                </h3>
-                <div className="overflow-x-auto rounded-xl shadow-sm border border-color-gray-200 dark:border-gray-700">
-                  <table className="min-w-full divide-y divide-color-gray-200 dark:divide-gray-700">
-                    <thead className="bg-color-gray-100 dark:bg-color-gray-800">
-                      <tr>
-                        <th className="px-6 py-3 text-left text-base font-medium text-gray-700 dark:text-gray-300 uppercase">
-                          Type
-                        </th>
-                        <th className="px-6 py-3 text-left text-base font-medium text-gray-700 dark:text-gray-300 uppercase">
-                          Part Number
-                        </th>
-                        <th className="px-6 py-3 text-left text-base font-medium text-gray-700 dark:text-gray-300 uppercase">
-
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="bg-white dark:bg-color-gray-900 divide-y divide-color-gray-200 dark:divide-gray-700">
-                      {Object.entries(part.part_number).map(([type, number], idx) => (
-                        <tr key={idx}>
-                          <td className="px-6 py-4 font-medium text-color-gray-800 dark:text-color-gray-200">
-                            {type}
-                          </td>
-                          <td className="px-6 py-4 font-mono text-gray-600 dark:text-gray-300">
-                            {number !== '-' ? number : <span className="text-gray-400">Not Available</span>}
-                          </td>
-                          <td className='px-6 py-4'>
-                            <button
-                              onClick={() => handleCopy(number)}
-                              className="text-blue-500 hover:text-blue-700 transition"
-                            >
-                              {
-                                copiedText === number && copied ? (
-                                  <CircleCheck className='w-5 h-5 text-green-500' />
-                                ) : (
-                                  <Copy className='w-5 h-5' />
-                                )
-                              }
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                {/* Thumbnails */}
+                {allImages.length > 1 && (
+                  <div className="flex gap-2 overflow-x-auto py-2 scrollbar-hide">
+                    {allImages.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => handleThumbnailClick(idx)}
+                        className={`h-16 w-16 flex-shrink-0 rounded overflow-hidden border transition-all ${activeIndex === idx
+                          ? 'ring-2 ring-blue-500 dark:ring-color-blue-400 opacity-100'
+                          : 'opacity-70 hover:opacity-100 border-color-gray-200 dark:border-gray-700'
+                          }`}
+                      >
+                        <Image
+                          src={isValidImage ? img : fallbackImage}
+                          alt={`Thumbnail ${idx + 1}`}
+                          preview={false}
+                          className="w-full h-full object-cover"
+                          onError={handleImageError}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
+              {/* Info */}
+              <div className="lg:w-[60%] mt-8 lg:mt-0 lg:ml-6">
+                {/* Part Numbers */}
+                <div>
+                  <h3 className="text-2xl font-semibold mb-4 text-color-gray-800 dark:text-white">
+                    Part Numbers
+                  </h3>
+                  <div className="overflow-x-auto rounded-xl shadow-sm border border-color-gray-200 dark:border-gray-700">
+                    <table className="min-w-full divide-y divide-color-gray-200 dark:divide-gray-700">
+                      <thead className="bg-color-gray-100 dark:bg-color-gray-800">
+                        <tr>
+                          <th className="px-6 py-3 text-left text-base font-medium text-gray-700 dark:text-gray-300 uppercase">
+                            Type
+                          </th>
+                          <th className="px-6 py-3 text-left text-base font-medium text-gray-700 dark:text-gray-300 uppercase">
+                            Part Number
+                          </th>
+                          <th className="px-6 py-3 text-left text-base font-medium text-gray-700 dark:text-gray-300 uppercase">
 
-              {/* Description */}
-              {part.description && (
-                <div className="mt-8">
-                  <h3 className="text-xl font-semibold mb-3 text-color-gray-800 dark:text-white">Description</h3>
-                  <p className="text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-color-gray-900 p-4 rounded-lg leading-relaxed">
-                    {part.description}
-                  </p>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white dark:bg-color-gray-900 divide-y divide-color-gray-200 dark:divide-gray-700">
+                        {Object.entries(part.part_number).map(([type, number], idx) => (
+                          <tr key={idx}>
+                            <td className="px-6 py-4 font-medium text-color-gray-800 dark:text-color-gray-200">
+                              {type}
+                            </td>
+                            <td className="px-6 py-4 font-mono text-gray-600 dark:text-gray-300">
+                              {number !== '-' ? number : <span className="text-gray-400">Not Available</span>}
+                            </td>
+                            <td className='px-6 py-4'>
+                              <button
+                                onClick={() => handleCopy(number)}
+                                className="text-blue-500 hover:text-blue-700 transition"
+                              >
+                                {
+                                  copiedText === number && copied ? (
+                                    <CircleCheck className='w-5 h-5 text-green-500' />
+                                  ) : (
+                                    <Copy className='w-5 h-5' />
+                                  )
+                                }
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-              )}
 
-              {/* Specs */}
-              {part.specifications && (
-                <div className="mt-8">
-                  <h3 className="text-xl font-semibold mb-3 text-color-gray-800 dark:text-white">Specifications</h3>
-                  <ul className="list-disc list-inside bg-gray-50 dark:bg-color-gray-900 text-gray-700 dark:text-gray-300 p-4 rounded-lg space-y-1">
-                    {part.specifications.map((spec, idx) => (
-                      <li key={idx}>{spec}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              <motion.div
-                className="bg-gray-100 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-700 rounded-2xl p-12 md:p-12 overflow-hidden mt-12 relative mb-8"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                viewport={{ once: true }}
-              >
-                {/* Background elements */}
 
-                <div className="relative z-10 text-left justify-start flex-col">
-                  <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Intreseted in this Product?</h3>
-                  <button
-                    onClick={showQuoteModal}
-                    className="flex items-center border dark:border-none dark:text-white border-color-gray-800 hover:text-white text-color-gray-800 gap-2 bg-none hover:bg-gray-600 dark:bg-blue-600 dark:hover:bg-blue-700 py-2 px-4 rounded-lg transition-colors duration-200"
-                  >
-                    <Mail className="w-5 h-5" />
-                    Request Quotation
-                  </button>
-                </div>
-              </motion.div>
+                {/* Description */}
+                {part.description && (
+                  <div className="mt-8">
+                    <h3 className="text-xl font-semibold mb-3 text-color-gray-800 dark:text-white">Description</h3>
+                    <p className="text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-color-gray-900 p-4 rounded-lg leading-relaxed">
+                      {part.description}
+                    </p>
+                  </div>
+                )}
+
+                {/* Specs */}
+                {part.specifications && (
+                  <div className="mt-8">
+                    <h3 className="text-xl font-semibold mb-3 text-color-gray-800 dark:text-white">Specifications</h3>
+                    <ul className="list-disc list-inside bg-gray-50 dark:bg-color-gray-900 text-gray-700 dark:text-gray-300 p-4 rounded-lg space-y-1">
+                      {part.specifications.map((spec, idx) => (
+                        <li key={idx}>{spec}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                <motion.div
+                  className="bg-gray-100 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-700 rounded-2xl p-12 md:p-12 overflow-hidden mt-12 relative mb-8"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7 }}
+                  viewport={{ once: true }}
+                >
+                  {/* Background elements */}
+
+                  <div className="relative z-10 text-left justify-start flex-col">
+                    <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Intreseted in this Product?</h3>
+                    <button
+                      onClick={showQuoteModal}
+                      className="flex items-center border dark:border-none dark:text-white border-color-gray-800 hover:text-white text-color-gray-800 gap-2 bg-none hover:bg-gray-600 dark:bg-blue-600 dark:hover:bg-blue-700 py-2 px-4 rounded-lg transition-colors duration-200"
+                    >
+                      <Mail className="w-5 h-5" />
+                      Request Quotation
+                    </button>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* Quotation Modal */}
-      <AnimatePresence>
+        {/* Quotation Modal */}
+        <AnimatePresence>
           {isQuoteModalVisible && (
             <>
               <motion.div
@@ -516,7 +530,8 @@ const PartDetails = ({ part, onBack }) => {
             </>
           )}
         </AnimatePresence>
-    </div>
+      </div>
+    </>
   );
 };
 
