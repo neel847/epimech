@@ -12,7 +12,9 @@ const Tabs = ({ currentTab, setTab, tabs, searchQuery, onSelectPart }) => {
       const savedScrollY = localStorage.getItem('productScrollY');
       if (savedScrollY) {
         window.scrollTo(0, parseInt(savedScrollY, 10));
+        localStorage.removeItem('productScrollY'); // Clear saved scroll position after using it
       }
+      
     }
   }, [items]);
   
@@ -39,6 +41,7 @@ const Tabs = ({ currentTab, setTab, tabs, searchQuery, onSelectPart }) => {
       try {
         const res = await fetch(`${endpoint}?search=${encodeURIComponent(searchQuery)}`, { signal });
         const data = await res.json();
+        console.log('Fetched parts:', data);
         setItems(data);
       } catch (err) {
         if (err.name !== 'AbortError') {

@@ -8,6 +8,7 @@ const PartList = ({ parts, onPartClick,loading }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 36;
 
+  console.log("Parts:", parts);
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
   const paginatedParts = parts?.slice(startIndex, endIndex);
@@ -42,6 +43,7 @@ const PartList = ({ parts, onPartClick,loading }) => {
     const savedPage = localStorage.getItem('currentPage');
     if (savedPage) {
       setCurrentPage(Number(savedPage));
+      localStorage.removeItem('currentPage'); // Clear saved page after using it
     }
   }, []);
 
