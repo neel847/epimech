@@ -26,7 +26,7 @@ export default function ProductsPage() {
       // localStorage.removeItem('fromProductPage');
       // localStorage.removeItem('productTab');
       // localStorage.removeItem('productScrollY');
-      // localStorage.removeItem('productSearch');
+      localStorage.removeItem('productSearch');
     }
   }, []);
 
@@ -50,7 +50,15 @@ export default function ProductsPage() {
     localStorage.setItem('productTab', tab);
     localStorage.setItem('productSearch', searchQuery);
     localStorage.setItem('fromProductPage', 'true'); // set a flag
-    router.push(`/products/${slugify(part.part_name)}`);
+    const firstKey = Object.keys(part.part_number || {})[0];
+    const value = part.part_number[firstKey];
+    console.log('Part Number:', firstKey);
+    if(value?.split("/").length > 1) {
+      const [firstPart, secondPart] = value.split("/");
+      router.push(`/products/${slugify(firstPart)}`);
+      return;
+    }
+    router.push(`/products/${value}`);
   };
 
   return (

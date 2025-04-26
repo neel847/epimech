@@ -13,7 +13,17 @@ export async function GET(req, { params }) {
   ]);
 
   const allParts = [...wp, ...op];
-  const part = allParts.find(p => slugify(p.part_name) === slug);
+
+  const part = allParts.find(p => {
+    const keys = Object.keys(p.part_number || {});
+    const partNumber = keys.length > 0 ? p.part_number[keys[0]] : null;
+    if (partNumber?.split("/").length > 1) {
+      const [firstPart, secondPart] = partNumber.split("/");
+      const slug1 = slugify(firstPart);
+      return slug === slug1;
+    }
+    return keys.some(key => partNumber === slug);
+  });
 
   if (!part) return new Response('Part not found', { status: 404 });
   return Response.json(part);
