@@ -3,6 +3,7 @@ import React, { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import PartDetails from '@/components/PartDetails';
 import { Spin } from 'antd';
+import Head from 'next/head';
 
 export default function PartSlugPage(props) {
   const router = useRouter();
@@ -42,8 +43,18 @@ export default function PartSlugPage(props) {
   );
 
   return (
+    <>
+        <meta
+          name="description"
+          content={`Buy ${selectedPart?.part_name} with part number ${Object.values(selectedPart?.part_number).join(', ')}. High quality locomotive parts available.`}
+        />
+        <meta
+          property="og:image"
+          content={`${selectedPart?.part_image}`}
+        />
     <div>
       <PartDetails part={selectedPart} onBack={() => router.push('/products')} />
     </div>
+    </>
   );
 }

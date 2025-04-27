@@ -171,17 +171,7 @@ const PartDetails = ({ part, onBack }) => {
 
   return (
     <>
-      <Head>
-        <title>{part?.part_name} | EPIMECH</title>
-        <meta
-          name="description"
-          content={`Buy ${part?.part_name} with part number ${Object.values(part?.part_number).join(', ')}. High quality locomotive parts available.`}
-        />
-        <meta
-          property="og:image"
-          content={`https://your-bucket-url/${part?.image?.replace(' ', '%20')}`}
-        />
-      </Head>
+
       <div className="w-full bg-white dark:bg-color-gray-900 transition-colors duration-300">
 
         {/* Hero */}
