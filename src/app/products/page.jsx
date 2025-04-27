@@ -27,6 +27,7 @@ export default function ProductsPage() {
       // localStorage.removeItem('productTab');
       // localStorage.removeItem('productScrollY');
       localStorage.removeItem('productSearch');
+      localStorage.removeItem('productTab');
     }
   }, []);
 
