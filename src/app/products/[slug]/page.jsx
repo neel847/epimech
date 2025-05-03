@@ -1,3 +1,4 @@
+
 'use client';
 import React, { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
@@ -10,7 +11,7 @@ export default function PartSlugPage(props) {
   const [selectedPart, setSelectedPart] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const { slug } = use(props.params); // ✅ unwrap promise safely
+  const { slug } = use(props.params);
 
   useEffect(() => {
     const fetchPart = async () => {
@@ -42,19 +43,55 @@ export default function PartSlugPage(props) {
     </div>
   );
 
+  // Get part numbers for meta description
+  const partNumbers = Object.values(selectedPart?.part_number || {}).join(', ');
+  
   return (
     <>
+      <Head>
+        <title>{`${selectedPart.part_name} | EMD Locomotive Parts - Epimech`}</title>
         <meta
           name="description"
-          content={`Buy ${selectedPart?.part_name} with part number ${Object.values(selectedPart?.part_number).join(', ')}. High quality locomotive parts available.`}
+          content={`Buy ${selectedPart.part_name} (Part Numbers: ${partNumbers}) - High quality EMD locomotive engine spare part. Manufacturer and supplier of EMD 710 and EMD 645 parts.`}
         />
-        <meta
-          property="og:image"
-          content={`${selectedPart?.part_image}`}
-        />
-    <div>
-      <PartDetails part={selectedPart} onBack={() => router.push('/products')} />
-    </div>
+        <meta name="keywords" content={`${selectedPart.part_name}, ${partNumbers}, EMD parts, locomotive parts, EMD 710, EMD 645, ${selectedPart.main_product || ''}`} />
+        
+        {/* Open Graph tags */}
+        <meta property="og:title" content={`${selectedPart.part_name} | EMD Locomotive Parts`} />
+        <meta property="og:description" content={`Buy ${selectedPart.part_name} (Part Numbers: ${partNumbers}) - High quality EMD locomotive engine spare part`} />
+        <meta property="og:image" content={selectedPart.image} />
+        <meta property="og:type" content="product" />
+        
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="product" />
+        <meta name="twitter:title" content={`${selectedPart.part_name} | EMD Locomotive Parts`} />
+        <meta name="twitter:description" content={`Buy ${selectedPart.part_name} (Part Numbers: ${partNumbers}) - EMD locomotive spare part`} />
+        <meta name="twitter:image" content={selectedPart.image} />
+        
+        {/* Product Schema.org markup */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": selectedPart.part_name,
+            "image": selectedPart.image,
+            "description": `High quality ${selectedPart.part_name} for EMD locomotives. Part Numbers: ${partNumbers}`,
+            "brand": {
+              "@type": "Brand",
+              "name": "Epimech"
+            },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "Epimech Solutions Pvt. Ltd"
+            },
+            "sku": partNumbers,
+            "category": selectedPart.main_product || "EMD Locomotive Parts"
+          })}
+        </script>
+      </Head>
+      <div>
+        <PartDetails part={selectedPart} onBack={() => router.push('/products')} />
+      </div>
     </>
   );
 }
