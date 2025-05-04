@@ -89,6 +89,9 @@ function Navbar() {
               </button>
             ))}
 
+            {/* Google Translate */}
+            <div id="google_translate_element" className="px-2"></div>
+            
             {/* Theme Toggle */}
             <button
               onClick={handleToggleTheme}
