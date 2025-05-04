@@ -8,7 +8,7 @@ function Footer() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 {/* Main Footer Content */}
                 <div className="py-12">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
                         {/* Brand Column */}
                         <div className="flex flex-col">
                             <Link href="/" className="flex items-center mb-6">
@@ -81,7 +81,7 @@ function Footer() {
                             </ul>
                         </div>
 
-                        <div>
+                        {/* <div>
                             <h3 className="text-color-gray-900 dark:text-white font-bold text-lg mb-6">Products</h3>
                             <ul className="space-y-4 list-none">
                                 {products.map((product) => {
@@ -94,7 +94,7 @@ function Footer() {
 
 
                             </ul>
-                        </div>
+                        </div> */}
                         {/* Contact Information */}
                         <div>
                             <h3 className="text-color-gray-900 dark:text-white font-bold text-lg mb-6">Get In Touch</h3>
@@ -105,12 +105,12 @@ function Footer() {
                                 </div>
                                 <div className="flex items-start">
                                     <Phone className="text-gray-400 dark:text-gray-500 mt-1 mr-3" size={18} />
-                                    <a href='tel:+16479754891' className="text-gray-600 dark:text-gray-400">+16479754891</a>
+                                    <a href='tel:+917777992562' className="text-gray-600 dark:text-gray-400">+91 77779 92562</a>
                                 </div>
                                 <div className="flex items-start">
                                     <Clock className="text-gray-400 dark:text-gray-500 mt-1 mr-3" size={18} />
                                     <div>
-                                        <p className="text-gray-600 dark:text-gray-400">Monday - Saturday: 9 AM - 6 PM</p>
+                                        <p className="text-gray-600 dark:text-gray-400">Monday - Saturday: 9 AM - 5 PM</p>
                                         <p className="text-gray-600 dark:text-gray-400">Sunday: Closed</p>
                                     </div>
                                 </div>

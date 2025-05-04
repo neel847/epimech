@@ -150,7 +150,7 @@ const Contact = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium text-color-gray-900 dark:text-white">Call Us</h3>
-                    <a href="tel:+16479754891" className="mt-1 text-color-blue-600 dark:text-color-blue-400 hover:underline block transition-colors">+1 (647) 975-4891</a>
+                    <a href="tel:+917777992562" className="mt-1 text-color-blue-600 dark:text-color-blue-400 hover:underline block transition-colors">+91 77779 92562</a>
                   </div>
                 </div>
 
@@ -160,9 +160,8 @@ const Contact = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium text-color-gray-900 dark:text-white">Visit Us</h3>
-                    <p className="mt-1 text-gray-600 dark:text-gray-400">11, GLOBAL BUSINESS PARK,
-                    RING ROAD CIRCLE,ODHAV, Ahmedabad, Gujarat, 38241</p>
-                    <a href="https://www.google.com/maps/place/GLOBAL+BUSINESS+PARK/@23.0220339,72.6699279,17z/data=!3m1!4b1!4m6!3m5!1s0x395e87af34b9e13f:0xe50e04c32955262!8m2!3d23.0220339!4d72.6725082!16s%2Fg%2F11c6z0rxxg?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="mt-2 text-color-blue-600 dark:text-color-blue-400 text-sm font-medium hover:underline inline-flex items-center">
+                    <p className="mt-1 text-gray-600 dark:text-gray-400">A-160 Bileshwar Estate, Opp G.V.V.M, Odhav, Ahemedabad - 382415, Gujarat, India</p>
+                    <a href="https://www.google.com/maps/place/BILESHWAR+INDUSTRIAL+ESTATE,+A+-+161,+opp.+GVMM,+nr.+Sardar+Patel+Ring+Road,+G+V+M+M,+Odhav+Industrial+Estate,+Odhav,+Ahmedabad,+Kathwada,+Gujarat+382415,+India/@23.0272939,72.6760416,17z/data=!3m1!4b1!4m6!3m5!1s0x395e87a76a6bb035:0x92f2242669432d09!8m2!3d23.0272939!4d72.6786219!16s%2Fg%2F11fwtchwgt?entry=ttu&g_ep=EgoyMDI1MDQzMC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="mt-2 text-color-blue-600 dark:text-color-blue-400 text-sm font-medium hover:underline inline-flex items-center">
                       View on map
                       <svg className="ml-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -177,7 +176,7 @@ const Contact = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium text-color-gray-900 dark:text-white">Working Hours</h3>
-                    <p className="mt-1 text-gray-600 dark:text-gray-400">Mon - Sat: 9 AM - 6 PM</p>
+                    <p className="mt-1 text-gray-600 dark:text-gray-400">Mon - Sat: 9 AM - 5 PM</p>
                     <p className="mt-1 text-gray-600 dark:text-gray-400">Sun: Closed</p>
                   </div>
                 </div>
@@ -363,7 +362,7 @@ const Contact = () => {
 
         <div className="absolute inset-0 z-0">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.0473425293367!2d72.669927911509!3d23.022033879087274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e87af34b9e13f%3A0xe50e04c32955262!2sGLOBAL%20BUSINESS%20PARK!5e0!3m2!1sen!2sca!4v1745608134285!5m2!1sen!2sca"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9040794097077!2d72.6760416115092!3d23.027293879083604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e87a76a6bb035%3A0x92f2242669432d09!2sBILESHWAR%20INDUSTRIAL%20ESTATE%2C%20A%20-%20161%2C%20opp.%20GVMM%2C%20nr.%20Sardar%20Patel%20Ring%20Road%2C%20G%20V%20M%20M%2C%20Odhav%20Industrial%20Estate%2C%20Odhav%2C%20Ahmedabad%2C%20Kathwada%2C%20Gujarat%20382415%2C%20India!5e0!3m2!1sen!2sca!4v1746298593413!5m2!1sen!2sca"
             width="100%"
             height="100%"
             style={{ border: 0 }}
