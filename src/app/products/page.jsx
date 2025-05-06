@@ -64,6 +64,7 @@ export default function ProductsPage() {
 
   return (
     <div className="w-full bg-white dark:bg-color-gray-900 transition-colors duration-300">
+      <meta name="keywords" content="EMD, EMD parts, EMD locomotive parts, EMD 710, EMD 645, EMD water pump, EMD turbocharger, EMD after cooler, EMD fan drive, EMD compressor" />
       <div className="relative w-full h-[400px] overflow-hidden bg-gradient-to-r from-gray-700 via-blue-900 to-color-blue-600 dark:from-black dark:via-blue-900 dark:to-blue-700">
         <motion.div
           className="absolute top-20 left-20 w-16 h-16 bg-white/10 rounded-full blur-md"

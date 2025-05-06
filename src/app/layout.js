@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#000000" />
         <link rel="icon" href="/fav.png" />
         <meta name="description" content="Epimech - Manufacturers and suppliers of Various High Quality EMD Locomotive Engine Spare Parts - Turbocharger 350, after Cooler, Fan Drive, Compressor, and Water Pump Drive, Diesel locomotive, Electric locomotive, EMD 710, EMD 645 " />
-        <meta name="keywords" content="Epimech, Epimech Solutions, EMD Locomotive Engine Spare Parts" />
+        <meta name="keywords" content="Epimech, Epimech Solutions, EMD Locomotive Engine Spare Parts, EMD Water Pump " />
         <meta name="author" content="Epimech Solutions Pvt. Ltd" />
         <meta name="distribution" content="global" />
         <meta name="robots" content="index,follow" />
