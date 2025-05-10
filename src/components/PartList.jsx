@@ -13,6 +13,7 @@ const PartList = ({ parts, onPartClick,loading }) => {
   const endIndex = startIndex + pageSize;
   const paginatedParts = parts?.slice(startIndex, endIndex);
 
+  
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
