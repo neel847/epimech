@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import WatermarkedImage from '@/components/WaterMarkedImage';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const PartCard = ({ part, onClick }) => {
@@ -20,8 +21,9 @@ const PartCard = ({ part, onClick }) => {
     >
       {/* Image Container */}
       <div className="relative w-full aspect-square bg-white dark:bg-white p-6">
-        <WatermarkedImage
+        <Image
           src={part.image || '/fallback.png'}
+          fill
           alt={displayName || 'Part image'}
           watermark="© Epimech"
           className="!object-contain"
