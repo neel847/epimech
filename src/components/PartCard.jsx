@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import WatermarkedImage from '@/components/WaterMarkedImage';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
