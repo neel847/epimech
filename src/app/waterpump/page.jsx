@@ -303,13 +303,14 @@ export default function EMDWaterPumpPage() {
                       width: part.width,
                       height: part.height,
                     }}
-                    onMouseEnter={() => {
+                    onClick={() => {
                       setHoveredPart(part.ref);
                       const targetRow = rowRefs.current[part.ref];
                       if (targetRow) {
                         targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
                       }
                     }}
+                    
                     onMouseLeave={() => setHoveredPart(null)}
                     title={`Part ${part.ref}`}
                   />
