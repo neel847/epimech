@@ -34,7 +34,7 @@ export async function POST(req) {
 
     const mailOptions = {
       from: 'epimech.works@gmail.com',
-      to: 'info@epimech.com',
+      to: 'sales@epimech.com',
       subject: `New Contact Us Message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nMessage: ${message}`
     };

@@ -101,7 +101,7 @@ function Footer() {
                             <div className="space-y-4">
                                 <div className="flex items-start">
                                     <Mail className="text-gray-400 dark:text-gray-500 mt-1 mr-3" size={18} />
-                                    <a href='mailto:info@epimech.com' className="text-gray-600 dark:text-gray-400">info@epimech.com</a>
+                                    <a href='mailto:sales@epimech.com' className="text-gray-600 dark:text-gray-400">sales@epimech.com</a>
                                 </div>
                                 <div className="flex items-start">
                                     <Phone className="text-gray-400 dark:text-gray-500 mt-1 mr-3" size={18} />

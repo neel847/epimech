@@ -267,10 +267,10 @@ const PartDetails = ({ part, onBack }) => {
                             alt={`${part.part_name} view ${index + 1}`}
                             preview={isValidImage}
                             className="max-h-80 max-w-full object-contain"
-                          />
+                            />
 
                           {/* Watermark */}
-                          {img !== '/fallback.png' && (
+                          {/* {img !== '/fallback.png' && (
                             <div className="absolute mt-12 inset-0 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                               <span className="text-white text-sm md:text-base bg-black/30 px-2 py-1 rounded-md backdrop-blur-sm 
                   pointer-events-none select-none font-medium tracking-wide shadow-md
@@ -278,7 +278,7 @@ const PartDetails = ({ part, onBack }) => {
                                 {'© Epimech'}
                               </span>
                             </div>
-                          )}
+                          )} */}
                         </div>
                       </div>
                     ))}

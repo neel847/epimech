@@ -15,7 +15,7 @@ function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
 
   const navItems = [
     { label: 'Home', path: '/' },
@@ -41,9 +41,9 @@ function Navbar() {
   };
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme') || 'dark';
+    const saved = localStorage.getItem('theme') || 'light';
     setTheme(saved);
-    document.documentElement.classList.toggle('dark', saved === 'dark');
+    document.documentElement.classList.toggle('light', saved === 'light');
   }, []);
 
   useEffect(() => {

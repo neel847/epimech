@@ -140,7 +140,7 @@ const Contact = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg text-black dark:text-white ">Email Us</h3>
-                    <a href="mailto:info@epimech.com" className="mt-1 text-color-blue-600 dark:text-color-blue-400 hover:underline block transition-colors">info@epimech.com</a>
+                    <a href="mailto:sales@epimech.com" className="mt-1 text-color-blue-600 dark:text-color-blue-400 hover:underline block transition-colors">sales@epimech.com</a>
                   </div>
                 </div>
 
