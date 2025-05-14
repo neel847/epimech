@@ -22,6 +22,7 @@ function Navbar() {
     { label: 'About Us', path: '/about' },
     { label: 'Products', path: '/products' },
     { label: 'Catalog', path: '/product-list' },
+    { label: 'Waterpump', path: '/waterpump' },
     { label: 'Contact Us', path: '/contact' }
 
   ];
