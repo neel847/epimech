@@ -259,7 +259,7 @@ export default function EMDWaterPumpPage() {
             <div className="flex justify-center mb-6 md:mb-8">
               <div className="relative w-full max-w-xl md:max-w-2xl">
                 <Image
-                  src="/emd-waterpump/diagram.png"
+                  src="/emd-waterpump/dig.jpeg"
                   preview={false}
                   alt="Exploded Diagram"
                   className="object-contain"
