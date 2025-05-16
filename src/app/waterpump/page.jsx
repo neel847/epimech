@@ -233,16 +233,26 @@ export default function EMDWaterPumpPage() {
                 Premium <span className="text-blue-600 dark:text-blue-400">Quality Parts</span>
               </h2>
 
-              <p className="text-gray-700 dark:text-gray-300">
-                For fully machined <strong>EMD locomotive and marine engines</strong>, we ensure top-grade materials and precision manufacturing. Our advanced production methods combine traditional engineering know-how with state-of-the-art technology to deliver maximum performance.
+              <p className="text-gray-700 dark:text-gray-300 justify">
+                EMD Water Pump Manufacturer - Precision Engineered for Performance
+                As a trusted manufacturer of EMD water pumps, we specialize in delivering high-performance solutions for EMD 645 and EMD 710 series locomotive and marine engines. Our water pumps are designed and built to meet stringent OEM standards, ensuring reliable performance, ease of installation, and long service life in the most demanding applications.
               </p>
 
-              <p className="text-gray-700 dark:text-gray-300">
-                All components undergo rigorous testing for long-term reliability and ease of installation. Each product is evaluated using high-precision measuring instruments and certified by ISO/QS Indian agencies.
-              </p>
+              <p className="text-gray-700 dark:text-gray-300 justify">
+                We use premium-grade raw materials and advanced CNC machinery to ensure every water pump we produce meets precise engineering tolerances. With a focus on durability and operational efficiency, our products undergo rigorous quality control and testing protocols, including hydraulic pressure testing, dimensional checks, and material integrity analysis.              </p>
 
-              <p className="text-gray-700 dark:text-gray-300">
+              {/* <p className="text-gray-700 dark:text-gray-300">
                 We also specialize in parts that are obsolete or out of production using reverse engineering. Leveraging CAD design, prototype testing, and precision machining, we recreate legacy parts to exact OEM specifications.
+              </p> */}
+              <p className="text-gray-700 dark:text-gray-300 justify pt-6">
+                <strong><span className='title uppercase text-3xl'>Why Choose Our <span className='text-blue-600'>EMD Water Pumps? </span></span></strong><br></br><br></br>
+               <strong> OEM-Grade Quality:</strong> Manufactured to meet or exceed original specifications for EMD 645 and 710 engines.<br></br>
+
+                <br></br><strong>Advanced Manufacturing: </strong>
+                
+                Fully machined components produced using state-of-the-art CNC technology.<br></br>
+
+                <br></br><strong>Tested for Reliability: </strong> Each unit is thoroughly tested for performance, fit, and endurance.
               </p>
             </div>
           </div>
@@ -310,7 +320,7 @@ export default function EMDWaterPumpPage() {
                         targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
                       }
                     }}
-                    
+
                     onMouseLeave={() => setHoveredPart(null)}
                     title={`Part ${part.ref}`}
                   />
@@ -347,7 +357,7 @@ export default function EMDWaterPumpPage() {
                     {emdParts.map((part, index) => (
                       <tr
                         key={index}
-                       
+
                         ref={(el) => (rowRefs.current[part["Asm Ref. No."]] = el)}
                         className={`hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${hoveredPart === part["Asm Ref. No."] ? "bg-blue-100 dark:bg-blue-900/50" : ""
                           }`}
