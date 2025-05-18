@@ -75,7 +75,7 @@ function Footer() {
                                
                                 <li>
                                     <Link href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-colors flex items-center">
-                                        Contact Us
+                                        Contact
                                     </Link>
                                 </li>
                             </ul>
