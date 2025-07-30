@@ -1,4 +1,4 @@
-import { ExternalLink, Mail, Linkedin, Instagram, Facebook, Clock, Phone } from 'lucide-react';
+import { ExternalLink, Mail, Linkedin, Instagram, Facebook, Clock, Phone, Youtube } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -45,6 +45,13 @@ function Footer() {
                                     className="bg-color-gray-100 dark:bg-color-gray-800 p-2 rounded-full text-gray-600 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-all">
                                     <Facebook size={20} />
                                 </a>
+                                <a href="https://www.youtube.com/@Epimech"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-color-gray-100 dark:bg-color-gray-800 p-2 rounded-full text-gray-600 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-color-blue-600 dark:hover:text-color-blue-400 transition-all">
+                                    <Youtube size={20} />
+                                </a>
+
                             </div>
                         </div>
 
