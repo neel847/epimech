@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel, Image, Modal, Form, Input, Select, Button, InputNumber } from 'antd';
 import { AnimatePresence, motion } from 'framer-motion';
-import { CircleCheck, Clipboard, Copy, Package, Mail } from 'lucide-react';
+import { CircleCheck, Clipboard, Copy, Package, Mail, Youtube } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Head from 'next/head';
 const { PreviewGroup } = Image;
@@ -27,7 +27,12 @@ const PartDetails = ({ part, onBack }) => {
   const [form] = Form.useForm();
 
   const subImages = part.subimages ? Object.values(part.subimages) : [];
-  const allImages = [part.image, ...subImages];
+  const allMedia = [
+    ...(part.image ? [{ type: 'image', url: part.image }] : []),
+    ...(part.video ? [{ type: 'video', url: part.video }] : []),
+    ...(subImages.length ? subImages.map(url => ({ type: 'image', url })) : []),
+  ];
+
 
   const handleImageError = () => {
     setIsValidImage(false);
@@ -258,57 +263,68 @@ const PartDetails = ({ part, onBack }) => {
                     afterChange={handleCarouselChange}
                     className="part-details-carousel"
                   >
-                    {allImages.map((img, index) => (
+                    {allMedia.map((media, index) => (
                       <div key={index}>
                         <div className="relative aspect-square flex items-center justify-center bg-white dark:bg-color-gray-900 p-8">
-                          <Image
-                            src={isValidImage ? img : fallbackImage}
-                            onError={handleImageError}
-                            alt={`${part.part_name} view ${index + 1}`}
-                            preview={isValidImage}
-                            className="max-h-80 max-w-full object-contain"
+                          {media.type === 'image' ? (
+                            <Image
+                              src={isValidImage ? media.url : fallbackImage}
+                              onError={handleImageError}
+                              alt={`${part.part_name} view ${index + 1}`}
+                              preview={isValidImage}
+                              className="max-h-80 max-w-full object-contain"
                             />
-
-                          {/* Watermark */}
-                          {/* {img !== '/fallback.png' && (
-                            <div className="absolute mt-12 inset-0 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                              <span className="text-white text-sm md:text-base bg-black/30 px-2 py-1 rounded-md backdrop-blur-sm 
-                  pointer-events-none select-none font-medium tracking-wide shadow-md
-                  dark:bg-black/50">
-                                {'© Epimech'}
-                              </span>
-                            </div>
-                          )} */}
+                          ) : (
+                            <iframe
+                              width="100%"
+                              height="100%"
+                              className="max-h-80 max-w-full rounded-lg"
+                              src={media.url.replace('watch?v=', 'embed/')}
+                              title={`Video ${index + 1}`}
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            ></iframe>
+                          )}
                         </div>
                       </div>
                     ))}
                   </Carousel>
+
+
                 </div>
 
 
                 {/* Thumbnails */}
-                {allImages.length > 1 && (
+                {allMedia.length > 1 && (
                   <div className="flex gap-2 overflow-x-auto py-2 scrollbar-hide">
-                    {allImages.map((img, idx) => (
+                    {allMedia.map((media, idx) => (
                       <button
                         key={idx}
                         onClick={() => handleThumbnailClick(idx)}
                         className={`h-16 w-16 flex-shrink-0 rounded overflow-hidden border transition-all ${activeIndex === idx
-                          ? 'ring-2 ring-blue-500 dark:ring-color-blue-400 opacity-100'
-                          : 'opacity-70 hover:opacity-100 border-color-gray-200 dark:border-gray-700'
+                            ? 'ring-2 ring-blue-500 dark:ring-color-blue-400 opacity-100'
+                            : 'opacity-70 hover:opacity-100 border-color-gray-200 dark:border-gray-700'
                           }`}
                       >
-                        <Image
-                          src={isValidImage ? img : fallbackImage}
-                          alt={`Thumbnail ${idx + 1}`}
-                          preview={false}
-                          className="w-full h-full object-cover"
-                          onError={handleImageError}
-                        />
+                        {media.type === 'image' ? (
+                          <Image
+                            src={isValidImage ? media.url : fallbackImage}
+                            alt={`Thumbnail ${idx + 1}`}
+                            preview={false}
+                            className="w-full h-full object-cover"
+                            onError={handleImageError}
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-black text-white flex items-center justify-center text-xs font-medium">
+                            <Youtube className="w-6 h-6" />
+                          </div>
+                        )}
                       </button>
                     ))}
                   </div>
                 )}
+
               </div>
 
               {/* Info */}
