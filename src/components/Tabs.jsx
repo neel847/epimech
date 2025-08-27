@@ -64,7 +64,7 @@ const Tabs = ({ currentTab, setTab, tabs, searchQuery, onSelectPart }) => {
   return (
     <div className="space-y-8">
       {/* 💠 Tab Buttons */}
-      <div className="flex flex-wrap gap-3 mb-6">
+      <div className="hidden flex flex-wrap gap-3 mb-6">
         {tabs.map((tab) => {
           const isActive = tab.name === currentTab;
           return (

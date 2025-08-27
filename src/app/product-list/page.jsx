@@ -1,32 +1,45 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import { AllParts } from '@/helper/AllParts';
-import { motion, AnimatePresence } from 'framer-motion';
+"use client";
+import React, { useState, useEffect } from "react";
+import { AllParts } from "@/helper/AllParts";
+import { motion, AnimatePresence } from "framer-motion";
 import {
-  Search, X, Filter, Grid, List, Sun, Moon, ArrowUpDown,
-  ChevronDown, ChevronUp, Layers, Download, RefreshCw,
+  Search,
+  X,
+  Filter,
+  Grid,
+  List,
+  Sun,
+  Moon,
+  ArrowUpDown,
+  ChevronDown,
+  ChevronUp,
+  Layers,
+  Download,
+  RefreshCw,
   Copy,
-  CircleCheck
-} from 'lucide-react';
-import Link from 'next/link';
+  CircleCheck,
+} from "lucide-react";
+import Link from "next/link";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/UI/Tooltip";
 
 const ProductListView = () => {
   // State management
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [filteredParts, setFilteredParts] = useState([]);
-  const [viewMode, setViewMode] = useState('table'); // 'grid' or 'table'
-  const [sortConfig, setSortConfig] = useState('');
-  const [copyValue, setCopyValue] = useState('');
+  const [viewMode, setViewMode] = useState("table"); // 'grid' or 'table'
+  const [sortConfig, setSortConfig] = useState("");
+  const [copyValue, setCopyValue] = useState("");
   const [copied, setCopied] = useState(false);
   const [filters, setFilters] = useState({
     categories: [],
-    showFilters: false
+    showFilters: false,
   });
   const [activeCategory, setActiveCategory] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
-  // Extract unique categories
-  const uniqueCategories = [...new Set(AllParts.map(part => part.main_product))];
 
   const copyThisValue = (value) => {
     setCopyValue(value);
@@ -49,7 +62,7 @@ const ProductListView = () => {
       // Apply search filter
       if (search) {
         results = results.filter(
-          part =>
+          (part) =>
             part.product.toLowerCase().includes(search.toLowerCase()) ||
             part.part_number.toLowerCase().includes(search.toLowerCase())
           // part.main_product.toLowerCase().includes(search.toLowerCase())
@@ -58,7 +71,9 @@ const ProductListView = () => {
 
       // Apply category filters
       if (filters.categories.length > 0) {
-        results = results.filter(part => filters.categories.includes(part.main_product));
+        results = results.filter((part) =>
+          filters.categories.includes(part.main_product)
+        );
       }
 
       // Apply sorting
@@ -69,15 +84,14 @@ const ProductListView = () => {
     }, 300);
   }, [search, filters, sortConfig]);
 
-
   // Sort function
   const sortParts = (parts) => {
     return [...parts].sort((a, b) => {
       if (a[sortConfig.key] < b[sortConfig.key]) {
-        return sortConfig.direction === 'asc' ? -1 : 1;
+        return sortConfig.direction === "asc" ? -1 : 1;
       }
       if (a[sortConfig.key] > b[sortConfig.key]) {
-        return sortConfig.direction === 'asc' ? 1 : -1;
+        return sortConfig.direction === "asc" ? 1 : -1;
       }
       return 0;
     });
@@ -85,18 +99,18 @@ const ProductListView = () => {
 
   // Handle sort click
   const requestSort = (key) => {
-    let direction = 'asc';
-    if (sortConfig.key === key && sortConfig.direction === 'asc') {
-      direction = 'desc';
+    let direction = "asc";
+    if (sortConfig.key === key && sortConfig.direction === "asc") {
+      direction = "desc";
     }
     setSortConfig({ key, direction });
   };
 
   // Toggle category filter
   const toggleCategoryFilter = (category) => {
-    setFilters(prev => {
+    setFilters((prev) => {
       const updatedCategories = prev.categories.includes(category)
-        ? prev.categories.filter(c => c !== category)
+        ? prev.categories.filter((c) => c !== category)
         : [...prev.categories, category];
 
       return { ...prev, categories: updatedCategories };
@@ -106,7 +120,7 @@ const ProductListView = () => {
   // Clear all filters
   const clearFilters = () => {
     setFilters({ categories: [], showFilters: false });
-    setSearch('');
+    setSearch("");
   };
 
   // Export to CSV
@@ -117,7 +131,7 @@ const ProductListView = () => {
     csvContent += "Main Product,Product,Part Number\n";
 
     // Add rows
-    filteredParts.forEach(part => {
+    filteredParts.forEach((part) => {
       csvContent += `${part.main_product},${part.product},${part.part_number}\n`;
     });
 
@@ -138,18 +152,18 @@ const ProductListView = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.05 }
-    }
+      transition: { staggerChildren: 0.05 },
+    },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.4 } }
+    visible: { y: 0, opacity: 1, transition: { duration: 0.4 } },
   };
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-color-gray-900 transition-colors duration-300">
-      <div className="relative w-full h-[400px] overflow-hidden">
+      {/* <div className="relative w-full h-[400px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-gray-600 via-blue-900 to-blue-700 dark:from-black dark:via-blue-900 dark:to-blue-800 animate-gradient-x duration-[1s,30s]"></div>
         <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
@@ -179,17 +193,18 @@ const ProductListView = () => {
             <span className="text-white">Catalog</span>
           </motion.div>
         </div>
-      </div>
-      <div className="px-4 sm:px-6 lg:px-8 py-8 max-w-7xl mx-auto mt-12">
+      </div> */}
+      <div className="px-4 sm:px-6 lg:px-8 py-8 max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-        <h2 className="title text-6xl font-bold text-black dark:text-white mb-6 pb-4 uppercase">
-                Our <span className='text-color-blue-600 dark:text-color-blue-400'>Catalog</span>
-              </h2>
+          <h2 className="title text-6xl font-bold text-black dark:text-white mb-6 pb-4 uppercase">
+            Our{" "}
+            <span className="text-color-blue-600 dark:text-color-blue-400">
+              Catalogs
+            </span>
+          </h2>
 
-          <div className="flex items-center space-x-3">
-
-
+          {/* <div className="flex items-center space-x-3">
             <button
               onClick={exportToCSV}
               className="flex items-center space-x-1 px-3 py-2 bg-white dark:bg-color-gray-800 rounded-lg shadow-sm hover:bg-color-gray-100 dark:hover:bg-gray-700 transition-colors text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -199,27 +214,30 @@ const ProductListView = () => {
             </button>
 
             <div className="bg-white dark:bg-color-gray-800 rounded-lg shadow-sm p-1 flex">
-            <button
-                onClick={() => setViewMode('table')}
-                className={`p-2 rounded ${viewMode === 'table'
-                  ? 'bg-color-blue-100 dark:bg-blue-900 text-color-blue-600 dark:text-color-blue-300'
-                  : 'text-gray-500 dark:text-gray-400 hover:bg-color-gray-100 dark:hover:bg-gray-700'}`}
+              <button
+                onClick={() => setViewMode("table")}
+                className={`p-2 rounded ${
+                  viewMode === "table"
+                    ? "bg-color-blue-100 dark:bg-blue-900 text-color-blue-600 dark:text-color-blue-300"
+                    : "text-gray-500 dark:text-gray-400 hover:bg-color-gray-100 dark:hover:bg-gray-700"
+                }`}
                 aria-label="Table view"
               >
                 <List size={18} />
               </button>
               <button
-                onClick={() => setViewMode('grid')}
-                className={`p-2 rounded ${viewMode === 'grid'
-                  ? 'bg-color-blue-100 dark:bg-blue-900 text-color-blue-600 dark:text-color-blue-300'
-                  : 'text-gray-500 dark:text-gray-400 hover:bg-color-gray-100 dark:hover:bg-gray-700'}`}
+                onClick={() => setViewMode("grid")}
+                className={`p-2 rounded ${
+                  viewMode === "grid"
+                    ? "bg-color-blue-100 dark:bg-blue-900 text-color-blue-600 dark:text-color-blue-300"
+                    : "text-gray-500 dark:text-gray-400 hover:bg-color-gray-100 dark:hover:bg-gray-700"
+                }`}
                 aria-label="Grid view"
               >
                 <Grid size={18} />
               </button>
-             
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Search and filter bar */}
@@ -234,29 +252,88 @@ const ProductListView = () => {
                 placeholder="Search by product name or part number..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-10 pr-10 py-2 border border-color-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-color-gray-900 text-color-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-10 py-2 border border-color-gray-200 border-indigo-400 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-color-gray-900 text-color-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               {search && (
                 <button
                   className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-                  onClick={() => setSearch('')}
+                  onClick={() => setSearch("")}
                 >
                   <X size={18} />
                 </button>
               )}
             </div>
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={exportToCSV}
+                className="flex items-center border border-indigo-400 space-x-1 px-3 h-full py-2 bg-white dark:bg-color-gray-800 rounded-lg shadow-sm hover:bg-color-gray-100 dark:hover:bg-gray-700 transition-colors text-sm font-medium text-gray-700 dark:text-gray-300"
+              >
+                <Download size={16} />
+                <span>Export</span>
+              </button>
 
+              <div className="bg-white dark:bg-color-gray-800 rounded-lg border h-full border-indigo-400 shadow-sm p-1 flex">
+                <Tooltip>
+                  <TooltipTrigger>
+                    <button
+                      onClick={() => setViewMode("table")}
+                      className={`p-2 rounded flex items-center ${
+                        viewMode === "table"
+                          ? "bg-color-blue-100 dark:bg-blue-900 text-color-blue-600 dark:text-color-blue-300"
+                          : "text-gray-500 dark:text-gray-400 hover:bg-color-gray-100 dark:hover:bg-gray-700"
+                      }`}
+                      aria-label="Table view"
+                    >
+                      <List size={18} />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent>Table view</TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <button
+                      onClick={() => setViewMode("grid")}
+                      className={`p-2 rounded flex items-center ${
+                        viewMode === "grid"
+                          ? "bg-color-blue-100 dark:bg-blue-900 text-color-blue-600 dark:text-color-blue-300"
+                          : "text-gray-500 dark:text-gray-400 hover:bg-color-gray-100 dark:hover:bg-gray-700"
+                      }`}
+                      aria-label="Grid view"
+                    >
+                      <Grid size={18} />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent>Grid view</TooltipContent>
+                </Tooltip>
+              </div>
+            </div>
+            {/* 
             <button
-              onClick={() => setFilters(prev => ({ ...prev, showFilters: !prev.showFilters }))}
-              className={`flex items-center justify-center space-x-2 px-4 py-2 rounded-lg border ${filters.categories.length > 0
-                ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-200 dark:border-blue-800 text-blue-700 dark:text-color-blue-300'
-                : 'bg-white dark:bg-color-gray-800 border-color-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300'
-                } hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors`}
+              onClick={() =>
+                setFilters((prev) => ({
+                  ...prev,
+                  showFilters: !prev.showFilters,
+                }))
+              }
+              className={`flex items-center justify-center space-x-2 px-4 py-2 rounded-lg border ${
+                filters.categories.length > 0
+                  ? "bg-blue-50 dark:bg-blue-900/30 border-blue-200 dark:border-blue-800 text-blue-700 dark:text-color-blue-300"
+                  : "bg-white dark:bg-color-gray-800 border-color-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300"
+              } hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors`}
             >
               <Filter size={18} />
-              <span>Filter{filters.categories.length > 0 ? ` (${filters.categories.length})` : ''}</span>
-              {filters.showFilters ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-            </button>
+              <span>
+                Filter
+                {filters.categories.length > 0
+                  ? ` (${filters.categories.length})`
+                  : ""}
+              </span>
+              {filters.showFilters ? (
+                <ChevronUp size={18} />
+              ) : (
+                <ChevronDown size={18} />
+              )}
+            </button> */}
           </div>
 
           {/* Filter panel */}
@@ -264,7 +341,7 @@ const ProductListView = () => {
             {filters.showFilters && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
+                animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
@@ -286,20 +363,21 @@ const ProductListView = () => {
                     )}
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    {uniqueCategories.map(category => (
+                  {/* <div className="flex flex-wrap gap-2">
+                    {uniqueCategories.map((category) => (
                       <button
                         key={category}
                         onClick={() => toggleCategoryFilter(category)}
-                        className={`px-3 py-1 text-sm rounded-full ${filters.categories.includes(category)
-                          ? 'bg-color-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 border-blue-200 dark:border-blue-800'
-                          : 'bg-color-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-color-gray-200 dark:border-gray-600'
-                          } border hover:shadow-sm transition-all`}
+                        className={`px-3 py-1 text-sm rounded-full ${
+                          filters.categories.includes(category)
+                            ? "bg-color-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 border-blue-200 dark:border-blue-800"
+                            : "bg-color-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-color-gray-200 dark:border-gray-600"
+                        } border hover:shadow-sm transition-all`}
                       >
                         {category}
                       </button>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               </motion.div>
             )}
@@ -312,12 +390,11 @@ const ProductListView = () => {
           <div className="px-6 py-4 border-b border-color-gray-200 dark:border-gray-700 flex justify-between items-center">
             <div className="text-sm text-gray-500 dark:text-gray-400">
               {isLoading
-                ? 'Loading results...'
-                : `Showing ${filteredParts.length} product${filteredParts.length !== 1 ? 's' : ''}`
-              }
+                ? "Loading results..."
+                : `Showing ${filteredParts.length} product${
+                    filteredParts.length !== 1 ? "s" : ""
+                  }`}
             </div>
-
-
           </div>
 
           {/* Loading state */}
@@ -351,9 +428,8 @@ const ProductListView = () => {
           )}
 
           {/* Grid View */}
-          {!isLoading && filteredParts.length > 0 && viewMode === 'grid' && (
+          {!isLoading && filteredParts.length > 0 && viewMode === "grid" && (
             <div className="p-6">
-              {/* Group parts by main_product and render each group */}
               {Object.entries(
                 // Group the filtered parts by main_product
                 filteredParts.reduce((groups, part) => {
@@ -372,7 +448,9 @@ const ProductListView = () => {
                 >
                   {/* Category header */}
                   <div className="bg-color-gray-100 dark:bg-color-gray-800 rounded-lg pr-6 pl-2 py-3 mb-4 shadow-sm">
-                    <h2 className="text-lg font-medium text-color-gray-900 dark:text-white">{category}</h2>
+                    <h2 className="text-lg font-medium text-color-gray-900 dark:text-white">
+                      {category}
+                    </h2>
                   </div>
 
                   {/* Products grid for this category */}
@@ -384,34 +462,45 @@ const ProductListView = () => {
                   >
                     {parts.map((part, index) => (
                       <motion.div
-                      key={`${part.part_number}-${index}`}
-                      variants={itemVariants}
-                      className="bg-white dark:bg-color-gray-900 border border-color-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-md transition-shadow flex justify-between"
-                    >
-                      <div className="p-4 flex-grow">
-                        <h3 className="font-medium text-color-gray-900 dark:text-white mb-2">{part.product}</h3>
-                        <div className="flex items-center text-sm">
-                          <span className="text-gray-500 dark:text-gray-400 mr-2">Part #:</span>
-                          <span className="font-mono text-color-gray-800 dark:text-color-gray-200">{part.part_number}</span>
+                        key={`${part.part_number}-${index}`}
+                        variants={itemVariants}
+                        className="bg-white dark:bg-color-gray-900 border border-color-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-md transition-shadow flex justify-between"
+                      >
+                        <div className="p-4 flex-grow">
+                          <h3 className="font-medium text-color-gray-900 dark:text-white mb-2">
+                            {part.product}
+                          </h3>
+                          <div className="flex items-center text-sm">
+                            <span className="text-gray-500 dark:text-gray-400 mr-2">
+                              Part #:
+                            </span>
+                            <span className="font-mono text-color-gray-800 dark:text-color-gray-200">
+                              {part.part_number}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex items-center pr-4">
-                        <button
-                          onClick={() => copyThisValue(part.part_number)}
-                          className="flex flex-col items-center justify-center p-2 rounded-md hover:bg-color-gray-100 dark:hover:bg-color-gray-800 transition-colors"
-                          aria-label="Copy part number"
-                        >
-                          {copied && copyValue === part.part_number ? (
-                            <CircleCheck className="w-5 h-5 text-green-500 mb-1" />
-                          ) : (
-                            <Copy size={16} className="text-gray-500 dark:text-gray-400 mb-1" />
-                          )}
-                          <span className="text-xs text-gray-500 dark:text-gray-400">
-                            {copied && copyValue === part.part_number ? 'Copied' : 'Copy Number'}
-                          </span>
-                        </button>
-                      </div>
-                    </motion.div>
+                        <div className="flex items-center pr-4">
+                          <button
+                            onClick={() => copyThisValue(part.part_number)}
+                            className="flex flex-col items-center justify-center p-2 rounded-md hover:bg-color-gray-100 dark:hover:bg-color-gray-800 transition-colors"
+                            aria-label="Copy part number"
+                          >
+                            {copied && copyValue === part.part_number ? (
+                              <CircleCheck className="w-5 h-5 text-green-500 mb-1" />
+                            ) : (
+                              <Copy
+                                size={16}
+                                className="text-gray-500 dark:text-gray-400 mb-1"
+                              />
+                            )}
+                            <span className="text-xs text-gray-500 dark:text-gray-400">
+                              {copied && copyValue === part.part_number
+                                ? "Copied"
+                                : "Copy Number"}
+                            </span>
+                          </button>
+                        </div>
+                      </motion.div>
                     ))}
                   </motion.div>
                 </motion.div>
@@ -419,7 +508,7 @@ const ProductListView = () => {
             </div>
           )}
           {/* Table View */}
-          {!isLoading && filteredParts.length > 0 && viewMode === 'table' && (
+          {!isLoading && filteredParts.length > 0 && viewMode === "table" && (
             <div className="overflow-x-auto max-h-[60vh]">
               <table className="min-w-full divide-y divide-color-gray-200 dark:divide-gray-700">
                 <thead className="bg-gray-50 dark:bg-color-gray-900">
@@ -427,10 +516,16 @@ const ProductListView = () => {
                     {/* <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                       Main Product
                     </th> */}
-                    <th scope="col" className="px-6 py-3 text-left text-md font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-md font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                    >
                       Product
                     </th>
-                    <th scope="col" className="px-6 py-3 text-left text-md font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-md font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                    >
                       Part Number
                     </th>
                   </tr>
@@ -449,7 +544,7 @@ const ProductListView = () => {
                   ).map(([category, parts], groupIndex) => (
                     <React.Fragment key={`group-${category}`}>
                       {/* Category header row */}
-                      <motion.tr
+                      {/* <motion.tr
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.3 }}
@@ -461,7 +556,7 @@ const ProductListView = () => {
                         >
                           {category}
                         </td>
-                      </motion.tr>
+                      </motion.tr> */}
 
                       {/* Product rows for this category */}
                       {parts.map((part, index) => (

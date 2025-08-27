@@ -56,7 +56,7 @@ const CompanyStats = () => {
     ];
 
     return (
-        <section className="py-20 bg-white dark:bg-color-gray-900 transition-colors duration-300">
+        <section className="pt-20 bg-white dark:bg-color-gray-900 transition-colors duration-300">
 
             <div className='container mx-auto px-6 lg:px-8'>
                 <h3 className='px-6 pb-8 title font-bold dark:text-white text-black text-7xl'><span className='text-color-blue-600 dark:text-color-blue-400'>EPIMECH</span> AT A GLANCE</h3>
@@ -103,7 +103,7 @@ const CompanyStats = () => {
    
 
             <div className="bg-white dark:bg-color-gray-900 transition-colors duration-300">
-                <div className='py-32 container mx-auto px-6 lg:px-8'>
+                <div className='py-20 container mx-auto px-6 lg:px-8'>
                     <motion.div
                         className='bg-[#eee] p-8 md:p-12 rounded-xl dark:bg-color-gray-800 flex justify-between items-center flex-col md:flex-row gap-8 shadow-lg relative overflow-hidden'
                         initial={{ opacity: 0, y: 30 }}
