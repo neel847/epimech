@@ -59,8 +59,8 @@ function Navbar() {
   
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md dark:bg-color-gray-900' : 'bg-transparent dark:bg-color-gray-900'
+      className={`fixed w-full shadow-md z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white  dark:bg-color-gray-800' : 'bg-white dark:bg-color-gray-800'
       }`}
     >
       
@@ -87,8 +87,8 @@ function Navbar() {
                 onClick={() => handleNavigation(item.path)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   pathname === item.path
-                    ? 'bg-blue-50 text-blue-700 dark:bg-color-gray-800 dark:text-color-gray-200'
-                    : 'text-gray-700 hover:bg-color-gray-100 dark:text-color-gray-200 dark:hover:bg-color-gray-800'
+                    ? 'bg-blue-50 text-blue-700 dark:bg-gray-600 dark:text-color-gray-200'
+                    : 'text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700'
                 }`}
               >
                 {item.label}
@@ -144,8 +144,8 @@ function Navbar() {
                 onClick={() => handleNavigation(item.path)}
                 className={`w-full text-left block px-3 py-2 rounded-md text-base font-medium ${
                   pathname === item.path || pathname.startsWith(item.path)
-                    ? 'bg-blue-50 text-blue-700 dark:bg-color-gray-800 dark:text-color-gray-200'
-                    : 'text-gray-700 hover:bg-color-gray-100 dark:text-color-gray-200 dark:hover:bg-color-gray-800'
+                    ? 'bg-blue-50 text-blue-700 dark:bg-gray-600 dark:text-gray-200'
+                    : 'text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:'
                 }`}
               >
                 {item.label}

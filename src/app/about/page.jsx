@@ -214,60 +214,9 @@ const About = () => {
   ];
 
   return (
-    <div className="w-full bg-white dark:bg-color-gray-900 transition-colors duration-300">
-      {/* Hero Section with Enhanced Gradient */}
-      {/* <div className="relative w-full h-[400px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-700 via-blue-900 to-color-blue-600 dark:from-black dark:via-blue-900 dark:to-blue-700 animate-gradient-x"></div>
-        <div className="absolute inset-0 bg-grid-pattern opacity-25"></div>
-
-        <motion.div
-          className="absolute top-20 left-20 w-16 h-16 bg-white/10 rounded-full blur-md"
-          animate={{
-            y: [0, -20, 0],
-            opacity: [0.5, 0.8, 0.5]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        ></motion.div>
-        <motion.div
-          className="absolute bottom-40 right-40 w-24 h-24 bg-color-blue-400/10 rounded-full blur-md"
-          animate={{
-            y: [0, 30, 0],
-            opacity: [0.6, 0.9, 0.6]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        ></motion.div>
-
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
-          <motion.h1
-            className="text-white text-5xl md:text-7xl font-bold text-center mb-6 tracking-tight"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            About <span className="text-color-blue-300">Epimech</span>
-          </motion.h1>
-          <motion.p
-            className="text-color-gray-100 text-xl max-w-3xl text-center mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            Engineering excellence and innovation for over 20 years
-          </motion.p>
-          <motion.div
-            className="flex items-center text-gray-300"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-white">About Us</span>
-          </motion.div>
-        </div>
-      </div> */}
+    <div className="w-full bg-gray-50 dark:bg-color-gray-900 transition-colors duration-300">
       <div className="flex justify-center py-6">
-        <span className="bg-blue-50 dark:bg-blue-900/20 px-10 py-2 rounded-full">
+        <span className="bg-blue-100 dark:bg-blue-900/20 px-10 py-2 rounded-full">
           <span className="text-color-blue-600 dark:text-color-blue-400 font-medium">
             Overview
           </span>
@@ -452,7 +401,7 @@ const About = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <span className="inline-block bg-blue-50 dark:bg-blue-900/20 px-6 py-2 rounded-full mb-4">
+              <span className="inline-block bg-blue-100 dark:bg-blue-900/20 px-6 py-2 rounded-full mb-4">
                 <span className="text-color-blue-600 dark:text-color-blue-400 font-medium">
                   Our Core Principles
                 </span>

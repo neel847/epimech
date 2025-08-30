@@ -50,7 +50,7 @@ const HomeAbout = () => {
   };
 
   return (
-    <section className="pt-20 bg-white dark:bg-color-gray-900 transition-colors duration-300">
+    <section className="pt-20 bg-gray-50 dark:bg-color-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Why Choose Us - Edited Section */}
         <motion.div
@@ -92,7 +92,7 @@ const HomeAbout = () => {
                       <iframe
                         width={890}
                         height={500}
-                        className="max-w-full rounded-lg"
+                        className="max-w-full rounded-lg h-[200px] sm:h-[300px] lg:h-[500px]"
                         src="https://www.youtube.com/embed/L55Ep7Woc7w?start=350"
                         title="Epimech Overview Video"
                         frameBorder="0"
@@ -116,14 +116,14 @@ const HomeAbout = () => {
 
             <motion.div className="lg:w-2/5" variants={fadeIn}>
               <motion.h3
-                className="text-7xl font-semibold mb-8 text-color-gray-800 dark:text-white uppercase about-title"
+                className="text-5xl font-semibold mb-8 title text-color-gray-800 dark:text-white uppercase about-title"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
                 viewport={{ once: true }}
               >
                 Why Choose{" "}
-                <span className="text-color-blue-600 dark:text-color-blue-400">
+                <span className="text-color-blue-600 title dark:text-color-blue-400">
                   Epimech
                 </span>
               </motion.h3>
@@ -276,22 +276,22 @@ const HomeAbout = () => {
 
         {/* Our Mission */}
         <motion.div
-          className="bg-gray-50 dark:bg-color-gray-800 rounded-2xl p-8 md:p-12"
+          className="bg-gray-200 dark:bg-color-gray-800 rounded-2xl p-4 md:p-12"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={fadeIn}
         >
-          <div className="flex flex-col lg:flex-row gap-12">
+          <div className="flex flex-col  lg:flex-row gap-12">
             <motion.div className="lg:w-1/3" variants={fadeIn}>
               <motion.h6
-                className="text-7xl font-semibold mb-6 mission-title dark:text-white"
+                className="text-5xl font-semibold mb-6 mission-title dark:text-white"
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                OUR&nbsp;
+                OUR{' '}
                 <span className="text-color-blue-600 dark:text-color-blue-400">
                   MISSION
                 </span>
@@ -308,7 +308,7 @@ const HomeAbout = () => {
               </motion.h3>
 
               <motion.div
-                className="relative h-[390px] w-full md:max-h-full mt-6 md:mt-0"
+                className="relative h-[350px] w-full md:max-h-full mt-6 md:mt-0"
                 animate={{ scale: [1, 1.03, 1] }}
                 transition={{
                   duration: 4,

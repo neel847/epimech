@@ -193,7 +193,7 @@ const PartDetails = ({ part, onBack }) => {
 
   return (
     <>
-      <div className="w-full bg-white dark:bg-color-gray-900 transition-colors duration-300">
+      <div className="w-full bg-gray-50 dark:bg-color-gray-900 transition-colors duration-300">
         {/* Hero */}
         {/* <div className="relative w-full h-[400px] overflow-hidden bg-gradient-to-r from-gray-700 via-blue-900 to-color-blue-600 dark:from-black dark:via-blue-900 dark:to-blue-700">
           <motion.div
@@ -254,7 +254,7 @@ const PartDetails = ({ part, onBack }) => {
           </div> */}
 
           <div className="bg-white shadow-md dark:bg-color-gray-800 rounded-xl border border-color-gray-100 dark:border-gray-700 overflow-hidden">
-            <div className=" border-color-gray-100 dark:border-gray-700 px-6 py-4">
+            <div className=" border-color-gray-100 dark:border-gray-700 px-2 md:px-6 py-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div
@@ -277,7 +277,7 @@ const PartDetails = ({ part, onBack }) => {
                   </div>
                   {/* <Package className="text-blue-500 mr-3" /> */}
                   <div>
-                    <h2 className="text-2xl font-bold text-color-gray-800 dark:text-white">
+                    <h2 className="text-lg md:text-2xl font-bold text-color-gray-800 dark:text-white">
                       {part.part_name}
                     </h2>
                   </div>
@@ -287,9 +287,9 @@ const PartDetails = ({ part, onBack }) => {
               </div>
             </div>
 
-            <div className="bg-indigo-100/50 border-t dark:bg-indigo-900/50 h-full p-10 rounded-b-lg flex gap-6">
+            <div className="bg-indigo-100/50 border-t dark:bg-indigo-900/50 h-full p-5 md:p-10 rounded-b-lg flex flex-col md:flex-row gap-6">
               {/* Image */}
-              <div className="lg:w-[40%]">
+              <div className="w-full md:w-[40%]">
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -377,14 +377,14 @@ const PartDetails = ({ part, onBack }) => {
                 />
               </div>
               {/* Info */}
-              <div className="lg:w-[60%] flex flex-col gap-8 justify-between">
+              <div className="w-full md:w-[60%] flex flex-col gap-8 justify-between">
                 {/* Part Numbers */}
                 <motion.div
                   initial={{ opacity: 0, y: -30, x: 30 }}
                   whileInView={{ opacity: 1, y: 0, x: 0 }}
                   transition={{ duration: 0.7 }}
                   viewport={{ once: true }}
-                  className="bg-white dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-700 p-6 flex gap-4 flex-col rounded-lg shadow-md"
+                  className="bg-white dark:bg-gray-900 p-6 flex gap-4 flex-col rounded-lg shadow-md"
                 >
                   <div>
                     <h2 className="text-2xl font-bold text-color-gray-800 dark:text-white">
@@ -481,7 +481,7 @@ const PartDetails = ({ part, onBack }) => {
                   </div>
                 )}
                 <motion.div
-                  className="bg-white shadow-md dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-700 rounded-2xl p-8 overflow-hidden relative"
+                  className="bg-white shadow-md  dark:bg-gray-900 rounded-2xl p-8 overflow-hidden relative"
                   initial={{ opacity: 0, y: 30, x: 30 }}
                   whileInView={{ opacity: 1, y: 0, x: 0 }}
                   transition={{ duration: 0.7 }}

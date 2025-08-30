@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 function Footer() {
     return (
-        <footer className="bg-white dark:bg-color-gray-900 border-t border-color-gray-100 dark:border-color-gray-800 shadow-sm transition-colors duration-300">
+        <footer className="bg-gray-50 dark:bg-color-gray-900 border-t border-color-gray-100 dark:border-color-gray-800 shadow-sm transition-colors duration-300">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 {/* Main Footer Content */}
                 <div className="py-12">
