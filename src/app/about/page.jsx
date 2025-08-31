@@ -370,10 +370,10 @@ const About = () => {
                 className="lg:w-1/2 order-1 lg:order-2"
                 variants={imageAnimation}
               >
-                <div className="relative">
+                <div className="relative rounded-lg">
                   <div className="z-10 rounded-xl overflow-hidden shadow-2xl">
                     <Image
-                      src="/train1.jpg"
+                      src="/about-us.jpg"
                       alt="Epimech Facility"
                       width={800}
                       height={600}
