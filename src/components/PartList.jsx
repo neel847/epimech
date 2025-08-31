@@ -129,7 +129,7 @@ const PartList = ({ parts, onPartClick, loading }) => {
 
       {parts.length > 0 && (
         <div className="mt-8 text-sm text-gray-500 dark:text-gray-400 text-right">
-          Showing {startIndex} of {parts.length} part
+          Showing {startIndex + 1} of {parts.length} part
           {parts.length !== 1 ? "s" : ""}
         </div>
       )}
