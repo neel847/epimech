@@ -33,8 +33,8 @@ export default function WhatsAppButton() {
       >
         <Image
           className="w-[50px] h-[50px] drop-shadow-lg cursor-pointer"
-          src="/whatsapp-icon.png"
-          alt="WhatsApp Chat Icon"
+          src="https://epimech.s3.us-east-2.amazonaws.com/whatsapp-icon.png"
+          alt="WhatsApp Icon"
           width={50}
           height={50}
         />
