@@ -1,11 +1,137 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Youtube } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/UI/Carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { Button } from "antd";
 
 const HomeAbout = () => {
+  const router = useRouter();
+
   // Animation variants
+  const allImages = [
+    {
+      id: 1,
+      name: "WATER PUMP ASSEMBLY LEFT 710",
+      number: "40004234 / 9530407",
+      image: "https://epimech.s3.us-east-2.amazonaws.com/IMG_8692.jpeg",
+      url: "http://localhost:3000/products/40004234",
+    },
+    {
+      id: 2,
+      image: "https://epimech.s3.us-east-2.amazonaws.com/3.jpg",
+      name: "BUSHING Water pump",
+      number: "8052224",
+      url: "http://localhost:3000/products/8052224",
+    },
+    {
+      id: 3,
+      image: "https://epimech.s3.us-east-2.amazonaws.com/5.jpg",
+      name: "Support Water pump housing",
+      number: "8329900 / 4008904",
+      url: "http://localhost:3000/products/4008904",
+    },
+    {
+      id: 4,
+      image: "https://epimech.s3.us-east-2.amazonaws.com/6.jpg",
+      name: "IMPELLER WATER PUMP BIG 710",
+      number: "8248248",
+      url: "http://localhost:3000/products/8248248",
+    },
+    {
+      id: 5,
+      image: "https://epimech.s3.us-east-2.amazonaws.com/IMG_8526.jpg",
+      name: "IMPELLER WATER PUMP SMALL 645",
+      number: "8060008",
+      url: "http://localhost:3000/products/8060008",
+    },
+    {
+      id: 6,
+      image: "https://epimech.s3.us-east-2.amazonaws.com/7.jpg",
+      name: "GEAR DRIVE 37 TOOTH",
+      number: "8042976",
+      url: "http://localhost:3000/products/8042976",
+    },
+    {
+      id: 7,
+      image: "https://epimech.s3.us-east-2.amazonaws.com/8.jpg",
+      name: "SHAFT WATER PUMP",
+      number: "8052246 / 40089902",
+      url: "http://localhost:3000/products/8052246",
+    },
+    {
+      id: 8,
+      image:
+        "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_1.jpg",
+      name: "ELBOW WATER OUT LET",
+      number: "8414444",
+      url: "http://localhost:3000/products/8414444",
+    },
+    {
+      id: 9,
+      image:
+        "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_5.jpg",
+      name: "TEST VALVE ASSEMBLY CYLINDER",
+      number: "40035242 / 8048880",
+      url: "http://localhost:3000/products/40035242",
+    },
+    {
+      id: 10,
+      image:
+        "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_10.jpg",
+      name: "BEARING ROTAR PLATE",
+      number: "8206553",
+      url: "http://localhost:3000/products/8206553",
+    },
+    {
+      id: 11,
+      image:
+        "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_11.jpg",
+      name: "BEARING ASSEMBLY BLOWER",
+      number: "8369675",
+      url: "http://localhost:3000/products/8369675",
+    },
+    {
+      id: 12,
+      image:
+        "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_18.jpg",
+      name: "COLLAR THRUST",
+      number: "8028419",
+      url: "http://localhost:3000/products/8028419",
+    },
+    {
+      id: 13,
+      image:
+        "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_20.jpg",
+      name: "COLLAR THRUST",
+      number: "8028006",
+      url: "http://localhost:3000/products/8028006",
+    },
+    {
+      id: 14,
+      image:
+        "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_48.jpg",
+      name: "RING CYLINDER HEAD SEAT VITON 645",
+      number: "9581924 / 8419438",
+      url: "http://localhost:3000/products/9581924",
+    },
+    {
+      id: 15,
+      image:
+        "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_14.jpg",
+      name: "BUSHING OIL PUMP",
+      number: "8039667",
+      url: "http://localhost:3000/products/8039667",
+    },
+  ];
+
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -274,6 +400,93 @@ const HomeAbout = () => {
           </div>
         </motion.div>
 
+        <motion.div className="mb-8 w-full">
+          <div className="mb-8">
+            <motion.h2
+              className="text-5xl title font-bold mb-5 text-black dark:text-white uppercase"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+            >
+              Top Selling{" "}
+              <span className="text-color-blue-600 dark:text-color-blue-400">
+                Products
+              </span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              viewport={{ once: true }}
+              className="text-xl"
+            >
+              Top-Quality Parts For EMD 710 , EMD 645 and ALCO
+            </motion.p>
+          </div>
+          <Carousel
+            opts={{ align: "start", loop: true }}
+            plugins={[
+              Autoplay({ delay: 2000 }), // ✅ auto-scroll every 2s
+            ]}
+            className="w-full bg-gray-200 dark:bg-color-gray-800 p-5 rounded-lg"
+          >
+            <CarouselContent
+              onWheel={(e) => {
+                const container = e.currentTarget;
+                if (e.deltaY < 0) {
+                  container.scrollLeft -= 100;
+                } else {
+                  container.scrollLeft += 100;
+                }
+              }}
+            >
+              {allImages.map((data, index) => (
+                <CarouselItem
+                  key={index}
+                  className="!basis-full sm:!basis-1/2 md:!basis-1/3 lg:!basis-1/4 xl:!basis-1/5"
+                >
+                  <div className="p-2 border-2 border-gray-400 dark:border-indigo-300 rounded-lg">
+                    <motion.div
+                      initial={{ x: 100, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      exit={{ x: -100, opacity: 0 }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      viewport={{ once: true }}
+                      className="relative flex items-center justify-center bg-white group rounded-lg overflow-hidden"
+                    >
+                      <Image
+                        src={data.image}
+                        alt={`EMD Water Pump ${index + 1}`}
+                        width={300}
+                        height={300}
+                        className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-contain rounded-lg"
+                      />
+
+                      {/* ✅ Overlay appears on hover */}
+                      <div className="justify-center absolute inset-0 bg-black/80 text-white flex flex-col items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="max-w-[90%] flex items-center flex-col text-center justify-center gap-2">
+                          <h3 className="text-lg leading-none font-semibold">
+                            {data.name}
+                          </h3>
+                          <p className="text-sm">{data.number}</p>
+                          <Button
+                            onClick={() => {
+                              if (data.url) router.push(data.url);
+                            }}
+                          >
+                            View Product Details
+                          </Button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </motion.div>
+
         {/* Our Mission */}
         <motion.div
           className="bg-gray-200 dark:bg-color-gray-800 rounded-2xl p-4 md:p-12"
@@ -291,7 +504,7 @@ const HomeAbout = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                OUR{' '}
+                OUR{" "}
                 <span className="text-color-blue-600 dark:text-color-blue-400">
                   MISSION
                 </span>
