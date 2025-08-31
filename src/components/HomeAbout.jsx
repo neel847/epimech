@@ -8,7 +8,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "@/components/ui/carousel";
+} from "@/components/UI/Carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { Button } from "antd";
 
