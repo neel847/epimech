@@ -33,7 +33,7 @@ const PartCard = ({ part, onClick }) => {
       
       {/* Content */}
       <div className="py-5">
-        <h3 className="text-base font-semibold text-color-gray-900 dark:text-white text-center uppercase">
+        <h3 className="text-base min-h-12 font-semibold text-color-gray-900 dark:text-white text-center uppercase">
           {displayName}
         </h3>
         <div className="h-px my-2 w-full bg-gray-300 dark:bg-gray-600"></div>
