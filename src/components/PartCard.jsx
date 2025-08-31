@@ -16,10 +16,10 @@ const PartCard = ({ part, onClick }) => {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.3 }}
-      className="bg-white dark:bg-color-gray-900 rounded-2xl shadow-sm hover:shadow-md cursor-pointer overflow-hidden border border-color-gray-100 dark:border-color-gray-800"
+      className="bg-gray-100 border-2 p-2 border-gray-400 dark:border-indigo-300 dark:bg-color-gray-800 rounded-2xl shadow-sm hover:shadow-md cursor-pointer overflow-hidden "
     >
       {/* Image Container */}
-      <div className="relative w-full aspect-square bg-white dark:bg-white p-6">
+      <div className="relative w-full aspect-square bg-white rounded-lg dark:bg-white">
         <Image
           src={part.image || '/fallback.png'}
           fill
@@ -32,7 +32,7 @@ const PartCard = ({ part, onClick }) => {
       <div className="h-px w-full bg-color-gray-100 dark:bg-color-gray-800"></div>
       
       {/* Content */}
-      <div className="p-4">
+      <div className="py-5">
         <h3 className="text-base font-semibold text-color-gray-900 dark:text-white text-center uppercase">
           {displayName}
         </h3>

@@ -63,9 +63,9 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="w-full bg-white dark:bg-color-gray-900 transition-colors duration-300">
+    <div className="w-full bg-gray-50 dark:bg-color-gray-900 transition-colors duration-300">
       <meta name="keywords" content="EMD, EMD parts, EMD locomotive parts, EMD 710, EMD 645, EMD water pump, EMD turbocharger, EMD after cooler, EMD fan drive, EMD compressor" />
-      <div className="relative w-full h-[400px] overflow-hidden bg-gradient-to-r from-gray-700 via-blue-900 to-color-blue-600 dark:from-black dark:via-blue-900 dark:to-blue-700">
+      {/* <div className="relative w-full h-[400px] overflow-hidden bg-gradient-to-r from-gray-700 via-blue-900 to-color-blue-600 dark:from-black dark:via-blue-900 dark:to-blue-700">
         <motion.div
           className="absolute top-20 left-20 w-16 h-16 bg-white/10 rounded-full blur-md"
           animate={{ y: [0, -20, 0], opacity: [0.5, 0.8, 0.5] }}
@@ -105,13 +105,13 @@ export default function ProductsPage() {
             <span className="text-white">Products</span>
           </motion.div>
         </div>
-      </div>
+      </div> */}
       <section className="py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className='md:flex mb-8 justify-between items-center '>
 
             <motion.h2
-              className="text-7xl font-bold mb-8 text-color-gray-800  title uppercase dark:text-white"
+              className="text-5xl font-bold mb-8 text-color-gray-800 title uppercase dark:text-white"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}

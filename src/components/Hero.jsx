@@ -262,14 +262,14 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut" 
               }}
-              className="relative z-10 w-48 sm:w-56 md:w-64 lg:w-80"
+              className="relative z-10 w-48 sm:w-56 md:w-64 lg:w-[400px]"
             >
               <Image 
-                src="/waterpump/1.png" // Replace with your image path
+                src="/waterpump/hero-image.png" // Replace with your image path
                 alt="Epimech Engineered Part"
                 width={400}
                 height={400}
-                className="object-contain drop-shadow-2xl w-full h-auto"
+                className="object-contain drop-shadow-2xl w-full flex items-center justify-center h-auto"
               />
               
               {/* OEM Quality badge - responsive sizing and positioning */}
@@ -293,7 +293,7 @@ const Hero = () => {
                 </motion.span>
               </motion.div>
               <motion.div
-                className="absolute -bottom-2 sm:-bottom-3 md:-bottom-14 -left-2 sm:-left-3 md:left-36 bg-blue-400 text-white p-2 sm:p-3 md:p-4 rounded-lg shadow-xl"
+                className="absolute -bottom-2 sm:-bottom-3 md:-bottom-24 -left-2 sm:-left-3 md:left-40 bg-blue-400 text-white p-2 sm:p-3 md:p-4 rounded-lg shadow-xl"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ 
@@ -312,7 +312,7 @@ const Hero = () => {
                 </motion.span>
               </motion.div>
               <motion.div
-                className="absolute -bottom-2 sm:-bottom-3 md:-bottom-4 -left-2 sm:-left-3 md:left-80 bg-blue-400 text-white p-2 sm:p-3 md:p-4 rounded-lg shadow-xl"
+                className="absolute -bottom-2 sm:-bottom-3 md:-bottom-4 -left-2 sm:-left-3 md:left-[350px] bg-blue-400 text-white p-2 sm:p-3 md:p-4 rounded-lg shadow-xl"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ 

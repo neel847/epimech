@@ -161,7 +161,7 @@ const CustomerTestimonials = () => {
   };
 
   return (
-    <div className="w-full bg-white dark:bg-color-gray-900 transition-colors duration-300">
+    <div className="w-full bg-gray-50 dark:bg-color-gray-900 transition-colors duration-300">
       {/* Hero Section with Black/Blue Gradient */}
       <div className="relative w-full h-[400px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-gray-700 via-blue-900 to-color-blue-600 dark:from-black dark:via-blue-900 dark:to-blue-700 animate-gradient-x"></div>
