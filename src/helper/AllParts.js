@@ -2,22 +2,22 @@ export const AllParts = [
     {
       "no": 1,
       "name": "WATER PUMP ASSEMBLY LEFT 710",
-      "number": "40004234 / 9530407"
+      "number": "40004234/9530407"
     },
     {
       "no": 2,
       "name": "WATER PUMP ASSEMBLY RIGHT 710",
-      "number": "40004235 / 9530406"
+      "number": "40004235/9530406"
     },
     {
       "no": 3,
       "name": "WATER PUMP ASSEMBLY LEFT 645",
-      "number": "40004236 / 8058624"
+      "number": "40004236/8058624"
     },
     {
       "no": 4,
       "name": "WATER PUMP ASSEMBLY RIGHT 645",
-      "number": "40004237 / 8058625"
+      "number": "40004237/8058625"
     },
     {
       "no": 5,
@@ -117,7 +117,7 @@ export const AllParts = [
     {
       "no": 24,
       "name": "SHAFT WATER PUMP",
-      "number": "8052246 / 40089902"
+      "number": "8052246/40089902"
     },
     {
       "no": 25,
@@ -132,7 +132,7 @@ export const AllParts = [
     {
       "no": 27,
       "name": "SLINGER WATER PUMP",
-      "number": "8042969 / 40089901"
+      "number": "8042969/40089901"
     },
     {
       "no": 28,
@@ -147,7 +147,7 @@ export const AllParts = [
     {
       "no": 30,
       "name": "SPACER BEARING",
-      "number": "9532762 / 40089903"
+      "number": "9532762/40089903"
     },
     {
       "no": 31,
@@ -202,7 +202,7 @@ export const AllParts = [
     {
       "no": 42,
       "name": "TEST VALVE ASSEMBLY CYLINDER",
-      "number": "40035242 / 8048880"
+      "number": "40035242/8048880"
     },
     {
       "no": 43,
@@ -217,7 +217,7 @@ export const AllParts = [
     {
       "no": 45,
       "name": "SEAL CYLINDER TEST VALVE",
-      "number": "8328687 / 40017341"
+      "number": "8328687/40017341"
     },
     {
       "no": 46,
@@ -267,7 +267,7 @@ export const AllParts = [
     {
       "no": 55,
       "name": "RACE INNER",
-      "number": "9563714 / 8135970"
+      "number": "9563714/8135970"
     },
     {
       "no": 56,
@@ -282,7 +282,7 @@ export const AllParts = [
     {
       "no": 58,
       "name": "PIN PISTON-ROCKING",
-      "number": "9518958 /40078951"
+      "number": "9518958/40078951"
     },
     {
       "no": 59,
@@ -317,7 +317,7 @@ export const AllParts = [
     {
       "no": 65,
       "name": "KIT GASKET CYLINDER HEAD(5 ITEMS)",
-      "number": "8479836 / 8427111"
+      "number": "8479836/8427111"
     },
     {
       "no": 66,
@@ -622,7 +622,7 @@ export const AllParts = [
     {
       "no": 126,
       "name": "GEAR RING STARTER MOTOR",
-      "number": "8416930 / 40121149"
+      "number": "8416930/40121149"
     },
     {
       "no": 127,
