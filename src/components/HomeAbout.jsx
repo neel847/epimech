@@ -22,49 +22,49 @@ const HomeAbout = () => {
       name: "WATER PUMP ASSEMBLY LEFT 710",
       number: "40004234 / 9530407",
       image: "https://epimech.s3.us-east-2.amazonaws.com/IMG_8692.jpeg",
-      url: "http://localhost:3000/products/40004234",
+      url: "/products/40004234",
     },
     {
       id: 2,
       image: "https://epimech.s3.us-east-2.amazonaws.com/3.jpg",
       name: "BUSHING Water pump",
       number: "8052224",
-      url: "http://localhost:3000/products/8052224",
+      url: "/products/8052224",
     },
     {
       id: 3,
       image: "https://epimech.s3.us-east-2.amazonaws.com/5.jpg",
       name: "Support Water pump housing",
       number: "8329900 / 4008904",
-      url: "http://localhost:3000/products/4008904",
+      url: "/products/4008904",
     },
     {
       id: 4,
       image: "https://epimech.s3.us-east-2.amazonaws.com/6.jpg",
       name: "IMPELLER WATER PUMP BIG 710",
       number: "8248248",
-      url: "http://localhost:3000/products/8248248",
+      url: "/products/8248248",
     },
     {
       id: 5,
       image: "https://epimech.s3.us-east-2.amazonaws.com/IMG_8526.jpg",
       name: "IMPELLER WATER PUMP SMALL 645",
       number: "8060008",
-      url: "http://localhost:3000/products/8060008",
+      url: "/products/8060008",
     },
     {
       id: 6,
       image: "https://epimech.s3.us-east-2.amazonaws.com/7.jpg",
       name: "GEAR DRIVE 37 TOOTH",
       number: "8042976",
-      url: "http://localhost:3000/products/8042976",
+      url: "/products/8042976",
     },
     {
       id: 7,
       image: "https://epimech.s3.us-east-2.amazonaws.com/8.jpg",
       name: "SHAFT WATER PUMP",
       number: "8052246 / 40089902",
-      url: "http://localhost:3000/products/8052246",
+      url: "/products/8052246",
     },
     {
       id: 8,
@@ -72,7 +72,7 @@ const HomeAbout = () => {
         "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_1.jpg",
       name: "ELBOW WATER OUT LET",
       number: "8414444",
-      url: "http://localhost:3000/products/8414444",
+      url: "/products/8414444",
     },
     {
       id: 9,
@@ -80,7 +80,7 @@ const HomeAbout = () => {
         "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_5.jpg",
       name: "TEST VALVE ASSEMBLY CYLINDER",
       number: "40035242 / 8048880",
-      url: "http://localhost:3000/products/40035242",
+      url: "/products/40035242",
     },
     {
       id: 10,
@@ -88,7 +88,7 @@ const HomeAbout = () => {
         "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_10.jpg",
       name: "BEARING ROTAR PLATE",
       number: "8206553",
-      url: "http://localhost:3000/products/8206553",
+      url: "/products/8206553",
     },
     {
       id: 11,
@@ -96,7 +96,7 @@ const HomeAbout = () => {
         "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_11.jpg",
       name: "BEARING ASSEMBLY BLOWER",
       number: "8369675",
-      url: "http://localhost:3000/products/8369675",
+      url: "/products/8369675",
     },
     {
       id: 12,
@@ -104,7 +104,7 @@ const HomeAbout = () => {
         "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_18.jpg",
       name: "COLLAR THRUST",
       number: "8028419",
-      url: "http://localhost:3000/products/8028419",
+      url: "/products/8028419",
     },
     {
       id: 13,
@@ -112,7 +112,7 @@ const HomeAbout = () => {
         "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_20.jpg",
       name: "COLLAR THRUST",
       number: "8028006",
-      url: "http://localhost:3000/products/8028006",
+      url: "/products/8028006",
     },
     {
       id: 14,
@@ -120,7 +120,7 @@ const HomeAbout = () => {
         "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_48.jpg",
       name: "RING CYLINDER HEAD SEAT VITON 645",
       number: "9581924 / 8419438",
-      url: "http://localhost:3000/products/9581924",
+      url: "/products/9581924",
     },
     {
       id: 15,
@@ -128,7 +128,7 @@ const HomeAbout = () => {
         "https://epimech.s3.us-east-2.amazonaws.com/otherParts/otherparts_14.jpg",
       name: "BUSHING OIL PUMP",
       number: "8039667",
-      url: "http://localhost:3000/products/8039667",
+      url: "/products/8039667",
     },
   ];
 
