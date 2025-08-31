@@ -3,10 +3,9 @@
 import * as React from "react"
 import useEmblaCarousel from "embla-carousel-react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
-import clsx from "clsx" // ✅ use clsx for merging classnames
-import { Button } from "antd" // ✅ Ant Design button
+import clsx from "clsx"
+import { Button } from "antd"
 
-// Context
 const CarouselContext = React.createContext(null)
 
 function useCarousel() {
@@ -17,7 +16,6 @@ function useCarousel() {
   return context
 }
 
-// Main Carousel
 const Carousel = React.forwardRef(
   (
     {
@@ -106,7 +104,6 @@ const Carousel = React.forwardRef(
 )
 Carousel.displayName = "Carousel"
 
-// Content
 const CarouselContent = React.forwardRef(
   ({ className, ...props }, ref) => {
     const { carouselRef, orientation } = useCarousel()
@@ -127,7 +124,6 @@ const CarouselContent = React.forwardRef(
 )
 CarouselContent.displayName = "CarouselContent"
 
-// Item
 const CarouselItem = React.forwardRef(
   ({ className, ...props }, ref) => {
     const { orientation } = useCarousel()
