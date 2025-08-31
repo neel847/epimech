@@ -56,7 +56,7 @@ const CompanyStats = () => {
     ];
 
     return (
-        <section className="pt-20 bg-gray-50 dark:bg-color-gray-900 transition-colors duration-300">
+        <section className="pt-20 bg-gray-100 dark:bg-color-gray-900 transition-colors duration-300">
 
             <div className='container mx-auto px-6 lg:px-8'>
                 <h3 className='px-6 pb-8 title font-bold dark:text-white text-black text-5xl'><span className='text-color-blue-600 dark:text-color-blue-400'>EPIMECH</span> AT A GLANCE</h3>
