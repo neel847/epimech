@@ -172,7 +172,7 @@ B/178, Swarnim Industrial Park,
   Bakrol Bujirang,
   Ahmedabad, Gujarat - 382430                        </p>
                         <a
-                          href="https://www.google.com/maps/place/BILESHWAR+INDUSTRIAL+ESTATE,+A+-+161,+opp.+GVMM,+nr.+Sardar+Patel+Ring+Road,+G+V+M+M,+Odhav+Industrial+Estate,+Odhav,+Ahmedabad,+Kathwada,+Gujarat+382415,+India/@23.0272939,72.6760416,17z/data=!3m1!4b1!4m6!3m5!1s0x395e87a76a6bb035:0x92f2242669432d09!8m2!3d23.0272939!4d72.6786219!16s%2Fg%2F11fwtchwgt?entry=ttu&g_ep=EgoyMDI1MDQzMC4xIKXMDSoASAFQAw%3D%3D"
+                          href="https://www.google.co.in/maps/search/B%2F178,+Swarnim+Industrial+Park,+++Phase-2,+Bakrol+to+Dhamatvan+Road,%3Cbr+%2F%3E+++Bakrol+Bujirang,+++Ahmedabad,+Gujarat+-+382430+/@22.9761426,72.7184239,14.45z?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="mt-2 text-color-blue-600 dark:text-color-blue-400 text-sm font-medium hover:underline inline-flex items-center"
