@@ -166,9 +166,11 @@ const Contact = () => {
                         <h3 className="text-lg font-medium text-color-gray-900 dark:text-white">
                           Visit Us
                         </h3>
-                        <p className="mt-1 text-gray-600 dark:text-gray-400">
-                          B/178,Swarnim Industrial Park,   Phase -2 Bakrol to Dhamatvan Road, Bakrol Bujirang,Ahmedabad,Gujrat,382430
-                        </p>
+                        <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
+B/178, Swarnim Industrial Park,<br />
+  Phase-2, Bakrol to Dhamatvan Road,<br />
+  Bakrol Bujirang,<br />
+  Ahmedabad, Gujarat - 382430                        </p>
                         <a
                           href="https://www.google.com/maps/place/BILESHWAR+INDUSTRIAL+ESTATE,+A+-+161,+opp.+GVMM,+nr.+Sardar+Patel+Ring+Road,+G+V+M+M,+Odhav+Industrial+Estate,+Odhav,+Ahmedabad,+Kathwada,+Gujarat+382415,+India/@23.0272939,72.6760416,17z/data=!3m1!4b1!4m6!3m5!1s0x395e87a76a6bb035:0x92f2242669432d09!8m2!3d23.0272939!4d72.6786219!16s%2Fg%2F11fwtchwgt?entry=ttu&g_ep=EgoyMDI1MDQzMC4xIKXMDSoASAFQAw%3D%3D"
                           target="_blank"
