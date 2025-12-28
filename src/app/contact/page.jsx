@@ -462,7 +462,7 @@ B/178, Swarnim Industrial Park,
       <div className="relative h-96 bg-gray-300 dark:bg-gray-700">
         <div className="absolute inset-0 z-0">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10887.240030190595!2d72.72993245242372!3d22.979749018442607!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e62c80f6936fb%3A0x76902217b7bddf0e!2sSwarnim%20Industrial%20Park!5e0!3m2!1sen!2sin!4v1766915838881!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10887.240030190595!2d72.72993245242372!3d22.979749018442607!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e62c80f6936fb%3A0x76902217b7bddf0e!2sSwarnim%20Industrial%20Park!5e0!3m2!1sen!2sin!4v1766915838881!5m2!1sen!2sin">
             width="100%"
             height="100%"
             style={{ border: 0 }}
