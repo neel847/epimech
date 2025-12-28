@@ -166,8 +166,8 @@ const Contact = () => {
                         <h3 className="text-lg font-medium text-color-gray-900 dark:text-white">
                           Visit Us
                         </h3>
-                        <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-B/178, Swarnim Industrial Park,<br />
+                        <p className="mt-1 text-gray-600 dark:text-gray-400 ">
+B/178, Swarnim Industrial Park,
   Phase-2, Bakrol to Dhamatvan Road,<br />
   Bakrol Bujirang,<br />
   Ahmedabad, Gujarat - 382430                        </p>
