@@ -462,7 +462,7 @@ B/178, Swarnim Industrial Park,
       <div className="relative h-96 bg-gray-300 dark:bg-gray-700">
         <div className="absolute inset-0 z-0">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10887.240030190595!2d72.72993245242372!3d22.979749018442607!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e62c80f6936fb%3A0x76902217b7bddf0e!2sSwarnim%20Industrial%20Park!5e0!3m2!1sen!2sin!4v1766915838881!5m2!1sen!2sin">
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9040794097077!2d72.6760416115092!3d23.027293879083604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e87a76a6bb035%3A0x92f2242669432d09!2sBILESHWAR%20INDUSTRIAL%20ESTATE%2C%20A%20-%20161%2C%20opp.%20GVMM%2C%20nr.%20Sardar%20Patel%20Ring%20Road%2C%20G%20V%20M%20M%2C%20Odhav%20Industrial%20Estate%2C%20Odhav%2C%20Ahmedabad%2C%20Kathwada%2C%20Gujarat%20382415%2C%20India!5e0!3m2!1sen!2sca!4v1746298593413!5m2!1sen!2sca"
             width="100%"
             height="100%"
             style={{ border: 0 }}
